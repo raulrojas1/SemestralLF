@@ -1,4 +1,5 @@
 import ply.lex as lex
+
 import re
 import codecs
 import os
@@ -88,7 +89,7 @@ def buscarFicheros(directorio):
     return files[int(numArchivo) - 1]
 
 
-directorio = 'C:/Users/Alejandro De Puy/Documents/ProyectodeLengajes/analizadorversion3/test/'
+directorio = './prueba1.1.txt'
 archivo = buscarFicheros(directorio)
 test = directorio + archivo
 fp = codecs.open(test, "r", "utf-8")
