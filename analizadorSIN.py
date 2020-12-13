@@ -218,7 +218,7 @@ fp = codecs.open(test, "r", "utf-8")
 cadena = fp.read()
 fp.close()
 
-parser = yacc.yacc(tokens)
+parser = yacc.yacc()
 result = parser.parse(cadena)
 
 
