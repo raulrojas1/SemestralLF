@@ -1,10 +1,7 @@
 import ply.yacc as yacc
-import re
 import codecs
 import os
 from analizadorLEX import tokens
-
-from sys import stdin
 
 precedente = (
 	('right','ID','CALL','BEGIN','IF','WHILE'),
@@ -212,13 +209,16 @@ def buscarFicheros(directorio):
     return files[int(numArchivo) - 1]
 
 
-directorio = 'C:/Users/Alejandro De Puy/Documents/ProyectodeLengajes/analizadorversion3/test/'
+directorio = './test/'
 archivo = buscarFicheros(directorio)
 test = directorio + archivo
 fp = codecs.open(test, "r", "utf-8")
 cadena = fp.read()
 fp.close()
 
-parser = yacc.yacc()
+parser = yacc.yacc(tokens)
 result = parser.parse(cadena)
 
+
+
+print (result)

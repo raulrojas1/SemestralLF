@@ -89,7 +89,7 @@ def buscarFicheros(directorio):
     return files[int(numArchivo) - 1]
 
 
-directorio = './prueba1.1.txt'
+directorio = './test/'
 archivo = buscarFicheros(directorio)
 test = directorio + archivo
 fp = codecs.open(test, "r", "utf-8")
