@@ -1,16 +1,14 @@
 import ply.lex as lex
-
 import re
 import codecs
 import os
 import sys
 
 
-reservas = ['BEGIN', 'END', 'IF', 'THEN', 'WHILE', 'DO', 'CALL', 'CONST', 'VAR', 'PROCEDURE', 'OUT', 'IN', 'ELSE']
+reservadas = ['BEGIN', 'END', 'IF', 'THEN', 'WHILE', 'DO', 'CALL', 'CONST', 'VAR', 'PROCEDURE', 'OUT', 'IN', 'ELSE']
 
-tokens = reservas+['ID', 'NUMBER','PLUS','MINUS','TIMES','DIVIDE','ODD','ASSIGN','NE','LT','LTE','GT','GTE'
-			,'LPARENT','RPARENT','COMMA','SEMMICOLOM','DOT','UPDATE', 'SPACE', 'PALABRA', 'RCORT', 'LCORT','ARROBA',
-                   'COLOM', 'PREGUNTA', 'PERCENT', 'DOLAR']
+tokens = reservadas+['ID', 'NUMBER','PLUS','MINUS','TIMES','DIVIDE','ODD','ASSIGN','NE','LT','LTE','GT','GTE'
+			,'LPARENT','RPARENT','COMMA','SEMMICOLOM','DOT','UPDATE']
 
 t_ignore = '\t'
 t_PLUS = r'\+'
@@ -30,18 +28,11 @@ t_COMMA = r', '
 t_SEMMICOLOM = r';'
 t_DOT = r'\.'
 t_UPDATE = r':='
-t_SPACE  = r'\ '
-t_RCORT = r'\['
-t_LCORT = r'\]'
-t_ARROBA = r'\@'
-t_COLOM = r'\:'
-t_PREGUNTA = r'\?'
-t_PERCENT = r'\%'
-t_DOLAR = r'\$'
 
-def t_PALABRA(t):
+
+def t_ID(t):
     r'[a-zA-Z_][a-zA-Z_]*'
-    if t.value.upper() in reservas:
+    if t.value.upper() in reservadas:
         t.value = t.value.upper()
         t.type = t.value
     return t

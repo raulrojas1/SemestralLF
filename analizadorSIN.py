@@ -1,8 +1,10 @@
 import ply.yacc as yacc
-import codecs
 import os
+import codecs
+import re
 from analizadorLEX import tokens
 
+from sys import stdin
 precedente = (
 	('right','ID','CALL','BEGIN','IF','WHILE'),
 	('right','PROCEDURE'),
@@ -19,15 +21,15 @@ precedente = (
 
 
 def p_program(p):
-	''' program : block '''
+	'''program : block'''
 	print ("program")
 
 def p_block(p):
-	''' block : constDec1 varDec1 procDec1 statement '''
+	'''block : constDec1 varDec1 procDec1 statement'''
 	print ("block")
 
 def p_constDec1(p):
-	'''constDec1 : CONST constAssignmentList SEMMICOLON'''
+	'''constDec1 : CONST constAssignmentList SEMMICOLOM'''
 	print ("constDec1")
 
 def p_constDec1Empty(p):
@@ -36,15 +38,15 @@ def p_constDec1Empty(p):
 	print ("nulo")
 
 def p_constAssignmentList1(p):
-	'''constAssignmentList1 : ID ASSIGN NUMBER'''
+	'''constAssignmentList : ID ASSIGN NUMBER'''
 	print ("constAssignmentList 1")
 
 def p_constAssignmentList2(p):
-	'''constAssignmentList1 : constAssignmentList COMMA ID ASSIGN NUMBER'''
+	'''constAssignmentList : constAssignmentList COMMA ID ASSIGN NUMBER'''
 	print ("constAssignmentList 2")
 
 def p_varDec11(p):
-	'''varDec1 : VAR identList SEMMICOLON'''
+	'''varDec1 : VAR identList SEMMICOLOM'''
 	print ("varDec1")
 
 def p_varDec1Empty(p):
@@ -60,7 +62,7 @@ def p_identList2(p):
 	print ("identList 2")
 
 def p_procDec11(p):
-	'''procDec1 : procDec1 PROCEDURE ID SEMMICOLON block SEMMICOLON'''
+	'''procDec1 : procDec1 PROCEDURE ID SEMMICOLOM block SEMMICOLOM'''
 	print ("procDec1 1")
 
 def p_procDec1Empty(p):
@@ -92,11 +94,11 @@ def p_statementEmpty(p):
 	print ("nulo")
 
 def p_statementList1(p):
-	'''statementList : stratement'''
+	'''statementList : statement'''
 	print ("statementList 1")
 
 def p_statementList2(p):
-	'''statementList : stratementList SEMMICOLON statement'''
+	'''statementList : statementList SEMMICOLOM statement'''
 	print ("statementList 2")
 
 def p_condition1(p):
