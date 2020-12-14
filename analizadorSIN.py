@@ -220,7 +220,3 @@ fp.close()
 
 parser = yacc.yacc()
 result = parser.parse(cadena)
-
-
-
-print (result)

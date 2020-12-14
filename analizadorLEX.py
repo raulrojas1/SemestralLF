@@ -5,29 +5,37 @@ import os
 import sys
 
 
-reservadas = ['BEGIN', 'END', 'IF', 'THEN', 'WHILE', 'DO', 'CALL', 'CONST', 'VAR', 'PROCEDURE', 'OUT', 'IN', 'ELSE']
+reservadas = ['HF', 'GG', 'YF', 'DALE', 'MIENTRAS', 'MUEVE', 'KNT', 'DR', 'METRO', 'MOP', 'PARKIN',  'WOLAN']
 
-tokens = reservadas+['ID', 'NUMBER','PLUS','MINUS','TIMES','DIVIDE','ODD','ASSIGN','NE','LT','LTE','GT','GTE'
-			,'LPARENT','RPARENT','COMMA','SEMMICOLOM','DOT','UPDATE']
+tokens = reservadas+['ID', 'NUMERO','SUMA','MENOS','MULTI','DIVIDIR','IMPAR','IGUAL','DISTINTO','MENOR','MENORI','MAYOR','MAYORI'
+			,'PARENTI','PARENTD','COMA','PUNTOCOMA','PUNTO','ACTUALI', 'DOSPUNTOS', 'ESPACIO',  'NUMERAL', 'LLAVED',
+                      'LLAVEI', 'COMILLA']
 
-t_ignore = '\t'
-t_PLUS = r'\+'
-t_MINUS = r'\-'
-t_TIMES = r'\*'
-t_DIVIDE = r'/'
-t_ODD = r'ODD'
-t_ASSIGN = r'='
-t_NE = r'<>'
-t_LT = r'<'
-t_LTE = r'<='
-t_GT = r'>'
-t_GTE = r'>='
-t_LPARENT = r'\('
-t_RPARENT = r'\)'
-t_COMMA = r', '
-t_SEMMICOLOM = r';'
-t_DOT = r'\.'
-t_UPDATE = r':='
+t_ignore = '  \t'
+t_SUMA = r'\+'
+t_MENOS = r'\-'
+t_MULTI = r'\*'
+t_DIVIDIR = r'/'
+t_IMPAR = r'ODD'
+t_IGUAL = r'='
+t_DISTINTO = r'<>'
+t_MENOR = r'<'
+t_MENORI = r'<='
+t_MAYOR = r'>'
+t_MAYORI = r'>='
+t_PARENTI = r'\('
+t_PARENTD = r'\)'
+t_COMA = r', '
+t_PUNTOCOMA = r';'
+t_PUNTO = r'\.'
+t_ACTUALI = r':='
+t_DOSPUNTOS = r'\:'
+t_NUMERAL = r'\#'
+t_LLAVED = r'\}'
+t_LLAVEI= r'\{'
+t_COMILLA = r'\"'
+
+
 
 
 def t_ID(t):
@@ -46,14 +54,14 @@ def COMMENT(t):
     r'\#.*'
 
 
-def t_NUMBER(t):
+def t_NUMERO(t):
     r'\d+'
     t.value = int(t.value)
     return t
 
 
 def t_error(t):
-    print("caracter ilegal '%s'" % t.value[0])
+    print("Caracter invalido '%s'" % t.value[0])
     t.lexer.skip(1)
 
 
