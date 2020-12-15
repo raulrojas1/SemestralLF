@@ -86,9 +86,10 @@ def p_statement2(p):
 	'''statement : ID ACTUALI expression'''
 	print ("statement actualizar")
 
+# TODO: arreglar print para tener algo
 def p_statement3(p):
-	'''statement : KNT COMILLA expression COMILLA'''
-	print ("statement IMPRIMIR " + str(p[3]))
+	'''statement : KNT STRING PUNTOCOMA'''
+	print ("statement IMPRIMIR " + str(p[2]))
 
 def p_statement4(p):
 	'''statement : YF condition LLAVEI statement LLAVED'''
@@ -186,13 +187,19 @@ def p_factor1(p):
 	'''factor : ID'''
 	print ("factor id")
 
+
 def p_factor2(p):
 	'''factor : NUMERO'''
-	print ("factor 2")
+	print ("factor numero")
 
 def p_factor3(p):
 	'''factor : PARENTI expression PARENTD'''
 	print ("factor 3")
+
+
+def p_factor4(p):
+	'''factor : STRING'''
+	print ("factor string")
 
 def p_empty(p):
 	'''empty :'''

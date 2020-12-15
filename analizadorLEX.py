@@ -9,7 +9,7 @@ reservadas = ['HF', 'GG', 'YF', 'MIENTRAS', 'KNT', 'DR', 'METRO', 'MOP', 'PARKIN
 
 tokens = reservadas+['ID', 'NUMERO','SUMA','MENOS','MULTI','DIVIDIR','IMPAR','IGUAL','DISTINTO','MENOR','MENORI','MAYOR','MAYORI'
 			,'PARENTI','PARENTD','COMA','PUNTOCOMA','ACTUALI', 'ESPACIO',  'NUMERAL', 'LLAVED',
-                      'LLAVEI', 'COMILLA']
+                      'LLAVEI', 'COMILLA', 'STRING']
 
 t_ignore = '  \t'
 t_SUMA = r'\+'
@@ -32,6 +32,7 @@ t_NUMERAL = r'\#'
 t_LLAVED = r'\}'
 t_LLAVEI= r'\{'
 t_COMILLA = r'\"'
+t_STRING = r'"(.*?)"'
 
 
 
