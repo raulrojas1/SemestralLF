@@ -2,15 +2,10 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
 Unused terminals:
 
-    DALE
-    MUEVE
     NUMERAL
-    WOLAN
-    PUNTO
-    DOSPUNTOS
     COMILLA
     ESPACIO
-    PARKIN
+    PARKING
 
 Grammar
 
@@ -62,10 +57,8 @@ Terminals, with rules where they appear
 ACTUALI              : 5 6 13
 COMA                 : 6 10
 COMILLA              : 
-DALE                 : 
 DISTINTO             : 24
 DIVIDIR              : 37
-DOSPUNTOS            : 
 DR                   : 3
 ESPACIO              : 
 GG                   : 15
@@ -84,17 +77,14 @@ MENOS                : 33
 METRO                : 7
 MIENTRAS             : 17
 MOP                  : 11
-MUEVE                : 
 MULTI                : 36
 NUMERAL              : 
 NUMERO               : 5 6 39
 PARENTD              : 40
 PARENTI              : 40
-PARKIN               : 
-PUNTO                : 
+PARKING              : 
 PUNTOCOMA            : 3 7 11 11 20
 SUMA                 : 32
-WOLAN                : 
 YF                   : 16
 error                : 
 
