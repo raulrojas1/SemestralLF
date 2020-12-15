@@ -48,8 +48,9 @@ def t_newline(t):
     t.lexer.lineno += len(t.value)
 
 
-def COMMENT(t):
+def t_COMMENT(t):
     r'\#.*'
+    pass
 
 
 def t_NUMERO(t):

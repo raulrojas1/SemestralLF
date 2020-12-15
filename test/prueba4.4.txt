@@ -3,7 +3,7 @@ e := 3 ;
 MOP fsfds;
 METRO x;
 HF
-KNT metodo;
+KNT "metodo";
 YF e <= 5 {
 x := (y+e)*(x-r)
 }

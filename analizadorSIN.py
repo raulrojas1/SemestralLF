@@ -78,26 +78,17 @@ def p_procDec1Empty(p):
 	'''procDec1 : empty'''
 	print ("nulo procDec")
 
-def p_statementList1(p):
-	'''statementList : statement'''
-	print ("statementList 1")
-
-def p_statementList2(p):
-	'''statementList : statementList PUNTOCOMA statement'''
-	print ("statementList 2")
-
-
 def p_statement1(p):
+	'''statement : HF statementList GG'''
+	print ("statement inicio")
+
+def p_statement2(p):
 	'''statement : ID ACTUALI expression'''
 	print ("statement actualizar")
 
-def p_statement2(p):
-	'''statement : KNT ID'''
-	print ("statement llamada")
-
 def p_statement3(p):
-	'''statement : HF statementList GG'''
-	print ("statement inicio")
+	'''statement : KNT COMILLA expression COMILLA'''
+	print ("statement IMPRIMIR " + str(p[3]))
 
 def p_statement4(p):
 	'''statement : YF condition LLAVEI statement LLAVED'''
@@ -110,6 +101,15 @@ def p_statement5(p):
 def p_statementEmpty(p):
 	'''statement : empty'''
 	print ("nulo statement empty")
+
+
+def p_statementList1(p):
+	'''statementList : statement'''
+	print ("statementList 1")
+
+def p_statementList2(p):
+	'''statementList : statementList PUNTOCOMA statement'''
+	print ("statementList 2")
 
 
 
@@ -199,7 +199,8 @@ def p_empty(p):
 	pass
 
 def p_error(p):
-	print ("Error de sintaxis", p)
+	result = "Error sintactico de tipo {} en el valor {}".format(str(p.type),str(p.value))
+	print (result)
 
 def buscarFicheros(directorio):
     ficheros = []
