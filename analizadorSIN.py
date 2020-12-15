@@ -6,17 +6,22 @@ from analizadorLEX import tokens
 
 from sys import stdin
 precedente = (
-	('right','ID','CALL','BEGIN','IF','WHILE'),
-	('right','PROCEDURE'),
-	('right','VAR'),
-	('right','ASSIGN'),
-	('right','UPDATE'),
-	('left','NE'),
-	('left','LT','LTE','GT','GTE'),
-	('left','PLUS','MINUS'),
-	('left','TIMES','DIVIDE'),
-	('right','ODD'),
-	('left','LPARENT','RPARENT'),
+	('right','ID','COMA', 'KNT','HF','YF','MIENTRAS'),
+	('right','MOP'),
+	('right','METRO'),
+	('right','IGUAL'),
+	('right','ACTUALI'),
+	('left','DISTINTO'),
+	('right', 'NUMERAL'),
+	('right', 'COMILLA'),
+	('left','MENOR','MENORI','MAYOR','MAYORI'),
+	('left','SUMA','MENOS'),
+	('left','MULTI','DIVIDIR'),
+	('right','IMPAR'),
+	('left', 'LLAVEI', 'LLAVED'),
+	('left','PARENTI','PARENTD'),
+	('left', 'PUNTOCOMA')
+
 	)
 
 
@@ -29,24 +34,23 @@ def p_block(p):
 	print ("block")
 
 def p_constDec1(p):
-	'''constDec1 : CONST constAssignmentList SEMMICOLOM'''
+	'''constDec1 : DR constAssignmentList PUNTOCOMA'''
 	print ("constDec1")
 
 def p_constDec1Empty(p):
 	'''constDec1 : empty'''
 	#p[0] = Null()
 	print ("nulo")
-
 def p_constAssignmentList1(p):
-	'''constAssignmentList : ID ASSIGN NUMBER'''
-	print ("constAssignmentList 1")
+	'''constAssignmentList : ID ACTUALI NUMERO'''
+	print ("constAssigmentList1")
 
 def p_constAssignmentList2(p):
-	'''constAssignmentList : constAssignmentList COMMA ID ASSIGN NUMBER'''
+	'''constAssignmentList : constAssignmentList COMA ID ACTUALI NUMERO'''
 	print ("constAssignmentList 2")
 
-def p_varDec11(p):
-	'''varDec1 : VAR identList SEMMICOLOM'''
+def p_varDec1(p):
+	'''varDec1 : METRO identList PUNTOCOMA'''
 	print ("varDec1")
 
 def p_varDec1Empty(p):
@@ -58,51 +62,51 @@ def p_identList1(p):
 	print ("identList 1")
 
 def p_identList2(p):
-	'''identList : identList COMMA ID'''
+	'''identList : identList COMA ID'''
 	print ("identList 2")
 
-def p_procDec11(p):
-	'''procDec1 : procDec1 PROCEDURE ID SEMMICOLOM block SEMMICOLOM'''
+def p_procDec1(p):
+	'''procDec1 : procDec1 MOP ID PUNTOCOMA block PUNTOCOMA'''
 	print ("procDec1 1")
 
 def p_procDec1Empty(p):
 	'''procDec1 : empty'''
-	print ("nulo")
+	print ("nulo procDec")
 
 def p_statement1(p):
-	'''statement : ID UPDATE expression'''
-	print ("statement 1")
+	'''statement : ID ACTUALI expression'''
+	print ("statement actualizar")
 
 def p_statement2(p):
-	'''statement : CALL ID'''
-	print ("statement 2")
+	'''statement : KNT ID'''
+	print ("statement llamada")
 
 def p_statement3(p):
-	'''statement : BEGIN statementList END'''
-	print ("statement 3")
+	'''statement : HF statementList GG'''
+	print ("statement inicio")
 
 def p_statement4(p):
-	'''statement : IF condition THEN statement'''
-	print ("statement 4")
+	'''statement : YF condition LLAVEI statement LLAVED'''
+	print ("statement condicional si")
 
 def p_statement5(p):
-	'''statement : WHILE condition DO statement'''
-	print ("statement 5")
+	'''statement : MIENTRAS condition LLAVEI statement LLAVED'''
+	print ("statement condicional mientras")
 
 def p_statementEmpty(p):
 	'''statement : empty'''
-	print ("nulo")
+	print ("nulo statement empty")
 
 def p_statementList1(p):
 	'''statementList : statement'''
 	print ("statementList 1")
 
 def p_statementList2(p):
-	'''statementList : statementList SEMMICOLOM statement'''
+	'''statementList : statementList PUNTOCOMA statement'''
 	print ("statementList 2")
 
 def p_condition1(p):
-	'''condition : ODD expression'''
+	'''condition : IMPAR expression'''
 	print ("condition 1")
 
 def p_condition2(p):
@@ -110,48 +114,48 @@ def p_condition2(p):
 	print ("condition 2")
 
 def p_relation1(p):
-	'''relation : ASSIGN'''
-	print ("relation 1")
+	'''relation : IGUAL'''
+	print ("relation IGUAL")
 
 def p_relation2(p):
-	'''relation : NE'''
-	print ("relation 2")
+	'''relation : DISTINTO'''
+	print ("relation DISTINTO")
 
 def p_relation3(p):
-	'''relation : LT'''
-	print ("relation 3")
+	'''relation : MENOR'''
+	print ("relation MENOR")
 
 def p_relation4(p):
-	'''relation : GT'''
-	print ("relation 4")
+	'''relation : MAYOR'''
+	print ("relation MAYOR")
 
 def p_relation5(p):
-	'''relation : LTE'''
-	print ("relation 5")
+	'''relation : MENORI'''
+	print ("relation menor igual")
 
 def p_relation6(p):
-	'''relation : GTE'''
-	print ("relation 6")
+	'''relation : MAYORI'''
+	print ("relation mayor igual")
 
 def p_expression1(p):
-	'''expression : term'''
+	'''expression : term '''
 	print ("expression 1")
 
 def p_expression2(p):
 	'''expression : addingOperator term'''
-	print ("expression 2")
+	print ("expression suma")
 
 def p_expression3(p):
-	'''expression : expression addingOperator term'''
+	'''expression : expression addingOperator term '''
 	print ("expression 3")
 
 def p_addingOperator1(p):
-	'''addingOperator : PLUS'''
-	print ("addingOperator 1")
+	'''addingOperator : SUMA'''
+	print ("addingOperator suma")
 
 def p_addingOperator2(p):
-	'''addingOperator : MINUS'''
-	print ("addingOperator 2")
+	'''addingOperator : MENOS'''
+	print ("addingOperator resta")
 
 def p_term1(p):
 	'''term : factor'''
@@ -162,23 +166,23 @@ def p_term2(p):
 	print ("term 2")
 
 def p_multiplyingOperator1(p):
-	'''multiplyingOperator : TIMES'''
-	print ("multiplyingOperator 1")
+	'''multiplyingOperator : MULTI'''
+	print ("multiplyingOperator multiplicar")
 
 def p_multiplyingOperator2(p):
-	'''multiplyingOperator : DIVIDE'''
-	print ("multiplyingOperator 2")
+	'''multiplyingOperator : DIVIDIR'''
+	print ("multiplyingOperator dividir")
 
 def p_factor1(p):
 	'''factor : ID'''
-	print ("factor 1")
+	print ("factor id")
 
 def p_factor2(p):
-	'''factor : NUMBER'''
+	'''factor : NUMERO'''
 	print ("factor 2")
 
 def p_factor3(p):
-	'''factor : LPARENT expression RPARENT'''
+	'''factor : PARENTI expression PARENTD'''
 	print ("factor 3")
 
 def p_empty(p):
