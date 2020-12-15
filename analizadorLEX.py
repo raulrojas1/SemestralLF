@@ -11,7 +11,7 @@ def mensaje():
     global salida
     return salida
 
-reservadas = ['HF', 'GG', 'YF', 'MIENTRAS', 'KNT', 'DR', 'METRO', 'MOP', 'PARKING']
+reservadas = ['HF', 'GG', 'YF', 'MIENTRAS', 'KNT', 'DR', 'METRO', 'MOP']
 
 tokens = reservadas+['ID', 'NUMERO','SUMA','MENOS','MULTI','DIVIDIR','IMPAR','IGUAL','DISTINTO','MENOR','MENORI','MAYOR','MAYORI'
 			,'PARENTI','PARENTD','COMA','PUNTOCOMA','ACTUALI', 'ESPACIO',  'NUMERAL', 'LLAVED',
