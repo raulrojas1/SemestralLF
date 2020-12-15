@@ -4,6 +4,12 @@ import codecs
 import os
 import sys
 
+pos=0
+salida = []
+
+def mensaje():
+    global salida
+    return salida
 
 reservadas = ['HF', 'GG', 'YF', 'DALE', 'MIENTRAS', 'MUEVE', 'KNT', 'DR', 'METRO', 'MOP', 'PARKIN',  'WOLAN']
 
@@ -101,3 +107,7 @@ while True:
     tok = analizador.token()
     if not tok: break
     print(tok)
+    salida.append(tok)
+    salida.append("\n")
+    pos+=1
+
