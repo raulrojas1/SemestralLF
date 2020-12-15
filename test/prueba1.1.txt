@@ -2,8 +2,6 @@ CONST
   m=7,
   n=85;
 
-#flgmsdglsm .,,sdf
-
 VAR
   x, y, z, q, r;
 

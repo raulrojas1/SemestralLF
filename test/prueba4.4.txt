@@ -1,5 +1,10 @@
 DR 
 e := 3 ;
+MOP fsfds;
+METRO x;
 HF
-METRO X
-GG
+KNT metodo;
+YF e <= 5 {
+x := (y+e)*(x-r)
+}
+GG;

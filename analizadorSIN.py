@@ -67,7 +67,7 @@ def p_identList2(p):
 
 def p_procDec1(p):
 	'''procDec1 : procDec1 MOP ID PUNTOCOMA block PUNTOCOMA'''
-	print ("procDec1 1")
+	print ("Ejecucion de proceso")
 
 def p_procDec1Empty(p):
 	'''procDec1 : empty'''
