@@ -2,9 +2,7 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
 Unused terminals:
 
-    COMILLA
     ESPACIO
-    NUMERAL
     PARKING
 
 Grammar
@@ -24,13 +22,13 @@ Rule 11    identList -> identList COMA identList
 Rule 12    procDec1 -> procDec1 MOP ID PUNTOCOMA block PUNTOCOMA
 Rule 13    procDec1 -> empty
 Rule 14    statement -> HF statementList GG
-Rule 15    statement -> ID ACTUALI expression
+Rule 15    statement -> ID ACTUALI expression PUNTOCOMA
 Rule 16    statement -> KNT STRING PUNTOCOMA
 Rule 17    statement -> YF condition LLAVEI statement LLAVED
 Rule 18    statement -> MIENTRAS condition LLAVEI statement LLAVED
 Rule 19    statement -> empty
 Rule 20    statementList -> statement
-Rule 21    statementList -> statementList PUNTOCOMA statement
+Rule 21    statementList -> statementList statementList
 Rule 22    condition -> IMPAR expression
 Rule 23    condition -> expression relation expression
 Rule 24    relation -> IGUAL
@@ -58,7 +56,6 @@ Terminals, with rules where they appear
 
 ACTUALI              : 5 10 15
 COMA                 : 6 11
-COMILLA              : 
 DISTINTO             : 25
 DIVIDIR              : 38
 DR                   : 3
@@ -80,12 +77,11 @@ METRO                : 7
 MIENTRAS             : 18
 MOP                  : 12
 MULTI                : 37
-NUMERAL              : 
 NUMERO               : 5 10 40
 PARENTD              : 41
 PARENTI              : 41
 PARKING              : 
-PUNTOCOMA            : 3 7 12 12 16 21
+PUNTOCOMA            : 3 7 12 12 15 16
 STRING               : 16 42
 SUMA                 : 33
 YF                   : 17
@@ -106,8 +102,8 @@ multiplyingOperator  : 36
 procDec1             : 2 12
 program              : 0
 relation             : 23
-statement            : 2 17 18 20 21
-statementList        : 14 21
+statement            : 2 17 18 20
+statementList        : 14 21 21
 term                 : 30 31 32 36
 varDec1              : 2
 
@@ -260,7 +256,7 @@ state 11
     (2) block -> constDec1 varDec1 procDec1 . statement
     (12) procDec1 -> procDec1 . MOP ID PUNTOCOMA block PUNTOCOMA
     (14) statement -> . HF statementList GG
-    (15) statement -> . ID ACTUALI expression
+    (15) statement -> . ID ACTUALI expression PUNTOCOMA
     (16) statement -> . KNT STRING PUNTOCOMA
     (17) statement -> . YF condition LLAVEI statement LLAVED
     (18) statement -> . MIENTRAS condition LLAVEI statement LLAVED
@@ -361,7 +357,7 @@ state 19
 
 state 20
 
-    (15) statement -> ID . ACTUALI expression
+    (15) statement -> ID . ACTUALI expression PUNTOCOMA
 
     ACTUALI         shift and go to state 32
 
@@ -370,22 +366,32 @@ state 21
 
     (14) statement -> HF . statementList GG
     (20) statementList -> . statement
-    (21) statementList -> . statementList PUNTOCOMA statement
+    (21) statementList -> . statementList statementList
     (14) statement -> . HF statementList GG
-    (15) statement -> . ID ACTUALI expression
+    (15) statement -> . ID ACTUALI expression PUNTOCOMA
     (16) statement -> . KNT STRING PUNTOCOMA
     (17) statement -> . YF condition LLAVEI statement LLAVED
     (18) statement -> . MIENTRAS condition LLAVEI statement LLAVED
     (19) statement -> . empty
     (43) empty -> .
 
+  ! shift/reduce conflict for HF resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for KNT resolved as shift
+  ! shift/reduce conflict for YF resolved as shift
+  ! shift/reduce conflict for MIENTRAS resolved as shift
     HF              shift and go to state 21
     ID              shift and go to state 20
     KNT             shift and go to state 22
     YF              shift and go to state 23
     MIENTRAS        shift and go to state 24
     GG              reduce using rule 43 (empty -> .)
-    PUNTOCOMA       reduce using rule 43 (empty -> .)
+
+  ! HF              [ reduce using rule 43 (empty -> .) ]
+  ! ID              [ reduce using rule 43 (empty -> .) ]
+  ! KNT             [ reduce using rule 43 (empty -> .) ]
+  ! YF              [ reduce using rule 43 (empty -> .) ]
+  ! MIENTRAS        [ reduce using rule 43 (empty -> .) ]
 
     statementList                  shift and go to state 33
     statement                      shift and go to state 34
@@ -467,6 +473,11 @@ state 25
     $end            reduce using rule 19 (statement -> empty .)
     PUNTOCOMA       reduce using rule 19 (statement -> empty .)
     GG              reduce using rule 19 (statement -> empty .)
+    HF              reduce using rule 19 (statement -> empty .)
+    ID              reduce using rule 19 (statement -> empty .)
+    KNT             reduce using rule 19 (statement -> empty .)
+    YF              reduce using rule 19 (statement -> empty .)
+    MIENTRAS        reduce using rule 19 (statement -> empty .)
     LLAVED          reduce using rule 19 (statement -> empty .)
 
 
@@ -531,7 +542,7 @@ state 31
 
 state 32
 
-    (15) statement -> ID ACTUALI . expression
+    (15) statement -> ID ACTUALI . expression PUNTOCOMA
     (30) expression -> . term
     (31) expression -> . addingOperator term
     (32) expression -> . expression addingOperator term
@@ -559,18 +570,51 @@ state 32
 state 33
 
     (14) statement -> HF statementList . GG
-    (21) statementList -> statementList . PUNTOCOMA statement
+    (21) statementList -> statementList . statementList
+    (20) statementList -> . statement
+    (21) statementList -> . statementList statementList
+    (14) statement -> . HF statementList GG
+    (15) statement -> . ID ACTUALI expression PUNTOCOMA
+    (16) statement -> . KNT STRING PUNTOCOMA
+    (17) statement -> . YF condition LLAVEI statement LLAVED
+    (18) statement -> . MIENTRAS condition LLAVEI statement LLAVED
+    (19) statement -> . empty
+    (43) empty -> .
 
-    GG              shift and go to state 53
-    PUNTOCOMA       shift and go to state 54
+  ! shift/reduce conflict for HF resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for KNT resolved as shift
+  ! shift/reduce conflict for YF resolved as shift
+  ! shift/reduce conflict for MIENTRAS resolved as shift
+  ! shift/reduce conflict for GG resolved as shift
+    GG              shift and go to state 54
+    HF              shift and go to state 21
+    ID              shift and go to state 20
+    KNT             shift and go to state 22
+    YF              shift and go to state 23
+    MIENTRAS        shift and go to state 24
 
+  ! HF              [ reduce using rule 43 (empty -> .) ]
+  ! ID              [ reduce using rule 43 (empty -> .) ]
+  ! KNT             [ reduce using rule 43 (empty -> .) ]
+  ! YF              [ reduce using rule 43 (empty -> .) ]
+  ! MIENTRAS        [ reduce using rule 43 (empty -> .) ]
+  ! GG              [ reduce using rule 43 (empty -> .) ]
+
+    statementList                  shift and go to state 53
+    statement                      shift and go to state 34
+    empty                          shift and go to state 25
 
 state 34
 
     (20) statementList -> statement .
 
     GG              reduce using rule 20 (statementList -> statement .)
-    PUNTOCOMA       reduce using rule 20 (statementList -> statement .)
+    HF              reduce using rule 20 (statementList -> statement .)
+    ID              reduce using rule 20 (statementList -> statement .)
+    KNT             reduce using rule 20 (statementList -> statement .)
+    YF              reduce using rule 20 (statementList -> statement .)
+    MIENTRAS        reduce using rule 20 (statementList -> statement .)
 
 
 state 35
@@ -654,10 +698,7 @@ state 39
     MAYORI          reduce using rule 30 (expression -> term .)
     SUMA            reduce using rule 30 (expression -> term .)
     MENOS           reduce using rule 30 (expression -> term .)
-    $end            reduce using rule 30 (expression -> term .)
     PUNTOCOMA       reduce using rule 30 (expression -> term .)
-    GG              reduce using rule 30 (expression -> term .)
-    LLAVED          reduce using rule 30 (expression -> term .)
     LLAVEI          reduce using rule 30 (expression -> term .)
     PARENTD         reduce using rule 30 (expression -> term .)
     MULTI           shift and go to state 67
@@ -697,10 +738,7 @@ state 41
     MAYORI          reduce using rule 35 (term -> factor .)
     SUMA            reduce using rule 35 (term -> factor .)
     MENOS           reduce using rule 35 (term -> factor .)
-    $end            reduce using rule 35 (term -> factor .)
     PUNTOCOMA       reduce using rule 35 (term -> factor .)
-    GG              reduce using rule 35 (term -> factor .)
-    LLAVED          reduce using rule 35 (term -> factor .)
     LLAVEI          reduce using rule 35 (term -> factor .)
     PARENTD         reduce using rule 35 (term -> factor .)
 
@@ -739,10 +777,7 @@ state 44
     MAYORI          reduce using rule 39 (factor -> ID .)
     SUMA            reduce using rule 39 (factor -> ID .)
     MENOS           reduce using rule 39 (factor -> ID .)
-    $end            reduce using rule 39 (factor -> ID .)
     PUNTOCOMA       reduce using rule 39 (factor -> ID .)
-    GG              reduce using rule 39 (factor -> ID .)
-    LLAVED          reduce using rule 39 (factor -> ID .)
     LLAVEI          reduce using rule 39 (factor -> ID .)
     PARENTD         reduce using rule 39 (factor -> ID .)
 
@@ -761,10 +796,7 @@ state 45
     MAYORI          reduce using rule 40 (factor -> NUMERO .)
     SUMA            reduce using rule 40 (factor -> NUMERO .)
     MENOS           reduce using rule 40 (factor -> NUMERO .)
-    $end            reduce using rule 40 (factor -> NUMERO .)
     PUNTOCOMA       reduce using rule 40 (factor -> NUMERO .)
-    GG              reduce using rule 40 (factor -> NUMERO .)
-    LLAVED          reduce using rule 40 (factor -> NUMERO .)
     LLAVEI          reduce using rule 40 (factor -> NUMERO .)
     PARENTD         reduce using rule 40 (factor -> NUMERO .)
 
@@ -810,10 +842,7 @@ state 47
     MAYORI          reduce using rule 42 (factor -> STRING .)
     SUMA            reduce using rule 42 (factor -> STRING .)
     MENOS           reduce using rule 42 (factor -> STRING .)
-    $end            reduce using rule 42 (factor -> STRING .)
     PUNTOCOMA       reduce using rule 42 (factor -> STRING .)
-    GG              reduce using rule 42 (factor -> STRING .)
-    LLAVED          reduce using rule 42 (factor -> STRING .)
     LLAVEI          reduce using rule 42 (factor -> STRING .)
     PARENTD         reduce using rule 42 (factor -> STRING .)
 
@@ -869,15 +898,12 @@ state 51
 
 state 52
 
-    (15) statement -> ID ACTUALI expression .
+    (15) statement -> ID ACTUALI expression . PUNTOCOMA
     (32) expression -> expression . addingOperator term
     (33) addingOperator -> . SUMA
     (34) addingOperator -> . MENOS
 
-    $end            reduce using rule 15 (statement -> ID ACTUALI expression .)
-    PUNTOCOMA       reduce using rule 15 (statement -> ID ACTUALI expression .)
-    GG              reduce using rule 15 (statement -> ID ACTUALI expression .)
-    LLAVED          reduce using rule 15 (statement -> ID ACTUALI expression .)
+    PUNTOCOMA       shift and go to state 73
     SUMA            shift and go to state 42
     MENOS           shift and go to state 43
 
@@ -885,35 +911,66 @@ state 52
 
 state 53
 
-    (14) statement -> HF statementList GG .
-
-    $end            reduce using rule 14 (statement -> HF statementList GG .)
-    PUNTOCOMA       reduce using rule 14 (statement -> HF statementList GG .)
-    GG              reduce using rule 14 (statement -> HF statementList GG .)
-    LLAVED          reduce using rule 14 (statement -> HF statementList GG .)
-
-
-state 54
-
-    (21) statementList -> statementList PUNTOCOMA . statement
+    (21) statementList -> statementList statementList .
+    (21) statementList -> statementList . statementList
+    (20) statementList -> . statement
+    (21) statementList -> . statementList statementList
     (14) statement -> . HF statementList GG
-    (15) statement -> . ID ACTUALI expression
+    (15) statement -> . ID ACTUALI expression PUNTOCOMA
     (16) statement -> . KNT STRING PUNTOCOMA
     (17) statement -> . YF condition LLAVEI statement LLAVED
     (18) statement -> . MIENTRAS condition LLAVEI statement LLAVED
     (19) statement -> . empty
     (43) empty -> .
 
+  ! shift/reduce conflict for HF resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for KNT resolved as shift
+  ! shift/reduce conflict for YF resolved as shift
+  ! shift/reduce conflict for MIENTRAS resolved as shift
+  ! shift/reduce conflict for HF resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for KNT resolved as shift
+  ! shift/reduce conflict for YF resolved as shift
+  ! shift/reduce conflict for MIENTRAS resolved as shift
+  ! reduce/reduce conflict for GG resolved using rule 21 (statementList -> statementList statementList .)
+    GG              reduce using rule 21 (statementList -> statementList statementList .)
     HF              shift and go to state 21
     ID              shift and go to state 20
     KNT             shift and go to state 22
     YF              shift and go to state 23
     MIENTRAS        shift and go to state 24
-    GG              reduce using rule 43 (empty -> .)
-    PUNTOCOMA       reduce using rule 43 (empty -> .)
 
-    statement                      shift and go to state 73
+  ! HF              [ reduce using rule 21 (statementList -> statementList statementList .) ]
+  ! ID              [ reduce using rule 21 (statementList -> statementList statementList .) ]
+  ! KNT             [ reduce using rule 21 (statementList -> statementList statementList .) ]
+  ! YF              [ reduce using rule 21 (statementList -> statementList statementList .) ]
+  ! MIENTRAS        [ reduce using rule 21 (statementList -> statementList statementList .) ]
+  ! HF              [ reduce using rule 43 (empty -> .) ]
+  ! ID              [ reduce using rule 43 (empty -> .) ]
+  ! KNT             [ reduce using rule 43 (empty -> .) ]
+  ! YF              [ reduce using rule 43 (empty -> .) ]
+  ! MIENTRAS        [ reduce using rule 43 (empty -> .) ]
+  ! GG              [ reduce using rule 43 (empty -> .) ]
+
+    statementList                  shift and go to state 53
+    statement                      shift and go to state 34
     empty                          shift and go to state 25
+
+state 54
+
+    (14) statement -> HF statementList GG .
+
+    $end            reduce using rule 14 (statement -> HF statementList GG .)
+    PUNTOCOMA       reduce using rule 14 (statement -> HF statementList GG .)
+    GG              reduce using rule 14 (statement -> HF statementList GG .)
+    HF              reduce using rule 14 (statement -> HF statementList GG .)
+    ID              reduce using rule 14 (statement -> HF statementList GG .)
+    KNT             reduce using rule 14 (statement -> HF statementList GG .)
+    YF              reduce using rule 14 (statement -> HF statementList GG .)
+    MIENTRAS        reduce using rule 14 (statement -> HF statementList GG .)
+    LLAVED          reduce using rule 14 (statement -> HF statementList GG .)
+
 
 state 55
 
@@ -922,6 +979,11 @@ state 55
     $end            reduce using rule 16 (statement -> KNT STRING PUNTOCOMA .)
     PUNTOCOMA       reduce using rule 16 (statement -> KNT STRING PUNTOCOMA .)
     GG              reduce using rule 16 (statement -> KNT STRING PUNTOCOMA .)
+    HF              reduce using rule 16 (statement -> KNT STRING PUNTOCOMA .)
+    ID              reduce using rule 16 (statement -> KNT STRING PUNTOCOMA .)
+    KNT             reduce using rule 16 (statement -> KNT STRING PUNTOCOMA .)
+    YF              reduce using rule 16 (statement -> KNT STRING PUNTOCOMA .)
+    MIENTRAS        reduce using rule 16 (statement -> KNT STRING PUNTOCOMA .)
     LLAVED          reduce using rule 16 (statement -> KNT STRING PUNTOCOMA .)
 
 
@@ -929,7 +991,7 @@ state 56
 
     (17) statement -> YF condition LLAVEI . statement LLAVED
     (14) statement -> . HF statementList GG
-    (15) statement -> . ID ACTUALI expression
+    (15) statement -> . ID ACTUALI expression PUNTOCOMA
     (16) statement -> . KNT STRING PUNTOCOMA
     (17) statement -> . YF condition LLAVEI statement LLAVED
     (18) statement -> . MIENTRAS condition LLAVEI statement LLAVED
@@ -1126,10 +1188,7 @@ state 69
     MAYORI          reduce using rule 31 (expression -> addingOperator term .)
     SUMA            reduce using rule 31 (expression -> addingOperator term .)
     MENOS           reduce using rule 31 (expression -> addingOperator term .)
-    $end            reduce using rule 31 (expression -> addingOperator term .)
     PUNTOCOMA       reduce using rule 31 (expression -> addingOperator term .)
-    GG              reduce using rule 31 (expression -> addingOperator term .)
-    LLAVED          reduce using rule 31 (expression -> addingOperator term .)
     LLAVEI          reduce using rule 31 (expression -> addingOperator term .)
     PARENTD         reduce using rule 31 (expression -> addingOperator term .)
     MULTI           shift and go to state 67
@@ -1154,7 +1213,7 @@ state 71
 
     (18) statement -> MIENTRAS condition LLAVEI . statement LLAVED
     (14) statement -> . HF statementList GG
-    (15) statement -> . ID ACTUALI expression
+    (15) statement -> . ID ACTUALI expression PUNTOCOMA
     (16) statement -> . KNT STRING PUNTOCOMA
     (17) statement -> . YF condition LLAVEI statement LLAVED
     (18) statement -> . MIENTRAS condition LLAVEI statement LLAVED
@@ -1180,10 +1239,17 @@ state 72
 
 state 73
 
-    (21) statementList -> statementList PUNTOCOMA statement .
+    (15) statement -> ID ACTUALI expression PUNTOCOMA .
 
-    GG              reduce using rule 21 (statementList -> statementList PUNTOCOMA statement .)
-    PUNTOCOMA       reduce using rule 21 (statementList -> statementList PUNTOCOMA statement .)
+    $end            reduce using rule 15 (statement -> ID ACTUALI expression PUNTOCOMA .)
+    PUNTOCOMA       reduce using rule 15 (statement -> ID ACTUALI expression PUNTOCOMA .)
+    GG              reduce using rule 15 (statement -> ID ACTUALI expression PUNTOCOMA .)
+    HF              reduce using rule 15 (statement -> ID ACTUALI expression PUNTOCOMA .)
+    ID              reduce using rule 15 (statement -> ID ACTUALI expression PUNTOCOMA .)
+    KNT             reduce using rule 15 (statement -> ID ACTUALI expression PUNTOCOMA .)
+    YF              reduce using rule 15 (statement -> ID ACTUALI expression PUNTOCOMA .)
+    MIENTRAS        reduce using rule 15 (statement -> ID ACTUALI expression PUNTOCOMA .)
+    LLAVED          reduce using rule 15 (statement -> ID ACTUALI expression PUNTOCOMA .)
 
 
 state 74
@@ -1221,10 +1287,7 @@ state 76
     MAYORI          reduce using rule 32 (expression -> expression addingOperator term .)
     SUMA            reduce using rule 32 (expression -> expression addingOperator term .)
     MENOS           reduce using rule 32 (expression -> expression addingOperator term .)
-    $end            reduce using rule 32 (expression -> expression addingOperator term .)
     PUNTOCOMA       reduce using rule 32 (expression -> expression addingOperator term .)
-    GG              reduce using rule 32 (expression -> expression addingOperator term .)
-    LLAVED          reduce using rule 32 (expression -> expression addingOperator term .)
     LLAVEI          reduce using rule 32 (expression -> expression addingOperator term .)
     PARENTD         reduce using rule 32 (expression -> expression addingOperator term .)
     MULTI           shift and go to state 67
@@ -1246,10 +1309,7 @@ state 77
     MAYORI          reduce using rule 36 (term -> term multiplyingOperator factor .)
     SUMA            reduce using rule 36 (term -> term multiplyingOperator factor .)
     MENOS           reduce using rule 36 (term -> term multiplyingOperator factor .)
-    $end            reduce using rule 36 (term -> term multiplyingOperator factor .)
     PUNTOCOMA       reduce using rule 36 (term -> term multiplyingOperator factor .)
-    GG              reduce using rule 36 (term -> term multiplyingOperator factor .)
-    LLAVED          reduce using rule 36 (term -> term multiplyingOperator factor .)
     LLAVEI          reduce using rule 36 (term -> term multiplyingOperator factor .)
     PARENTD         reduce using rule 36 (term -> term multiplyingOperator factor .)
 
@@ -1268,10 +1328,7 @@ state 78
     MAYORI          reduce using rule 41 (factor -> PARENTI expression PARENTD .)
     SUMA            reduce using rule 41 (factor -> PARENTI expression PARENTD .)
     MENOS           reduce using rule 41 (factor -> PARENTI expression PARENTD .)
-    $end            reduce using rule 41 (factor -> PARENTI expression PARENTD .)
     PUNTOCOMA       reduce using rule 41 (factor -> PARENTI expression PARENTD .)
-    GG              reduce using rule 41 (factor -> PARENTI expression PARENTD .)
-    LLAVED          reduce using rule 41 (factor -> PARENTI expression PARENTD .)
     LLAVEI          reduce using rule 41 (factor -> PARENTI expression PARENTD .)
     PARENTD         reduce using rule 41 (factor -> PARENTI expression PARENTD .)
 
@@ -1304,6 +1361,11 @@ state 81
     $end            reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
     PUNTOCOMA       reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
     GG              reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
+    HF              reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
+    ID              reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
+    KNT             reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
+    YF              reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
+    MIENTRAS        reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
     LLAVED          reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
 
 
@@ -1314,10 +1376,38 @@ state 82
     $end            reduce using rule 18 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
     PUNTOCOMA       reduce using rule 18 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
     GG              reduce using rule 18 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
+    HF              reduce using rule 18 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
+    ID              reduce using rule 18 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
+    KNT             reduce using rule 18 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
+    YF              reduce using rule 18 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
+    MIENTRAS        reduce using rule 18 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
     LLAVED          reduce using rule 18 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
 
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
+WARNING: shift/reduce conflict for HF in state 21 resolved as shift
+WARNING: shift/reduce conflict for ID in state 21 resolved as shift
+WARNING: shift/reduce conflict for KNT in state 21 resolved as shift
+WARNING: shift/reduce conflict for YF in state 21 resolved as shift
+WARNING: shift/reduce conflict for MIENTRAS in state 21 resolved as shift
 WARNING: shift/reduce conflict for COMA in state 29 resolved as shift
+WARNING: shift/reduce conflict for HF in state 33 resolved as shift
+WARNING: shift/reduce conflict for ID in state 33 resolved as shift
+WARNING: shift/reduce conflict for KNT in state 33 resolved as shift
+WARNING: shift/reduce conflict for YF in state 33 resolved as shift
+WARNING: shift/reduce conflict for MIENTRAS in state 33 resolved as shift
+WARNING: shift/reduce conflict for GG in state 33 resolved as shift
 WARNING: shift/reduce conflict for COMA in state 49 resolved as shift
+WARNING: shift/reduce conflict for HF in state 53 resolved as shift
+WARNING: shift/reduce conflict for ID in state 53 resolved as shift
+WARNING: shift/reduce conflict for KNT in state 53 resolved as shift
+WARNING: shift/reduce conflict for YF in state 53 resolved as shift
+WARNING: shift/reduce conflict for MIENTRAS in state 53 resolved as shift
+WARNING: shift/reduce conflict for HF in state 53 resolved as shift
+WARNING: shift/reduce conflict for ID in state 53 resolved as shift
+WARNING: shift/reduce conflict for KNT in state 53 resolved as shift
+WARNING: shift/reduce conflict for YF in state 53 resolved as shift
+WARNING: shift/reduce conflict for MIENTRAS in state 53 resolved as shift
+WARNING: reduce/reduce conflict in state 53 resolved using rule (statementList -> statementList statementList)
+WARNING: rejected rule (empty -> <empty>) in state 53

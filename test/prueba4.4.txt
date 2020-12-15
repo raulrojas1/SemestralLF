@@ -1,10 +1,9 @@
-DR 
-e := 3 ;
-MOP fsfds;
+#programa condicional
+DR e := 3;
 METRO x;
 HF
-KNT "metodo";
-YF e <= 5 {
-x := (y+e)*(x-r)
-}
-GG;
+    KNT "condicional testing";
+    YF e <= 5 {
+        x := (y+e)*(x-r);
+    }
+GG

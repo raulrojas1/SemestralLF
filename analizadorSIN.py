@@ -83,10 +83,9 @@ def p_statement1(p):
 	print ("statement inicio")
 
 def p_statement2(p):
-	'''statement : ID ACTUALI expression'''
+	'''statement : ID ACTUALI expression PUNTOCOMA'''
 	print ("statement actualizar")
 
-# TODO: arreglar print para tener algo
 def p_statement3(p):
 	'''statement : KNT STRING PUNTOCOMA'''
 	print ("statement IMPRIMIR " + str(p[2]))
@@ -109,7 +108,7 @@ def p_statementList1(p):
 	print ("statementList 1")
 
 def p_statementList2(p):
-	'''statementList : statementList PUNTOCOMA statement'''
+	'''statementList : statementList statementList'''
 	print ("statementList 2")
 
 

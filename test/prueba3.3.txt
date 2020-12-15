@@ -1,5 +1,4 @@
-METRO x := 4 , y := 2;
-
+# programa hola mundo
 HF
- KNT "papas";
+ KNT "Hola Mundo";
 GG

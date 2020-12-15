@@ -8,8 +8,8 @@ import sys
 reservadas = ['HF', 'GG', 'YF', 'MIENTRAS', 'KNT', 'DR', 'METRO', 'MOP', 'PARKING']
 
 tokens = reservadas+['ID', 'NUMERO','SUMA','MENOS','MULTI','DIVIDIR','IMPAR','IGUAL','DISTINTO','MENOR','MENORI','MAYOR','MAYORI'
-			,'PARENTI','PARENTD','COMA','PUNTOCOMA','ACTUALI', 'ESPACIO',  'NUMERAL', 'LLAVED',
-                      'LLAVEI', 'COMILLA', 'STRING']
+			,'PARENTI','PARENTD','COMA','PUNTOCOMA','ACTUALI', 'ESPACIO', 'LLAVED',
+                      'LLAVEI', 'STRING']
 
 t_ignore = '  \t'
 t_SUMA = r'\+'
@@ -28,10 +28,8 @@ t_PARENTD = r'\)'
 t_COMA = r', '
 t_PUNTOCOMA = r';'
 t_ACTUALI = r'\:='
-t_NUMERAL = r'\#'
 t_LLAVED = r'\}'
 t_LLAVEI= r'\{'
-t_COMILLA = r'\"'
 t_STRING = r'"(.*?)"'
 
 
@@ -100,4 +98,5 @@ analizador.input(cadena)
 while True:
     tok = analizador.token()
     if not tok: break
-    print(tok)
+    result = "linea {:4} type {:16} val {:16} pos {:4}".format(str(tok.lineno),str(tok.type), str(tok.value), str(tok.lexpos))
+    print(result)
