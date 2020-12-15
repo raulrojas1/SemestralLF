@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'ACTUALI COMA COMILLA DISTINTO DIVIDIR DR ESPACIO GG HF ID IGUAL IMPAR KNT LLAVED LLAVEI MAYOR MAYORI MENOR MENORI MENOS METRO MIENTRAS MOP MULTI NUMERAL NUMERO PARENTD PARENTI PARKING PUNTOCOMA SUMA YFprogram : blockblock : constDec1 varDec1 procDec1 statementconstDec1 : DR constAssignmentList PUNTOCOMAconstDec1 : emptyconstAssignmentList : ID ACTUALI NUMEROconstAssignmentList : constAssignmentList COMA ID ACTUALI NUMEROvarDec1 : METRO identList PUNTOCOMAvarDec1 : emptyidentList : IDidentList : identList COMA IDprocDec1 : procDec1 MOP ID PUNTOCOMA block PUNTOCOMAprocDec1 : emptystatement : ID ACTUALI expressionstatement : KNT IDstatement : HF statementList GGstatement : YF condition LLAVEI statement LLAVEDstatement : MIENTRAS condition LLAVEI statement LLAVEDstatement : emptystatementList : statementstatementList : statementList PUNTOCOMA statementcondition : IMPAR expressioncondition : expression relation expressionrelation : IGUALrelation : DISTINTOrelation : MENORrelation : MAYORrelation : MENORIrelation : MAYORIexpression : term expression : addingOperator termexpression : expression addingOperator term addingOperator : SUMAaddingOperator : MENOSterm : factorterm : term multiplyingOperator factormultiplyingOperator : MULTImultiplyingOperator : DIVIDIRfactor : IDfactor : NUMEROfactor : PARENTI expression PARENTDempty :'
+_lr_signature = 'ACTUALI COMA COMILLA DISTINTO DIVIDIR DR ESPACIO GG HF ID IGUAL IMPAR KNT LLAVED LLAVEI MAYOR MAYORI MENOR MENORI MENOS METRO MIENTRAS MOP MULTI NUMERAL NUMERO PARENTD PARENTI PARKING PUNTOCOMA SUMA YFprogram : blockblock : constDec1 varDec1 procDec1 statementconstDec1 : DR constAssignmentList PUNTOCOMAconstDec1 : emptyconstAssignmentList : ID ACTUALI NUMEROconstAssignmentList : constAssignmentList COMA constAssignmentListvarDec1 : METRO identList PUNTOCOMAvarDec1 : emptyidentList : IDidentList : ID ACTUALI NUMEROidentList : identList COMA identListprocDec1 : procDec1 MOP ID PUNTOCOMA block PUNTOCOMAprocDec1 : emptystatementList : statementstatementList : statementList PUNTOCOMA statementstatement : ID ACTUALI expressionstatement : KNT IDstatement : HF statementList GGstatement : YF condition LLAVEI statement LLAVEDstatement : MIENTRAS condition LLAVEI statement LLAVEDstatement : emptycondition : IMPAR expressioncondition : expression relation expressionrelation : IGUALrelation : DISTINTOrelation : MENORrelation : MAYORrelation : MENORIrelation : MAYORIexpression : term expression : addingOperator termexpression : expression addingOperator term addingOperator : SUMAaddingOperator : MENOSterm : factorterm : term multiplyingOperator factormultiplyingOperator : MULTImultiplyingOperator : DIVIDIRfactor : IDfactor : NUMEROfactor : PARENTI expression PARENTDempty :'
     
-_lr_action_items = {'MULTI':([32,34,38,40,49,70,71,72,],[52,-39,-34,-38,52,-35,-40,52,]),'PARENTD':([32,34,38,40,49,53,70,71,72,],[-29,-39,-34,-38,-30,71,-35,-40,-31,]),'PARENTI':([20,23,31,33,35,36,37,47,50,51,52,55,56,57,58,59,60,61,62,],[33,33,33,33,33,-33,-32,33,-37,33,-36,33,-24,-28,-27,-23,-25,33,-26,]),'YF':([0,1,3,7,8,13,14,15,19,21,63,65,66,67,79,],[-41,-41,-4,-41,-8,-12,23,-3,-7,23,23,23,-41,23,-11,]),'HF':([0,1,3,7,8,13,14,15,19,21,63,65,66,67,79,],[-41,-41,-4,-41,-8,-12,21,-3,-7,21,21,21,-41,21,-11,]),'SUMA':([20,23,32,33,34,35,38,39,40,47,49,53,54,56,57,58,59,60,61,62,68,70,71,72,73,],[37,37,-29,37,-39,37,-34,37,-38,37,-30,37,37,-24,-28,-27,-23,-25,37,-26,37,-35,-40,-31,37,]),'METRO':([0,1,3,15,66,],[-41,6,-4,-3,-41,]),'PUNTOCOMA':([1,3,7,8,9,11,12,13,14,15,19,21,24,25,29,30,32,34,38,40,42,43,44,46,49,64,65,66,68,69,70,71,72,75,76,78,79,80,],[-41,-4,-41,-8,15,19,-9,-12,-41,-3,-7,-41,-18,-2,-5,-10,-29,-39,-34,-38,65,-19,66,-14,-30,-15,-41,-41,-13,-6,-35,-40,-31,-20,79,-17,-11,-16,]),'DR':([0,66,],[4,4,]),'IMPAR':([20,23,],[35,35,]),'MAYOR':([32,34,38,39,40,49,70,71,72,],[-29,-39,-34,62,-38,-30,-35,-40,-31,]),'$end':([0,1,2,3,5,7,8,13,14,15,19,24,25,32,34,38,40,46,49,64,68,70,71,72,78,79,80,],[-41,-41,0,-4,-1,-41,-8,-12,-41,-3,-7,-18,-2,-29,-39,-34,-38,-14,-30,-15,-13,-35,-40,-31,-17,-11,-16,]),'DISTINTO':([32,34,38,39,40,49,70,71,72,],[-29,-39,-34,56,-38,-30,-35,-40,-31,]),'NUMERO':([17,20,23,31,33,35,36,37,47,48,50,51,52,55,56,57,58,59,60,61,62,],[29,34,34,34,34,34,-33,-32,34,69,-37,34,-36,34,-24,-28,-27,-23,-25,34,-26,]),'GG':([21,24,32,34,38,40,42,43,46,49,64,65,68,70,71,72,75,78,80,],[-41,-18,-29,-39,-34,-38,64,-19,-14,-30,-15,-41,-13,-35,-40,-31,-20,-17,-16,]),'MIENTRAS':([0,1,3,7,8,13,14,15,19,21,63,65,66,67,79,],[-41,-41,-4,-41,-8,-12,20,-3,-7,20,20,20,-41,20,-11,]),'LLAVED':([24,32,34,38,40,46,49,63,64,67,68,70,71,72,74,77,78,80,],[-18,-29,-39,-34,-38,-14,-30,-41,-15,-41,-13,-35,-40,-31,78,80,-17,-16,]),'COMA':([9,11,12,29,30,69,],[16,18,-9,-5,-10,-6,]),'LLAVEI':([32,34,38,40,41,45,49,54,70,71,72,73,],[-29,-39,-34,-38,63,67,-30,-21,-35,-40,-31,-22,]),'KNT':([0,1,3,7,8,13,14,15,19,21,63,65,66,67,79,],[-41,-41,-4,-41,-8,-12,26,-3,-7,26,26,26,-41,26,-11,]),'IGUAL':([32,34,38,39,40,49,70,71,72,],[-29,-39,-34,59,-38,-30,-35,-40,-31,]),'ID':([0,1,3,4,6,7,8,13,14,15,16,18,19,20,21,22,23,26,31,33,35,36,37,47,50,51,52,55,56,57,58,59,60,61,62,63,65,66,67,79,],[-41,-41,-4,10,12,-41,-8,-12,27,-3,28,30,-7,40,27,44,40,46,40,40,40,-33,-32,40,-37,40,-36,40,-24,-28,-27,-23,-25,40,-26,27,27,-41,27,-11,]),'MAYORI':([32,34,38,39,40,49,70,71,72,],[-29,-39,-34,57,-38,-30,-35,-40,-31,]),'ACTUALI':([10,27,28,],[17,47,48,]),'MENORI':([32,34,38,39,40,49,70,71,72,],[-29,-39,-34,58,-38,-30,-35,-40,-31,]),'MOP':([0,1,3,7,8,13,14,15,19,66,79,],[-41,-41,-4,-41,-8,-12,22,-3,-7,-41,-11,]),'MENOR':([32,34,38,39,40,49,70,71,72,],[-29,-39,-34,60,-38,-30,-35,-40,-31,]),'MENOS':([20,23,32,33,34,35,38,39,40,47,49,53,54,56,57,58,59,60,61,62,68,70,71,72,73,],[36,36,-29,36,-39,36,-34,36,-38,36,-30,36,36,-24,-28,-27,-23,-25,36,-26,36,-35,-40,-31,36,]),'DIVIDIR':([32,34,38,40,49,70,71,72,],[50,-39,-34,-38,50,-35,-40,50,]),}
+_lr_action_items = {'DR':([0,50,],[4,4,]),'METRO':([0,3,5,15,50,],[-42,7,-4,-3,-42,]),'MOP':([0,3,5,6,8,11,12,15,26,50,78,],[-42,-42,-4,-42,-8,19,-13,-3,-7,-42,-12,]),'ID':([0,3,4,5,6,7,8,11,12,15,16,19,21,22,23,24,26,27,32,37,40,42,43,46,50,53,54,56,57,58,59,60,61,62,63,64,65,66,69,78,],[-42,-42,10,-4,-42,14,-8,20,-13,-3,10,31,33,20,44,44,-7,14,44,44,44,-33,-34,44,-42,20,20,44,44,-24,-25,-26,-27,-28,-29,44,-37,-38,20,-12,]),'KNT':([0,3,5,6,8,11,12,15,22,26,50,53,54,69,78,],[-42,-42,-4,-42,-8,21,-13,-3,21,-7,-42,21,21,21,-12,]),'HF':([0,3,5,6,8,11,12,15,22,26,50,53,54,69,78,],[-42,-42,-4,-42,-8,22,-13,-3,22,-7,-42,22,22,22,-12,]),'YF':([0,3,5,6,8,11,12,15,22,26,50,53,54,69,78,],[-42,-42,-4,-42,-8,23,-13,-3,23,-7,-42,23,23,23,-12,]),'MIENTRAS':([0,3,5,6,8,11,12,15,22,26,50,53,54,69,78,],[-42,-42,-4,-42,-8,24,-13,-3,24,-7,-42,24,24,24,-12,]),'$end':([0,1,2,3,5,6,8,11,12,15,18,25,26,33,39,41,44,45,51,52,67,74,75,76,78,79,80,],[-42,0,-1,-42,-4,-42,-8,-42,-13,-3,-2,-21,-7,-17,-30,-35,-39,-40,-16,-18,-31,-32,-36,-41,-12,-19,-20,]),'PUNTOCOMA':([3,5,6,8,9,11,12,13,14,15,18,22,25,26,29,30,31,33,34,35,39,41,44,45,48,49,50,51,52,53,67,70,71,74,75,76,78,79,80,],[-42,-4,-42,-8,15,-42,-13,26,-9,-3,-2,-42,-21,-7,-6,-5,50,-17,53,-14,-30,-35,-39,-40,-11,-10,-42,-16,-18,-42,-31,78,-15,-32,-36,-41,-12,-19,-20,]),'COMA':([9,13,14,29,30,48,49,],[16,27,-9,16,-5,27,-10,]),'ACTUALI':([10,14,20,],[17,28,32,]),'NUMERO':([17,23,24,28,32,37,40,42,43,46,56,57,58,59,60,61,62,63,64,65,66,],[30,45,45,49,45,45,45,-33,-34,45,45,45,-24,-25,-26,-27,-28,-29,45,-37,-38,]),'GG':([22,25,33,34,35,39,41,44,45,51,52,53,67,71,74,75,76,79,80,],[-42,-21,-17,52,-14,-30,-35,-39,-40,-16,-18,-42,-31,-15,-32,-36,-41,-19,-20,]),'IMPAR':([23,24,],[37,37,]),'SUMA':([23,24,32,37,38,39,41,44,45,46,51,55,56,58,59,60,61,62,63,67,68,73,74,75,76,],[42,42,42,42,42,-30,-35,-39,-40,42,42,42,42,-24,-25,-26,-27,-28,-29,-31,42,42,-32,-36,-41,]),'MENOS':([23,24,32,37,38,39,41,44,45,46,51,55,56,58,59,60,61,62,63,67,68,73,74,75,76,],[43,43,43,43,43,-30,-35,-39,-40,43,43,43,43,-24,-25,-26,-27,-28,-29,-31,43,43,-32,-36,-41,]),'PARENTI':([23,24,32,37,40,42,43,46,56,57,58,59,60,61,62,63,64,65,66,],[46,46,46,46,46,-33,-34,46,46,46,-24,-25,-26,-27,-28,-29,46,-37,-38,]),'LLAVED':([25,33,39,41,44,45,51,52,54,67,69,72,74,75,76,77,79,80,],[-21,-17,-30,-35,-39,-40,-16,-18,-42,-31,-42,79,-32,-36,-41,80,-19,-20,]),'LLAVEI':([36,39,41,44,45,47,55,67,73,74,75,76,],[54,-30,-35,-39,-40,69,-22,-31,-23,-32,-36,-41,]),'IGUAL':([38,39,41,44,45,67,74,75,76,],[58,-30,-35,-39,-40,-31,-32,-36,-41,]),'DISTINTO':([38,39,41,44,45,67,74,75,76,],[59,-30,-35,-39,-40,-31,-32,-36,-41,]),'MENOR':([38,39,41,44,45,67,74,75,76,],[60,-30,-35,-39,-40,-31,-32,-36,-41,]),'MAYOR':([38,39,41,44,45,67,74,75,76,],[61,-30,-35,-39,-40,-31,-32,-36,-41,]),'MENORI':([38,39,41,44,45,67,74,75,76,],[62,-30,-35,-39,-40,-31,-32,-36,-41,]),'MAYORI':([38,39,41,44,45,67,74,75,76,],[63,-30,-35,-39,-40,-31,-32,-36,-41,]),'PARENTD':([39,41,44,45,67,68,74,75,76,],[-30,-35,-39,-40,-31,76,-32,-36,-41,]),'MULTI':([39,41,44,45,67,74,75,76,],[65,-35,-39,-40,65,65,-36,-41,]),'DIVIDIR':([39,41,44,45,67,74,75,76,],[66,-35,-39,-40,66,66,-36,-41,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'constDec1':([0,66,],[1,1,]),'term':([20,23,31,33,35,47,55,61,],[32,32,49,32,32,32,72,32,]),'identList':([6,],[11,]),'constAssignmentList':([4,],[9,]),'multiplyingOperator':([32,49,72,],[51,51,51,]),'condition':([20,23,],[41,45,]),'statementList':([21,],[42,]),'addingOperator':([20,23,33,35,39,47,53,54,61,68,73,],[31,31,31,31,55,31,55,55,31,55,55,]),'varDec1':([1,],[7,]),'program':([0,],[2,]),'relation':([39,],[61,]),'block':([0,66,],[5,76,]),'statement':([14,21,63,65,67,],[25,43,74,75,77,]),'factor':([20,23,31,33,35,47,51,55,61,],[38,38,38,38,38,38,70,38,38,]),'procDec1':([7,],[14,]),'expression':([20,23,33,35,47,61,],[39,39,53,54,68,73,]),'empty':([0,1,7,14,21,63,65,66,67,],[3,8,13,24,24,24,24,3,24,]),}
+_lr_goto_items = {'program':([0,],[1,]),'block':([0,50,],[2,70,]),'constDec1':([0,50,],[3,3,]),'empty':([0,3,6,11,22,50,53,54,69,],[5,8,12,25,25,5,25,25,25,]),'varDec1':([3,],[6,]),'constAssignmentList':([4,16,],[9,29,]),'procDec1':([6,],[11,]),'identList':([7,27,],[13,48,]),'statement':([11,22,53,54,69,],[18,35,71,72,77,]),'statementList':([22,],[34,]),'condition':([23,24,],[36,47,]),'expression':([23,24,32,37,46,56,],[38,38,51,55,68,73,]),'term':([23,24,32,37,40,46,56,57,],[39,39,39,39,67,39,39,74,]),'addingOperator':([23,24,32,37,38,46,51,55,56,68,73,],[40,40,40,40,57,40,57,57,40,57,57,]),'factor':([23,24,32,37,40,46,56,57,64,],[41,41,41,41,41,41,41,41,75,]),'relation':([38,],[56,]),'multiplyingOperator':([39,67,74,],[64,64,64,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -32,40 +32,41 @@ _lr_productions = [
   ('constDec1 -> DR constAssignmentList PUNTOCOMA','constDec1',3,'p_constDec1','analizadorSIN.py',37),
   ('constDec1 -> empty','constDec1',1,'p_constDec1Empty','analizadorSIN.py',41),
   ('constAssignmentList -> ID ACTUALI NUMERO','constAssignmentList',3,'p_constAssignmentList1','analizadorSIN.py',45),
-  ('constAssignmentList -> constAssignmentList COMA ID ACTUALI NUMERO','constAssignmentList',5,'p_constAssignmentList2','analizadorSIN.py',49),
+  ('constAssignmentList -> constAssignmentList COMA constAssignmentList','constAssignmentList',3,'p_constAssignmentList2','analizadorSIN.py',49),
   ('varDec1 -> METRO identList PUNTOCOMA','varDec1',3,'p_varDec1','analizadorSIN.py',53),
   ('varDec1 -> empty','varDec1',1,'p_varDec1Empty','analizadorSIN.py',57),
   ('identList -> ID','identList',1,'p_identList1','analizadorSIN.py',61),
-  ('identList -> identList COMA ID','identList',3,'p_identList2','analizadorSIN.py',65),
-  ('procDec1 -> procDec1 MOP ID PUNTOCOMA block PUNTOCOMA','procDec1',6,'p_procDec1','analizadorSIN.py',69),
-  ('procDec1 -> empty','procDec1',1,'p_procDec1Empty','analizadorSIN.py',73),
-  ('statement -> ID ACTUALI expression','statement',3,'p_statement1','analizadorSIN.py',77),
-  ('statement -> KNT ID','statement',2,'p_statement2','analizadorSIN.py',81),
-  ('statement -> HF statementList GG','statement',3,'p_statement3','analizadorSIN.py',85),
-  ('statement -> YF condition LLAVEI statement LLAVED','statement',5,'p_statement4','analizadorSIN.py',89),
-  ('statement -> MIENTRAS condition LLAVEI statement LLAVED','statement',5,'p_statement5','analizadorSIN.py',93),
-  ('statement -> empty','statement',1,'p_statementEmpty','analizadorSIN.py',97),
-  ('statementList -> statement','statementList',1,'p_statementList1','analizadorSIN.py',101),
-  ('statementList -> statementList PUNTOCOMA statement','statementList',3,'p_statementList2','analizadorSIN.py',105),
-  ('condition -> IMPAR expression','condition',2,'p_condition1','analizadorSIN.py',109),
-  ('condition -> expression relation expression','condition',3,'p_condition2','analizadorSIN.py',113),
-  ('relation -> IGUAL','relation',1,'p_relation1','analizadorSIN.py',117),
-  ('relation -> DISTINTO','relation',1,'p_relation2','analizadorSIN.py',121),
-  ('relation -> MENOR','relation',1,'p_relation3','analizadorSIN.py',125),
-  ('relation -> MAYOR','relation',1,'p_relation4','analizadorSIN.py',129),
-  ('relation -> MENORI','relation',1,'p_relation5','analizadorSIN.py',133),
-  ('relation -> MAYORI','relation',1,'p_relation6','analizadorSIN.py',137),
-  ('expression -> term','expression',1,'p_expression1','analizadorSIN.py',141),
-  ('expression -> addingOperator term','expression',2,'p_expression2','analizadorSIN.py',145),
-  ('expression -> expression addingOperator term','expression',3,'p_expression3','analizadorSIN.py',149),
-  ('addingOperator -> SUMA','addingOperator',1,'p_addingOperator1','analizadorSIN.py',153),
-  ('addingOperator -> MENOS','addingOperator',1,'p_addingOperator2','analizadorSIN.py',157),
-  ('term -> factor','term',1,'p_term1','analizadorSIN.py',161),
-  ('term -> term multiplyingOperator factor','term',3,'p_term2','analizadorSIN.py',165),
-  ('multiplyingOperator -> MULTI','multiplyingOperator',1,'p_multiplyingOperator1','analizadorSIN.py',169),
-  ('multiplyingOperator -> DIVIDIR','multiplyingOperator',1,'p_multiplyingOperator2','analizadorSIN.py',173),
-  ('factor -> ID','factor',1,'p_factor1','analizadorSIN.py',177),
-  ('factor -> NUMERO','factor',1,'p_factor2','analizadorSIN.py',181),
-  ('factor -> PARENTI expression PARENTD','factor',3,'p_factor3','analizadorSIN.py',185),
-  ('empty -> <empty>','empty',0,'p_empty','analizadorSIN.py',189),
+  ('identList -> ID ACTUALI NUMERO','identList',3,'p_identList2','analizadorSIN.py',65),
+  ('identList -> identList COMA identList','identList',3,'p_identList3','analizadorSIN.py',70),
+  ('procDec1 -> procDec1 MOP ID PUNTOCOMA block PUNTOCOMA','procDec1',6,'p_procDec1','analizadorSIN.py',74),
+  ('procDec1 -> empty','procDec1',1,'p_procDec1Empty','analizadorSIN.py',78),
+  ('statementList -> statement','statementList',1,'p_statementList1','analizadorSIN.py',82),
+  ('statementList -> statementList PUNTOCOMA statement','statementList',3,'p_statementList2','analizadorSIN.py',86),
+  ('statement -> ID ACTUALI expression','statement',3,'p_statement1','analizadorSIN.py',91),
+  ('statement -> KNT ID','statement',2,'p_statement2','analizadorSIN.py',95),
+  ('statement -> HF statementList GG','statement',3,'p_statement3','analizadorSIN.py',99),
+  ('statement -> YF condition LLAVEI statement LLAVED','statement',5,'p_statement4','analizadorSIN.py',103),
+  ('statement -> MIENTRAS condition LLAVEI statement LLAVED','statement',5,'p_statement5','analizadorSIN.py',107),
+  ('statement -> empty','statement',1,'p_statementEmpty','analizadorSIN.py',111),
+  ('condition -> IMPAR expression','condition',2,'p_condition1','analizadorSIN.py',118),
+  ('condition -> expression relation expression','condition',3,'p_condition2','analizadorSIN.py',122),
+  ('relation -> IGUAL','relation',1,'p_relation1','analizadorSIN.py',126),
+  ('relation -> DISTINTO','relation',1,'p_relation2','analizadorSIN.py',130),
+  ('relation -> MENOR','relation',1,'p_relation3','analizadorSIN.py',134),
+  ('relation -> MAYOR','relation',1,'p_relation4','analizadorSIN.py',138),
+  ('relation -> MENORI','relation',1,'p_relation5','analizadorSIN.py',142),
+  ('relation -> MAYORI','relation',1,'p_relation6','analizadorSIN.py',146),
+  ('expression -> term','expression',1,'p_expression1','analizadorSIN.py',150),
+  ('expression -> addingOperator term','expression',2,'p_expression2','analizadorSIN.py',154),
+  ('expression -> expression addingOperator term','expression',3,'p_expression3','analizadorSIN.py',158),
+  ('addingOperator -> SUMA','addingOperator',1,'p_addingOperator1','analizadorSIN.py',162),
+  ('addingOperator -> MENOS','addingOperator',1,'p_addingOperator2','analizadorSIN.py',166),
+  ('term -> factor','term',1,'p_term1','analizadorSIN.py',170),
+  ('term -> term multiplyingOperator factor','term',3,'p_term2','analizadorSIN.py',174),
+  ('multiplyingOperator -> MULTI','multiplyingOperator',1,'p_multiplyingOperator1','analizadorSIN.py',178),
+  ('multiplyingOperator -> DIVIDIR','multiplyingOperator',1,'p_multiplyingOperator2','analizadorSIN.py',182),
+  ('factor -> ID','factor',1,'p_factor1','analizadorSIN.py',186),
+  ('factor -> NUMERO','factor',1,'p_factor2','analizadorSIN.py',190),
+  ('factor -> PARENTI expression PARENTD','factor',3,'p_factor3','analizadorSIN.py',194),
+  ('empty -> <empty>','empty',0,'p_empty','analizadorSIN.py',198),
 ]

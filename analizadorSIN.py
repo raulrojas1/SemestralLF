@@ -46,7 +46,7 @@ def p_constAssignmentList1(p):
 	print ("constAssigmentList1")
 
 def p_constAssignmentList2(p):
-	'''constAssignmentList : constAssignmentList COMA ID ACTUALI NUMERO'''
+	'''constAssignmentList : constAssignmentList COMA constAssignmentList'''
 	print ("constAssignmentList 2")
 
 def p_varDec1(p):
@@ -62,8 +62,13 @@ def p_identList1(p):
 	print ("identList 1")
 
 def p_identList2(p):
-	'''identList : identList COMA ID'''
+	'''identList : ID ACTUALI NUMERO'''
 	print ("identList 2")
+
+
+def p_identList3(p):
+	'''identList : identList COMA identList'''
+	print ("identList 3")
 
 def p_procDec1(p):
 	'''procDec1 : procDec1 MOP ID PUNTOCOMA block PUNTOCOMA'''
@@ -72,6 +77,15 @@ def p_procDec1(p):
 def p_procDec1Empty(p):
 	'''procDec1 : empty'''
 	print ("nulo procDec")
+
+def p_statementList1(p):
+	'''statementList : statement'''
+	print ("statementList 1")
+
+def p_statementList2(p):
+	'''statementList : statementList PUNTOCOMA statement'''
+	print ("statementList 2")
+
 
 def p_statement1(p):
 	'''statement : ID ACTUALI expression'''
@@ -97,13 +111,8 @@ def p_statementEmpty(p):
 	'''statement : empty'''
 	print ("nulo statement empty")
 
-def p_statementList1(p):
-	'''statementList : statement'''
-	print ("statementList 1")
 
-def p_statementList2(p):
-	'''statementList : statementList PUNTOCOMA statement'''
-	print ("statementList 2")
+
 
 def p_condition1(p):
 	'''condition : IMPAR expression'''
