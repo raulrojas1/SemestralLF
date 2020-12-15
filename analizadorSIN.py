@@ -7,6 +7,7 @@ from analizadorLEX import tokens
 from sys import stdin
 precedente = (
 	('right','ID','COMA', 'KNT','HF','YF','MIENTRAS'),
+	('left', 'WOLAN'),
 	('right','MOP'),
 	('right','METRO'),
 	('right','IGUAL'),
@@ -94,7 +95,13 @@ def p_statement4(p):
 	'''statement : YF condition LLAVEI statement LLAVED'''
 	print ("statement condicional si")
 
+
 def p_statement5(p):
+	'''statement : YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED'''
+	print ("statement condicional if else")
+
+
+def p_statement6(p):
 	'''statement : MIENTRAS condition LLAVEI statement LLAVED'''
 	print ("statement condicional mientras")
 
