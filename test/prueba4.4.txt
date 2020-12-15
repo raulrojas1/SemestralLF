@@ -4,6 +4,6 @@ METRO x;
 HF
     KNT "condicional testing";
     YF e <= 5 {
-        x := (y+e)*(x-r);
+        KNT (10+10)*(5-10) ;
     }
 GG

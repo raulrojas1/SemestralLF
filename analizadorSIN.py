@@ -21,8 +21,9 @@ precedente = (
 	('right','IMPAR'),
 	('left', 'LLAVEI', 'LLAVED'),
 	('left','PARENTI','PARENTD'),
-	('left', 'PUNTOCOMA')
-
+	('left', 'PUNTOCOMA'),
+	('left', 'SUMA', 'MENOS'),
+    ('left', 'MULTI', 'DIVIDIR')
 	)
 
 
@@ -105,6 +106,12 @@ def p_statement6(p):
 	'''statement : MIENTRAS condition LLAVEI statement LLAVED'''
 	print ("statement condicional mientras")
 
+#expresion usada para resultados matematicos
+def p_statement7(p):
+	'''statement : KNT expression PUNTOCOMA'''
+	print("expresion matematica: ", str(p[2]))
+
+
 def p_statementEmpty(p):
 	'''statement : empty'''
 	print ("nulo statement empty")
@@ -156,6 +163,7 @@ def p_relation6(p):
 def p_expression1(p):
 	'''expression : term '''
 	print ("expression 1")
+	p[0] = p[1]
 
 def p_expression2(p):
 	'''expression : addingOperator term'''
@@ -168,14 +176,17 @@ def p_expression3(p):
 def p_addingOperator1(p):
 	'''addingOperator : SUMA'''
 	print ("addingOperator suma")
+	p[0] = p[1]
 
-def p_addingOperator2(p):
-	'''addingOperator : MENOS'''
-	print ("addingOperator resta")
+def p_subOperator(p):
+	'''subOperator : MENOS'''
+	print ("subOperator resta")
+	p[0] = p[1]
 
 def p_term1(p):
 	'''term : factor'''
 	print ("term 1")
+	p[0] = p[1]
 
 def p_term2(p):
 	'''term : term multiplyingOperator factor'''
@@ -197,15 +208,51 @@ def p_factor1(p):
 def p_factor2(p):
 	'''factor : NUMERO'''
 	print ("factor numero")
+	p[0] = p[1]
 
-def p_factor3(p):
-	'''factor : PARENTI expression PARENTD'''
-	print ("factor 3")
 
 
 def p_factor4(p):
 	'''factor : STRING'''
 	print ("factor string")
+
+# matematicas
+def p_add(p):
+	'''expression : factor addingOperator factor'''
+	p[0] = p[1] + p[3]
+
+def p_sub(p):
+	'''expression : factor subOperator factor'''
+	p[0] = p[1] - p[3]
+
+def p_mult_div(p):
+	'''expression : factor MULTI factor
+					| factor DIVIDIR factor'''
+	if p[2] == '*':
+		p[0] = p[1] * p[3]
+	else:
+		if p[3] == 0:
+			print("No puedes dividir entre 0")
+			raise ZeroDivisionError("division entre zero")
+		p[0] = p[1] / p[3]
+
+
+def p_mult_div2(p):
+	'''expression : expression MULTI expression
+					| expression DIVIDIR expression'''
+	if p[2] == '*':
+		p[0] = p[1] * p[3]
+	else:
+		if p[3] == 0:
+			print("No puedes dividir entre 0")
+			raise ZeroDivisionError("division entre zero")
+		p[0] = p[1] / p[3]
+
+#concatenate math expressions
+def p_parens(p):
+	'''expression : PARENTI expression PARENTD'''
+	print ("expression parente")
+	p[0] = p[2]
 
 def p_empty(p):
 	'''empty :'''

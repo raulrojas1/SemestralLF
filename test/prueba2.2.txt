@@ -3,6 +3,6 @@ METRO x := 0;
 HF
     KNT "programa con ciclo";
     MIENTRAS  x <= 4 {
-        x := +1;
+       KNT "dentro de ciclo";
     }
 GG
