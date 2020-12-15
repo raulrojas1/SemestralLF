@@ -43,7 +43,7 @@ def p_constDec1Empty(p):
 	print ("nulo")
 def p_constAssignmentList1(p):
 	'''constAssignmentList : ID ACTUALI NUMERO'''
-	print ("Buena sintaxa crack ", p)
+	print ("constAssigmentList1")
 
 def p_constAssignmentList2(p):
 	'''constAssignmentList : constAssignmentList COMA ID ACTUALI NUMERO'''
@@ -67,7 +67,7 @@ def p_identList2(p):
 
 def p_procDec1(p):
 	'''procDec1 : procDec1 MOP ID PUNTOCOMA block PUNTOCOMA'''
-	print ("procDec1 1")
+	print ("Ejecucion de proceso")
 
 def p_procDec1Empty(p):
 	'''procDec1 : empty'''
@@ -228,3 +228,4 @@ result = parser.parse(cadena)
 
 
 print (result)
+>>>>>>> 373b3cb667d2dd4be7ffb8f88f18d23f3935618c

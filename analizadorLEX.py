@@ -11,10 +11,10 @@ def mensaje():
     global salida
     return salida
 
-reservadas = ['HF', 'GG', 'YF', 'DALE', 'MIENTRAS', 'MUEVE', 'KNT', 'DR', 'METRO', 'MOP', 'PARKIN',  'WOLAN']
+reservadas = ['HF', 'GG', 'YF', 'MIENTRAS', 'KNT', 'DR', 'METRO', 'MOP', 'PARKING']
 
 tokens = reservadas+['ID', 'NUMERO','SUMA','MENOS','MULTI','DIVIDIR','IMPAR','IGUAL','DISTINTO','MENOR','MENORI','MAYOR','MAYORI'
-			,'PARENTI','PARENTD','COMA','PUNTOCOMA','PUNTO','ACTUALI', 'DOSPUNTOS', 'ESPACIO',  'NUMERAL', 'LLAVED',
+			,'PARENTI','PARENTD','COMA','PUNTOCOMA','ACTUALI', 'ESPACIO',  'NUMERAL', 'LLAVED',
                       'LLAVEI', 'COMILLA']
 
 t_ignore = '  \t'
@@ -33,9 +33,7 @@ t_PARENTI = r'\('
 t_PARENTD = r'\)'
 t_COMA = r', '
 t_PUNTOCOMA = r';'
-t_PUNTO = r'\.'
-t_ACTUALI = r':='
-t_DOSPUNTOS = r'\:'
+t_ACTUALI = r'\:='
 t_NUMERAL = r'\#'
 t_LLAVED = r'\}'
 t_LLAVEI= r'\{'

@@ -7,4 +7,3 @@ KNT metodo;
 YF e <= 5 {
 x := (y+e)*(x-r)
 }
-GG;
