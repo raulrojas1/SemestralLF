@@ -1,5 +1,0 @@
- HF
-METRO x = 5;
-DR saludo = "Hola Mundo";
-OUT(saludo);
-GG
