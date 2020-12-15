@@ -5,15 +5,45 @@ from analizadorLEX import mensaje
 raiz = Tk()
 
 
+def on_configure(event):
+    # update scrollregion after starting 'mainloop'
+    # when all widgets are in canvas
+    canvas.configure(scrollregion=canvas.bbox('all'))
+
+
+
 def introducir():
     global imprimir,raiz
-    raiz.destroy()
-    raiz=Tk()
-    raiz.title("Introducir Números")
+    raiz = Tk()
+    raiz.geometry("900x700")
+    # --- create canvas with scrollbar ---
 
-    raiz.geometry("900x600+200+30")
-    imprimir= Label(text=mensaje(),font="Arial 16",bg="white",fg="black").place(x=300, y= 10)
-    ingresa= Button(raiz,text="Ingresar", font="Arial 20", ).place(x=300,y=400)
+    canvas = Canvas(raiz,width=800,height=600)
+    canvas.pack(side=LEFT)
+
+    scrollbar = Scrollbar(raiz, command=canvas.yview)
+    scrollbar.pack(side=LEFT, fill='y')
+
+    canvas.configure(yscrollcommand = scrollbar.set)
+
+    # update scrollregion after starting 'mainloop'
+    # when all widgets are in canvas
+    canvas.bind('<Configure>')
+    canvas.bbox('all')
+
+    # --- put frame in canvas ---
+
+    frame = Frame(canvas)
+    canvas.create_window((0,0), window=frame, anchor='nw')
+
+    # --- add widgets in frame ---
+
+
+    l = Label(frame, text=mensaje(), font="size 16")
+    l.pack()
+
+    # --- start program ---
+
     raiz.mainloop()
 #Decidir
 
@@ -23,8 +53,7 @@ def presentacion():
     raiz.title("Presentación")
     raiz.geometry("900x600+200+30")
     raiz.configure(bg="bisque")
-    miLabel = Label(raiz,
-                    text="Vamo a ve si funcionaxd chaval ",font="arial 12",bg="bisque",fg="purple4")
+    miLabel = Label(raiz,text="Vamo a ve si funcionaxd chaval ",font="arial 12",bg="bisque",fg="purple4")
     miLabel.pack()
     botonInicio = Button(raiz, text="Comenzar",font="arial 15",command=introducir)
     botonInicio.pack()
