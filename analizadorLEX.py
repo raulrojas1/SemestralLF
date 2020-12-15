@@ -4,12 +4,16 @@ import codecs
 import os
 import sys
 
-pos=0
-salida = []
+salidaLEX = []
 
-def mensaje():
-    global salida
-    return salida
+def mensajeLEX():
+    global salidaLEX
+    return salidaLEX
+
+def vaciarLEX():
+    global salidaLEX
+    del salidaLEX[:]
+    return
 
 reservadas = ['HF', 'GG', 'YF', 'MIENTRAS', 'KNT', 'DR', 'METRO', 'MOP']
 
@@ -69,7 +73,7 @@ def t_error(t):
     t.lexer.skip(1)
 
 
-def buscarFicheros(directorio):
+def buscarFicheros(directorio,numero):
     ficheros = []
     numArchivo = ''
     respuesta = False
@@ -83,7 +87,7 @@ def buscarFicheros(directorio):
         cont = cont + 1
 
     while respuesta == False:
-        numArchivo = input('\n Numero del test: ')
+        numArchivo = numero
         for file in files:
             if file == files[int(numArchivo) - 1]:
                 respuesta = True
@@ -91,21 +95,21 @@ def buscarFicheros(directorio):
     print("Usted ha seleccionado el archivo:  \"%s\" \n" % files[int(numArchivo) - 1])
     return files[int(numArchivo) - 1]
 
+def todoLEX(numero):
+    global reservadas, tokens, salidaLEX
+    directorio = './test/'
+    archivo = buscarFicheros(directorio,numero)
+    test = directorio + archivo
+    fp = codecs.open(test, "r", "utf-8")
+    cadena = fp.read()
+    fp.close()
 
-directorio = './test/'
-archivo = buscarFicheros(directorio)
-test = directorio + archivo
-fp = codecs.open(test, "r", "utf-8")
-cadena = fp.read()
-fp.close()
-
-analizador = lex.lex()
-analizador.input(cadena)
-while True:
-    tok = analizador.token()
-    if not tok: break
-    print(tok)
-    salida.append(tok)
-    salida.append("\n")
-    pos+=1
+    analizador = lex.lex()
+    analizador.input(cadena)
+    while True:
+        tok = analizador.token()
+        if not tok: break
+        print(tok)
+        salidaLEX.append(tok)
+        salidaLEX.append("\n\n")
 

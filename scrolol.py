@@ -22,7 +22,6 @@ canvas.configure(yscrollcommand = scrollbar.set)
 
 # update scrollregion after starting 'mainloop'
 # when all widgets are in canvas
-canvas.bind('<Configure>', on_configure)
 
 # --- put frame in canvas ---
 
@@ -36,5 +35,6 @@ l = Label(frame, text=mensaje(), font="size 16")
 l.pack()
 
 # --- start program ---
-
+raiz.update()
+canvas.configure(scrollregion=canvas.bbox('all'))
 raiz.mainloop()
