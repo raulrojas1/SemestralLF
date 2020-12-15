@@ -26,6 +26,7 @@ precedente = (
     ('left', 'MULTI', 'DIVIDIR')
 	)
 
+id_names = {}
 
 def p_program(p):
 	'''program : block'''
@@ -46,6 +47,7 @@ def p_constDec1Empty(p):
 def p_constAssignmentList1(p):
 	'''constAssignmentList : ID ACTUALI NUMERO'''
 	print ("constAssigmentList1")
+	id_names[p[1]] = p[3]
 
 def p_constAssignmentList2(p):
 	'''constAssignmentList : constAssignmentList COMA constAssignmentList'''
@@ -66,6 +68,7 @@ def p_identList1(p):
 def p_identList2(p):
 	'''identList : ID ACTUALI NUMERO'''
 	print ("identList 2")
+	id_names[p[1]] = p[3]
 
 
 def p_identList3(p):
@@ -91,6 +94,13 @@ def p_statement2(p):
 def p_statement3(p):
 	'''statement : KNT STRING PUNTOCOMA'''
 	print ("statement IMPRIMIR " + str(p[2]))
+
+def p_statementVars(p):
+	'''statement : KNT ID PUNTOCOMA'''
+	try:
+		print ("Valor de ID {:16} es {:4}".format(str(p[2]), str(id_names[p[2]]) ))
+	except LookupError:
+		print("ID desconocido: ".format(str(p[2])))
 
 def p_statement4(p):
 	'''statement : YF condition LLAVEI statement LLAVED'''

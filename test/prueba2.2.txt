@@ -1,8 +1,9 @@
 # programa con ciclo
-METRO x := 0;
+DR y := 10;
+METRO x := 5;
 HF
-    KNT "programa con ciclo";
+    KNT y;
     MIENTRAS  x <= 4 {
-       KNT "dentro de ciclo";
+       KNT x;
     }
 GG

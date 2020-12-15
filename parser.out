@@ -23,96 +23,97 @@ Rule 13    procDec1 -> empty
 Rule 14    statement -> HF statementList GG
 Rule 15    statement -> ID ACTUALI expression PUNTOCOMA
 Rule 16    statement -> KNT STRING PUNTOCOMA
-Rule 17    statement -> YF condition LLAVEI statement LLAVED
-Rule 18    statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
-Rule 19    statement -> MIENTRAS condition LLAVEI statement LLAVED
-Rule 20    statement -> KNT expression PUNTOCOMA
-Rule 21    statement -> empty
-Rule 22    statementList -> statement
-Rule 23    statementList -> statementList statementList
-Rule 24    condition -> IMPAR expression
-Rule 25    condition -> expression relation expression
-Rule 26    relation -> IGUAL
-Rule 27    relation -> DISTINTO
-Rule 28    relation -> MENOR
-Rule 29    relation -> MAYOR
-Rule 30    relation -> MENORI
-Rule 31    relation -> MAYORI
-Rule 32    expression -> term
-Rule 33    expression -> addingOperator term
-Rule 34    expression -> expression addingOperator term
-Rule 35    addingOperator -> SUMA
-Rule 36    subOperator -> MENOS
-Rule 37    term -> factor
-Rule 38    term -> term multiplyingOperator factor
-Rule 39    multiplyingOperator -> MULTI
-Rule 40    multiplyingOperator -> DIVIDIR
-Rule 41    factor -> ID
-Rule 42    factor -> NUMERO
-Rule 43    factor -> STRING
-Rule 44    expression -> factor addingOperator factor
-Rule 45    expression -> factor subOperator factor
-Rule 46    expression -> factor MULTI factor
-Rule 47    expression -> factor DIVIDIR factor
-Rule 48    expression -> expression MULTI expression
-Rule 49    expression -> expression DIVIDIR expression
-Rule 50    expression -> PARENTI expression PARENTD
-Rule 51    empty -> <empty>
+Rule 17    statement -> KNT ID PUNTOCOMA
+Rule 18    statement -> YF condition LLAVEI statement LLAVED
+Rule 19    statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
+Rule 20    statement -> MIENTRAS condition LLAVEI statement LLAVED
+Rule 21    statement -> KNT expression PUNTOCOMA
+Rule 22    statement -> empty
+Rule 23    statementList -> statement
+Rule 24    statementList -> statementList statementList
+Rule 25    condition -> IMPAR expression
+Rule 26    condition -> expression relation expression
+Rule 27    relation -> IGUAL
+Rule 28    relation -> DISTINTO
+Rule 29    relation -> MENOR
+Rule 30    relation -> MAYOR
+Rule 31    relation -> MENORI
+Rule 32    relation -> MAYORI
+Rule 33    expression -> term
+Rule 34    expression -> addingOperator term
+Rule 35    expression -> expression addingOperator term
+Rule 36    addingOperator -> SUMA
+Rule 37    subOperator -> MENOS
+Rule 38    term -> factor
+Rule 39    term -> term multiplyingOperator factor
+Rule 40    multiplyingOperator -> MULTI
+Rule 41    multiplyingOperator -> DIVIDIR
+Rule 42    factor -> ID
+Rule 43    factor -> NUMERO
+Rule 44    factor -> STRING
+Rule 45    expression -> factor addingOperator factor
+Rule 46    expression -> factor subOperator factor
+Rule 47    expression -> factor MULTI factor
+Rule 48    expression -> factor DIVIDIR factor
+Rule 49    expression -> expression MULTI expression
+Rule 50    expression -> expression DIVIDIR expression
+Rule 51    expression -> PARENTI expression PARENTD
+Rule 52    empty -> <empty>
 
 Terminals, with rules where they appear
 
 ACTUALI              : 5 10 15
 COMA                 : 6 11
-DISTINTO             : 27
-DIVIDIR              : 40 47 49
+DISTINTO             : 28
+DIVIDIR              : 41 48 50
 DR                   : 3
 ESPACIO              : 
 GG                   : 14
 HF                   : 14
-ID                   : 5 9 10 12 15 41
-IGUAL                : 26
-IMPAR                : 24
-KNT                  : 16 20
-LLAVED               : 17 18 18 19
-LLAVEI               : 17 18 18 19
-MAYOR                : 29
-MAYORI               : 31
-MENOR                : 28
-MENORI               : 30
-MENOS                : 36
+ID                   : 5 9 10 12 15 17 42
+IGUAL                : 27
+IMPAR                : 25
+KNT                  : 16 17 21
+LLAVED               : 18 19 19 20
+LLAVEI               : 18 19 19 20
+MAYOR                : 30
+MAYORI               : 32
+MENOR                : 29
+MENORI               : 31
+MENOS                : 37
 METRO                : 7
-MIENTRAS             : 19
+MIENTRAS             : 20
 MOP                  : 12
-MULTI                : 39 46 48
-NUMERO               : 5 10 42
-PARENTD              : 50
-PARENTI              : 50
-PUNTOCOMA            : 3 7 12 12 15 16 20
-STRING               : 16 43
-SUMA                 : 35
-WOLAN                : 18
-YF                   : 17 18
+MULTI                : 40 47 49
+NUMERO               : 5 10 43
+PARENTD              : 51
+PARENTI              : 51
+PUNTOCOMA            : 3 7 12 12 15 16 17 21
+STRING               : 16 44
+SUMA                 : 36
+WOLAN                : 19
+YF                   : 18 19
 error                : 
 
 Nonterminals, with rules where they appear
 
-addingOperator       : 33 34 44
+addingOperator       : 34 35 45
 block                : 1 12
-condition            : 17 18 19
+condition            : 18 19 20
 constAssignmentList  : 3 6 6
 constDec1            : 2
-empty                : 4 8 13 21
-expression           : 15 20 24 25 25 34 48 48 49 49 50
-factor               : 37 38 44 44 45 45 46 46 47 47
+empty                : 4 8 13 22
+expression           : 15 21 25 26 26 35 49 49 50 50 51
+factor               : 38 39 45 45 46 46 47 47 48 48
 identList            : 7 11 11
-multiplyingOperator  : 38
+multiplyingOperator  : 39
 procDec1             : 2 12
 program              : 0
-relation             : 25
-statement            : 2 17 18 18 19 22
-statementList        : 14 23 23
-subOperator          : 45
-term                 : 32 33 34 38
+relation             : 26
+statement            : 2 18 19 19 20 23
+statementList        : 14 24 24
+subOperator          : 46
+term                 : 33 34 35 39
 varDec1              : 2
 
 Parsing method: LALR
@@ -124,17 +125,17 @@ state 0
     (2) block -> . constDec1 varDec1 procDec1 statement
     (3) constDec1 -> . DR constAssignmentList PUNTOCOMA
     (4) constDec1 -> . empty
-    (51) empty -> .
+    (52) empty -> .
 
     DR              shift and go to state 4
-    METRO           reduce using rule 51 (empty -> .)
-    MOP             reduce using rule 51 (empty -> .)
-    HF              reduce using rule 51 (empty -> .)
-    ID              reduce using rule 51 (empty -> .)
-    KNT             reduce using rule 51 (empty -> .)
-    YF              reduce using rule 51 (empty -> .)
-    MIENTRAS        reduce using rule 51 (empty -> .)
-    $end            reduce using rule 51 (empty -> .)
+    METRO           reduce using rule 52 (empty -> .)
+    MOP             reduce using rule 52 (empty -> .)
+    HF              reduce using rule 52 (empty -> .)
+    ID              reduce using rule 52 (empty -> .)
+    KNT             reduce using rule 52 (empty -> .)
+    YF              reduce using rule 52 (empty -> .)
+    MIENTRAS        reduce using rule 52 (empty -> .)
+    $end            reduce using rule 52 (empty -> .)
 
     program                        shift and go to state 1
     block                          shift and go to state 2
@@ -159,17 +160,17 @@ state 3
     (2) block -> constDec1 . varDec1 procDec1 statement
     (7) varDec1 -> . METRO identList PUNTOCOMA
     (8) varDec1 -> . empty
-    (51) empty -> .
+    (52) empty -> .
 
     METRO           shift and go to state 7
-    MOP             reduce using rule 51 (empty -> .)
-    HF              reduce using rule 51 (empty -> .)
-    ID              reduce using rule 51 (empty -> .)
-    KNT             reduce using rule 51 (empty -> .)
-    YF              reduce using rule 51 (empty -> .)
-    MIENTRAS        reduce using rule 51 (empty -> .)
-    $end            reduce using rule 51 (empty -> .)
-    PUNTOCOMA       reduce using rule 51 (empty -> .)
+    MOP             reduce using rule 52 (empty -> .)
+    HF              reduce using rule 52 (empty -> .)
+    ID              reduce using rule 52 (empty -> .)
+    KNT             reduce using rule 52 (empty -> .)
+    YF              reduce using rule 52 (empty -> .)
+    MIENTRAS        reduce using rule 52 (empty -> .)
+    $end            reduce using rule 52 (empty -> .)
+    PUNTOCOMA       reduce using rule 52 (empty -> .)
 
     varDec1                        shift and go to state 6
     empty                          shift and go to state 8
@@ -204,16 +205,16 @@ state 6
     (2) block -> constDec1 varDec1 . procDec1 statement
     (12) procDec1 -> . procDec1 MOP ID PUNTOCOMA block PUNTOCOMA
     (13) procDec1 -> . empty
-    (51) empty -> .
+    (52) empty -> .
 
-    MOP             reduce using rule 51 (empty -> .)
-    HF              reduce using rule 51 (empty -> .)
-    ID              reduce using rule 51 (empty -> .)
-    KNT             reduce using rule 51 (empty -> .)
-    YF              reduce using rule 51 (empty -> .)
-    MIENTRAS        reduce using rule 51 (empty -> .)
-    $end            reduce using rule 51 (empty -> .)
-    PUNTOCOMA       reduce using rule 51 (empty -> .)
+    MOP             reduce using rule 52 (empty -> .)
+    HF              reduce using rule 52 (empty -> .)
+    ID              reduce using rule 52 (empty -> .)
+    KNT             reduce using rule 52 (empty -> .)
+    YF              reduce using rule 52 (empty -> .)
+    MIENTRAS        reduce using rule 52 (empty -> .)
+    $end            reduce using rule 52 (empty -> .)
+    PUNTOCOMA       reduce using rule 52 (empty -> .)
 
     procDec1                       shift and go to state 11
     empty                          shift and go to state 12
@@ -266,12 +267,13 @@ state 11
     (14) statement -> . HF statementList GG
     (15) statement -> . ID ACTUALI expression PUNTOCOMA
     (16) statement -> . KNT STRING PUNTOCOMA
-    (17) statement -> . YF condition LLAVEI statement LLAVED
-    (18) statement -> . YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
-    (19) statement -> . MIENTRAS condition LLAVEI statement LLAVED
-    (20) statement -> . KNT expression PUNTOCOMA
-    (21) statement -> . empty
-    (51) empty -> .
+    (17) statement -> . KNT ID PUNTOCOMA
+    (18) statement -> . YF condition LLAVEI statement LLAVED
+    (19) statement -> . YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
+    (20) statement -> . MIENTRAS condition LLAVEI statement LLAVED
+    (21) statement -> . KNT expression PUNTOCOMA
+    (22) statement -> . empty
+    (52) empty -> .
 
     MOP             shift and go to state 19
     HF              shift and go to state 21
@@ -279,8 +281,8 @@ state 11
     KNT             shift and go to state 22
     YF              shift and go to state 23
     MIENTRAS        shift and go to state 24
-    $end            reduce using rule 51 (empty -> .)
-    PUNTOCOMA       reduce using rule 51 (empty -> .)
+    $end            reduce using rule 52 (empty -> .)
+    PUNTOCOMA       reduce using rule 52 (empty -> .)
 
     statement                      shift and go to state 18
     empty                          shift and go to state 25
@@ -375,17 +377,18 @@ state 20
 state 21
 
     (14) statement -> HF . statementList GG
-    (22) statementList -> . statement
-    (23) statementList -> . statementList statementList
+    (23) statementList -> . statement
+    (24) statementList -> . statementList statementList
     (14) statement -> . HF statementList GG
     (15) statement -> . ID ACTUALI expression PUNTOCOMA
     (16) statement -> . KNT STRING PUNTOCOMA
-    (17) statement -> . YF condition LLAVEI statement LLAVED
-    (18) statement -> . YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
-    (19) statement -> . MIENTRAS condition LLAVEI statement LLAVED
-    (20) statement -> . KNT expression PUNTOCOMA
-    (21) statement -> . empty
-    (51) empty -> .
+    (17) statement -> . KNT ID PUNTOCOMA
+    (18) statement -> . YF condition LLAVEI statement LLAVED
+    (19) statement -> . YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
+    (20) statement -> . MIENTRAS condition LLAVEI statement LLAVED
+    (21) statement -> . KNT expression PUNTOCOMA
+    (22) statement -> . empty
+    (52) empty -> .
 
   ! shift/reduce conflict for HF resolved as shift
   ! shift/reduce conflict for ID resolved as shift
@@ -397,13 +400,13 @@ state 21
     KNT             shift and go to state 22
     YF              shift and go to state 23
     MIENTRAS        shift and go to state 24
-    GG              reduce using rule 51 (empty -> .)
+    GG              reduce using rule 52 (empty -> .)
 
-  ! HF              [ reduce using rule 51 (empty -> .) ]
-  ! ID              [ reduce using rule 51 (empty -> .) ]
-  ! KNT             [ reduce using rule 51 (empty -> .) ]
-  ! YF              [ reduce using rule 51 (empty -> .) ]
-  ! MIENTRAS        [ reduce using rule 51 (empty -> .) ]
+  ! HF              [ reduce using rule 52 (empty -> .) ]
+  ! ID              [ reduce using rule 52 (empty -> .) ]
+  ! KNT             [ reduce using rule 52 (empty -> .) ]
+  ! YF              [ reduce using rule 52 (empty -> .) ]
+  ! MIENTRAS        [ reduce using rule 52 (empty -> .) ]
 
     statementList                  shift and go to state 33
     statement                      shift and go to state 34
@@ -412,119 +415,120 @@ state 21
 state 22
 
     (16) statement -> KNT . STRING PUNTOCOMA
-    (20) statement -> KNT . expression PUNTOCOMA
-    (32) expression -> . term
-    (33) expression -> . addingOperator term
-    (34) expression -> . expression addingOperator term
-    (44) expression -> . factor addingOperator factor
-    (45) expression -> . factor subOperator factor
-    (46) expression -> . factor MULTI factor
-    (47) expression -> . factor DIVIDIR factor
-    (48) expression -> . expression MULTI expression
-    (49) expression -> . expression DIVIDIR expression
-    (50) expression -> . PARENTI expression PARENTD
-    (37) term -> . factor
-    (38) term -> . term multiplyingOperator factor
-    (35) addingOperator -> . SUMA
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
+    (17) statement -> KNT . ID PUNTOCOMA
+    (21) statement -> KNT . expression PUNTOCOMA
+    (33) expression -> . term
+    (34) expression -> . addingOperator term
+    (35) expression -> . expression addingOperator term
+    (45) expression -> . factor addingOperator factor
+    (46) expression -> . factor subOperator factor
+    (47) expression -> . factor MULTI factor
+    (48) expression -> . factor DIVIDIR factor
+    (49) expression -> . expression MULTI expression
+    (50) expression -> . expression DIVIDIR expression
+    (51) expression -> . PARENTI expression PARENTD
+    (38) term -> . factor
+    (39) term -> . term multiplyingOperator factor
+    (36) addingOperator -> . SUMA
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
 
     STRING          shift and go to state 35
-    PARENTI         shift and go to state 40
-    SUMA            shift and go to state 41
-    ID              shift and go to state 42
+    ID              shift and go to state 36
+    PARENTI         shift and go to state 41
+    SUMA            shift and go to state 42
     NUMERO          shift and go to state 43
 
-    expression                     shift and go to state 36
-    term                           shift and go to state 37
-    addingOperator                 shift and go to state 38
-    factor                         shift and go to state 39
+    expression                     shift and go to state 37
+    term                           shift and go to state 38
+    addingOperator                 shift and go to state 39
+    factor                         shift and go to state 40
 
 state 23
 
-    (17) statement -> YF . condition LLAVEI statement LLAVED
-    (18) statement -> YF . condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
-    (24) condition -> . IMPAR expression
-    (25) condition -> . expression relation expression
-    (32) expression -> . term
-    (33) expression -> . addingOperator term
-    (34) expression -> . expression addingOperator term
-    (44) expression -> . factor addingOperator factor
-    (45) expression -> . factor subOperator factor
-    (46) expression -> . factor MULTI factor
-    (47) expression -> . factor DIVIDIR factor
-    (48) expression -> . expression MULTI expression
-    (49) expression -> . expression DIVIDIR expression
-    (50) expression -> . PARENTI expression PARENTD
-    (37) term -> . factor
-    (38) term -> . term multiplyingOperator factor
-    (35) addingOperator -> . SUMA
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
+    (18) statement -> YF . condition LLAVEI statement LLAVED
+    (19) statement -> YF . condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
+    (25) condition -> . IMPAR expression
+    (26) condition -> . expression relation expression
+    (33) expression -> . term
+    (34) expression -> . addingOperator term
+    (35) expression -> . expression addingOperator term
+    (45) expression -> . factor addingOperator factor
+    (46) expression -> . factor subOperator factor
+    (47) expression -> . factor MULTI factor
+    (48) expression -> . factor DIVIDIR factor
+    (49) expression -> . expression MULTI expression
+    (50) expression -> . expression DIVIDIR expression
+    (51) expression -> . PARENTI expression PARENTD
+    (38) term -> . factor
+    (39) term -> . term multiplyingOperator factor
+    (36) addingOperator -> . SUMA
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
 
     IMPAR           shift and go to state 45
-    PARENTI         shift and go to state 40
-    SUMA            shift and go to state 41
-    ID              shift and go to state 42
+    PARENTI         shift and go to state 41
+    SUMA            shift and go to state 42
+    ID              shift and go to state 47
     NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
+    STRING          shift and go to state 48
 
     condition                      shift and go to state 44
     expression                     shift and go to state 46
-    term                           shift and go to state 37
-    addingOperator                 shift and go to state 38
-    factor                         shift and go to state 39
+    term                           shift and go to state 38
+    addingOperator                 shift and go to state 39
+    factor                         shift and go to state 40
 
 state 24
 
-    (19) statement -> MIENTRAS . condition LLAVEI statement LLAVED
-    (24) condition -> . IMPAR expression
-    (25) condition -> . expression relation expression
-    (32) expression -> . term
-    (33) expression -> . addingOperator term
-    (34) expression -> . expression addingOperator term
-    (44) expression -> . factor addingOperator factor
-    (45) expression -> . factor subOperator factor
-    (46) expression -> . factor MULTI factor
-    (47) expression -> . factor DIVIDIR factor
-    (48) expression -> . expression MULTI expression
-    (49) expression -> . expression DIVIDIR expression
-    (50) expression -> . PARENTI expression PARENTD
-    (37) term -> . factor
-    (38) term -> . term multiplyingOperator factor
-    (35) addingOperator -> . SUMA
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
+    (20) statement -> MIENTRAS . condition LLAVEI statement LLAVED
+    (25) condition -> . IMPAR expression
+    (26) condition -> . expression relation expression
+    (33) expression -> . term
+    (34) expression -> . addingOperator term
+    (35) expression -> . expression addingOperator term
+    (45) expression -> . factor addingOperator factor
+    (46) expression -> . factor subOperator factor
+    (47) expression -> . factor MULTI factor
+    (48) expression -> . factor DIVIDIR factor
+    (49) expression -> . expression MULTI expression
+    (50) expression -> . expression DIVIDIR expression
+    (51) expression -> . PARENTI expression PARENTD
+    (38) term -> . factor
+    (39) term -> . term multiplyingOperator factor
+    (36) addingOperator -> . SUMA
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
 
     IMPAR           shift and go to state 45
-    PARENTI         shift and go to state 40
-    SUMA            shift and go to state 41
-    ID              shift and go to state 42
+    PARENTI         shift and go to state 41
+    SUMA            shift and go to state 42
+    ID              shift and go to state 47
     NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
+    STRING          shift and go to state 48
 
-    condition                      shift and go to state 48
+    condition                      shift and go to state 49
     expression                     shift and go to state 46
-    term                           shift and go to state 37
-    addingOperator                 shift and go to state 38
-    factor                         shift and go to state 39
+    term                           shift and go to state 38
+    addingOperator                 shift and go to state 39
+    factor                         shift and go to state 40
 
 state 25
 
-    (21) statement -> empty .
+    (22) statement -> empty .
 
-    $end            reduce using rule 21 (statement -> empty .)
-    PUNTOCOMA       reduce using rule 21 (statement -> empty .)
-    GG              reduce using rule 21 (statement -> empty .)
-    HF              reduce using rule 21 (statement -> empty .)
-    ID              reduce using rule 21 (statement -> empty .)
-    KNT             reduce using rule 21 (statement -> empty .)
-    YF              reduce using rule 21 (statement -> empty .)
-    MIENTRAS        reduce using rule 21 (statement -> empty .)
-    LLAVED          reduce using rule 21 (statement -> empty .)
+    $end            reduce using rule 22 (statement -> empty .)
+    PUNTOCOMA       reduce using rule 22 (statement -> empty .)
+    GG              reduce using rule 22 (statement -> empty .)
+    HF              reduce using rule 22 (statement -> empty .)
+    ID              reduce using rule 22 (statement -> empty .)
+    KNT             reduce using rule 22 (statement -> empty .)
+    YF              reduce using rule 22 (statement -> empty .)
+    MIENTRAS        reduce using rule 22 (statement -> empty .)
+    LLAVED          reduce using rule 22 (statement -> empty .)
 
 
 state 26
@@ -550,13 +554,13 @@ state 27
 
     ID              shift and go to state 14
 
-    identList                      shift and go to state 49
+    identList                      shift and go to state 50
 
 state 28
 
     (10) identList -> ID ACTUALI . NUMERO
 
-    NUMERO          shift and go to state 50
+    NUMERO          shift and go to state 51
 
 
 state 29
@@ -583,55 +587,56 @@ state 31
 
     (12) procDec1 -> procDec1 MOP ID . PUNTOCOMA block PUNTOCOMA
 
-    PUNTOCOMA       shift and go to state 51
+    PUNTOCOMA       shift and go to state 52
 
 
 state 32
 
     (15) statement -> ID ACTUALI . expression PUNTOCOMA
-    (32) expression -> . term
-    (33) expression -> . addingOperator term
-    (34) expression -> . expression addingOperator term
-    (44) expression -> . factor addingOperator factor
-    (45) expression -> . factor subOperator factor
-    (46) expression -> . factor MULTI factor
-    (47) expression -> . factor DIVIDIR factor
-    (48) expression -> . expression MULTI expression
-    (49) expression -> . expression DIVIDIR expression
-    (50) expression -> . PARENTI expression PARENTD
-    (37) term -> . factor
-    (38) term -> . term multiplyingOperator factor
-    (35) addingOperator -> . SUMA
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
+    (33) expression -> . term
+    (34) expression -> . addingOperator term
+    (35) expression -> . expression addingOperator term
+    (45) expression -> . factor addingOperator factor
+    (46) expression -> . factor subOperator factor
+    (47) expression -> . factor MULTI factor
+    (48) expression -> . factor DIVIDIR factor
+    (49) expression -> . expression MULTI expression
+    (50) expression -> . expression DIVIDIR expression
+    (51) expression -> . PARENTI expression PARENTD
+    (38) term -> . factor
+    (39) term -> . term multiplyingOperator factor
+    (36) addingOperator -> . SUMA
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
 
-    PARENTI         shift and go to state 40
-    SUMA            shift and go to state 41
-    ID              shift and go to state 42
+    PARENTI         shift and go to state 41
+    SUMA            shift and go to state 42
+    ID              shift and go to state 47
     NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
+    STRING          shift and go to state 48
 
-    expression                     shift and go to state 52
-    term                           shift and go to state 37
-    addingOperator                 shift and go to state 38
-    factor                         shift and go to state 39
+    expression                     shift and go to state 53
+    term                           shift and go to state 38
+    addingOperator                 shift and go to state 39
+    factor                         shift and go to state 40
 
 state 33
 
     (14) statement -> HF statementList . GG
-    (23) statementList -> statementList . statementList
-    (22) statementList -> . statement
-    (23) statementList -> . statementList statementList
+    (24) statementList -> statementList . statementList
+    (23) statementList -> . statement
+    (24) statementList -> . statementList statementList
     (14) statement -> . HF statementList GG
     (15) statement -> . ID ACTUALI expression PUNTOCOMA
     (16) statement -> . KNT STRING PUNTOCOMA
-    (17) statement -> . YF condition LLAVEI statement LLAVED
-    (18) statement -> . YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
-    (19) statement -> . MIENTRAS condition LLAVEI statement LLAVED
-    (20) statement -> . KNT expression PUNTOCOMA
-    (21) statement -> . empty
-    (51) empty -> .
+    (17) statement -> . KNT ID PUNTOCOMA
+    (18) statement -> . YF condition LLAVEI statement LLAVED
+    (19) statement -> . YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
+    (20) statement -> . MIENTRAS condition LLAVEI statement LLAVED
+    (21) statement -> . KNT expression PUNTOCOMA
+    (22) statement -> . empty
+    (52) empty -> .
 
   ! shift/reduce conflict for HF resolved as shift
   ! shift/reduce conflict for ID resolved as shift
@@ -639,314 +644,329 @@ state 33
   ! shift/reduce conflict for YF resolved as shift
   ! shift/reduce conflict for MIENTRAS resolved as shift
   ! shift/reduce conflict for GG resolved as shift
-    GG              shift and go to state 54
+    GG              shift and go to state 55
     HF              shift and go to state 21
     ID              shift and go to state 20
     KNT             shift and go to state 22
     YF              shift and go to state 23
     MIENTRAS        shift and go to state 24
 
-  ! HF              [ reduce using rule 51 (empty -> .) ]
-  ! ID              [ reduce using rule 51 (empty -> .) ]
-  ! KNT             [ reduce using rule 51 (empty -> .) ]
-  ! YF              [ reduce using rule 51 (empty -> .) ]
-  ! MIENTRAS        [ reduce using rule 51 (empty -> .) ]
-  ! GG              [ reduce using rule 51 (empty -> .) ]
+  ! HF              [ reduce using rule 52 (empty -> .) ]
+  ! ID              [ reduce using rule 52 (empty -> .) ]
+  ! KNT             [ reduce using rule 52 (empty -> .) ]
+  ! YF              [ reduce using rule 52 (empty -> .) ]
+  ! MIENTRAS        [ reduce using rule 52 (empty -> .) ]
+  ! GG              [ reduce using rule 52 (empty -> .) ]
 
-    statementList                  shift and go to state 53
+    statementList                  shift and go to state 54
     statement                      shift and go to state 34
     empty                          shift and go to state 25
 
 state 34
 
-    (22) statementList -> statement .
+    (23) statementList -> statement .
 
-    GG              reduce using rule 22 (statementList -> statement .)
-    HF              reduce using rule 22 (statementList -> statement .)
-    ID              reduce using rule 22 (statementList -> statement .)
-    KNT             reduce using rule 22 (statementList -> statement .)
-    YF              reduce using rule 22 (statementList -> statement .)
-    MIENTRAS        reduce using rule 22 (statementList -> statement .)
+    GG              reduce using rule 23 (statementList -> statement .)
+    HF              reduce using rule 23 (statementList -> statement .)
+    ID              reduce using rule 23 (statementList -> statement .)
+    KNT             reduce using rule 23 (statementList -> statement .)
+    YF              reduce using rule 23 (statementList -> statement .)
+    MIENTRAS        reduce using rule 23 (statementList -> statement .)
 
 
 state 35
 
     (16) statement -> KNT STRING . PUNTOCOMA
-    (43) factor -> STRING .
+    (44) factor -> STRING .
 
   ! shift/reduce conflict for PUNTOCOMA resolved as shift
-    PUNTOCOMA       shift and go to state 55
-    MULTI           reduce using rule 43 (factor -> STRING .)
-    DIVIDIR         reduce using rule 43 (factor -> STRING .)
-    SUMA            reduce using rule 43 (factor -> STRING .)
-    MENOS           reduce using rule 43 (factor -> STRING .)
+    PUNTOCOMA       shift and go to state 56
+    MULTI           reduce using rule 44 (factor -> STRING .)
+    DIVIDIR         reduce using rule 44 (factor -> STRING .)
+    SUMA            reduce using rule 44 (factor -> STRING .)
+    MENOS           reduce using rule 44 (factor -> STRING .)
 
-  ! PUNTOCOMA       [ reduce using rule 43 (factor -> STRING .) ]
+  ! PUNTOCOMA       [ reduce using rule 44 (factor -> STRING .) ]
 
 
 state 36
 
-    (20) statement -> KNT expression . PUNTOCOMA
-    (34) expression -> expression . addingOperator term
-    (48) expression -> expression . MULTI expression
-    (49) expression -> expression . DIVIDIR expression
-    (35) addingOperator -> . SUMA
+    (17) statement -> KNT ID . PUNTOCOMA
+    (42) factor -> ID .
 
-    PUNTOCOMA       shift and go to state 56
-    MULTI           shift and go to state 58
-    DIVIDIR         shift and go to state 59
-    SUMA            shift and go to state 41
+  ! shift/reduce conflict for PUNTOCOMA resolved as shift
+    PUNTOCOMA       shift and go to state 57
+    MULTI           reduce using rule 42 (factor -> ID .)
+    DIVIDIR         reduce using rule 42 (factor -> ID .)
+    SUMA            reduce using rule 42 (factor -> ID .)
+    MENOS           reduce using rule 42 (factor -> ID .)
 
-    addingOperator                 shift and go to state 57
+  ! PUNTOCOMA       [ reduce using rule 42 (factor -> ID .) ]
+
 
 state 37
 
-    (32) expression -> term .
-    (38) term -> term . multiplyingOperator factor
-    (39) multiplyingOperator -> . MULTI
-    (40) multiplyingOperator -> . DIVIDIR
+    (21) statement -> KNT expression . PUNTOCOMA
+    (35) expression -> expression . addingOperator term
+    (49) expression -> expression . MULTI expression
+    (50) expression -> expression . DIVIDIR expression
+    (36) addingOperator -> . SUMA
 
-  ! shift/reduce conflict for MULTI resolved as shift
-  ! shift/reduce conflict for DIVIDIR resolved as shift
-    PUNTOCOMA       reduce using rule 32 (expression -> term .)
-    SUMA            reduce using rule 32 (expression -> term .)
-    IGUAL           reduce using rule 32 (expression -> term .)
-    DISTINTO        reduce using rule 32 (expression -> term .)
-    MENOR           reduce using rule 32 (expression -> term .)
-    MAYOR           reduce using rule 32 (expression -> term .)
-    MENORI          reduce using rule 32 (expression -> term .)
-    MAYORI          reduce using rule 32 (expression -> term .)
-    PARENTD         reduce using rule 32 (expression -> term .)
-    LLAVEI          reduce using rule 32 (expression -> term .)
-    MULTI           shift and go to state 61
-    DIVIDIR         shift and go to state 62
+    PUNTOCOMA       shift and go to state 58
+    MULTI           shift and go to state 60
+    DIVIDIR         shift and go to state 61
+    SUMA            shift and go to state 42
 
-  ! MULTI           [ reduce using rule 32 (expression -> term .) ]
-  ! DIVIDIR         [ reduce using rule 32 (expression -> term .) ]
-
-    multiplyingOperator            shift and go to state 60
+    addingOperator                 shift and go to state 59
 
 state 38
 
-    (33) expression -> addingOperator . term
-    (37) term -> . factor
-    (38) term -> . term multiplyingOperator factor
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
+    (33) expression -> term .
+    (39) term -> term . multiplyingOperator factor
+    (40) multiplyingOperator -> . MULTI
+    (41) multiplyingOperator -> . DIVIDIR
 
-    ID              shift and go to state 42
-    NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
+  ! shift/reduce conflict for MULTI resolved as shift
+  ! shift/reduce conflict for DIVIDIR resolved as shift
+    PUNTOCOMA       reduce using rule 33 (expression -> term .)
+    SUMA            reduce using rule 33 (expression -> term .)
+    IGUAL           reduce using rule 33 (expression -> term .)
+    DISTINTO        reduce using rule 33 (expression -> term .)
+    MENOR           reduce using rule 33 (expression -> term .)
+    MAYOR           reduce using rule 33 (expression -> term .)
+    MENORI          reduce using rule 33 (expression -> term .)
+    MAYORI          reduce using rule 33 (expression -> term .)
+    PARENTD         reduce using rule 33 (expression -> term .)
+    LLAVEI          reduce using rule 33 (expression -> term .)
+    MULTI           shift and go to state 63
+    DIVIDIR         shift and go to state 64
 
-    term                           shift and go to state 63
-    factor                         shift and go to state 64
+  ! MULTI           [ reduce using rule 33 (expression -> term .) ]
+  ! DIVIDIR         [ reduce using rule 33 (expression -> term .) ]
+
+    multiplyingOperator            shift and go to state 62
 
 state 39
 
-    (44) expression -> factor . addingOperator factor
-    (45) expression -> factor . subOperator factor
-    (46) expression -> factor . MULTI factor
-    (47) expression -> factor . DIVIDIR factor
-    (37) term -> factor .
-    (35) addingOperator -> . SUMA
-    (36) subOperator -> . MENOS
+    (34) expression -> addingOperator . term
+    (38) term -> . factor
+    (39) term -> . term multiplyingOperator factor
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
+
+    ID              shift and go to state 47
+    NUMERO          shift and go to state 43
+    STRING          shift and go to state 48
+
+    term                           shift and go to state 65
+    factor                         shift and go to state 66
+
+state 40
+
+    (45) expression -> factor . addingOperator factor
+    (46) expression -> factor . subOperator factor
+    (47) expression -> factor . MULTI factor
+    (48) expression -> factor . DIVIDIR factor
+    (38) term -> factor .
+    (36) addingOperator -> . SUMA
+    (37) subOperator -> . MENOS
 
   ! shift/reduce conflict for MULTI resolved as shift
   ! shift/reduce conflict for DIVIDIR resolved as shift
   ! shift/reduce conflict for SUMA resolved as shift
-    MULTI           shift and go to state 67
-    DIVIDIR         shift and go to state 68
-    PUNTOCOMA       reduce using rule 37 (term -> factor .)
-    IGUAL           reduce using rule 37 (term -> factor .)
-    DISTINTO        reduce using rule 37 (term -> factor .)
-    MENOR           reduce using rule 37 (term -> factor .)
-    MAYOR           reduce using rule 37 (term -> factor .)
-    MENORI          reduce using rule 37 (term -> factor .)
-    MAYORI          reduce using rule 37 (term -> factor .)
-    PARENTD         reduce using rule 37 (term -> factor .)
-    LLAVEI          reduce using rule 37 (term -> factor .)
-    SUMA            shift and go to state 41
-    MENOS           shift and go to state 69
+    MULTI           shift and go to state 69
+    DIVIDIR         shift and go to state 70
+    PUNTOCOMA       reduce using rule 38 (term -> factor .)
+    IGUAL           reduce using rule 38 (term -> factor .)
+    DISTINTO        reduce using rule 38 (term -> factor .)
+    MENOR           reduce using rule 38 (term -> factor .)
+    MAYOR           reduce using rule 38 (term -> factor .)
+    MENORI          reduce using rule 38 (term -> factor .)
+    MAYORI          reduce using rule 38 (term -> factor .)
+    PARENTD         reduce using rule 38 (term -> factor .)
+    LLAVEI          reduce using rule 38 (term -> factor .)
+    SUMA            shift and go to state 42
+    MENOS           shift and go to state 71
 
-  ! MULTI           [ reduce using rule 37 (term -> factor .) ]
-  ! DIVIDIR         [ reduce using rule 37 (term -> factor .) ]
-  ! SUMA            [ reduce using rule 37 (term -> factor .) ]
+  ! MULTI           [ reduce using rule 38 (term -> factor .) ]
+  ! DIVIDIR         [ reduce using rule 38 (term -> factor .) ]
+  ! SUMA            [ reduce using rule 38 (term -> factor .) ]
 
-    addingOperator                 shift and go to state 65
-    subOperator                    shift and go to state 66
-
-state 40
-
-    (50) expression -> PARENTI . expression PARENTD
-    (32) expression -> . term
-    (33) expression -> . addingOperator term
-    (34) expression -> . expression addingOperator term
-    (44) expression -> . factor addingOperator factor
-    (45) expression -> . factor subOperator factor
-    (46) expression -> . factor MULTI factor
-    (47) expression -> . factor DIVIDIR factor
-    (48) expression -> . expression MULTI expression
-    (49) expression -> . expression DIVIDIR expression
-    (50) expression -> . PARENTI expression PARENTD
-    (37) term -> . factor
-    (38) term -> . term multiplyingOperator factor
-    (35) addingOperator -> . SUMA
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
-
-    PARENTI         shift and go to state 40
-    SUMA            shift and go to state 41
-    ID              shift and go to state 42
-    NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
-
-    expression                     shift and go to state 70
-    term                           shift and go to state 37
-    addingOperator                 shift and go to state 38
-    factor                         shift and go to state 39
+    addingOperator                 shift and go to state 67
+    subOperator                    shift and go to state 68
 
 state 41
 
-    (35) addingOperator -> SUMA .
+    (51) expression -> PARENTI . expression PARENTD
+    (33) expression -> . term
+    (34) expression -> . addingOperator term
+    (35) expression -> . expression addingOperator term
+    (45) expression -> . factor addingOperator factor
+    (46) expression -> . factor subOperator factor
+    (47) expression -> . factor MULTI factor
+    (48) expression -> . factor DIVIDIR factor
+    (49) expression -> . expression MULTI expression
+    (50) expression -> . expression DIVIDIR expression
+    (51) expression -> . PARENTI expression PARENTD
+    (38) term -> . factor
+    (39) term -> . term multiplyingOperator factor
+    (36) addingOperator -> . SUMA
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
 
-    ID              reduce using rule 35 (addingOperator -> SUMA .)
-    NUMERO          reduce using rule 35 (addingOperator -> SUMA .)
-    STRING          reduce using rule 35 (addingOperator -> SUMA .)
+    PARENTI         shift and go to state 41
+    SUMA            shift and go to state 42
+    ID              shift and go to state 47
+    NUMERO          shift and go to state 43
+    STRING          shift and go to state 48
 
+    expression                     shift and go to state 72
+    term                           shift and go to state 38
+    addingOperator                 shift and go to state 39
+    factor                         shift and go to state 40
 
 state 42
 
-    (41) factor -> ID .
+    (36) addingOperator -> SUMA .
 
-    MULTI           reduce using rule 41 (factor -> ID .)
-    DIVIDIR         reduce using rule 41 (factor -> ID .)
-    SUMA            reduce using rule 41 (factor -> ID .)
-    MENOS           reduce using rule 41 (factor -> ID .)
-    PUNTOCOMA       reduce using rule 41 (factor -> ID .)
-    IGUAL           reduce using rule 41 (factor -> ID .)
-    DISTINTO        reduce using rule 41 (factor -> ID .)
-    MENOR           reduce using rule 41 (factor -> ID .)
-    MAYOR           reduce using rule 41 (factor -> ID .)
-    MENORI          reduce using rule 41 (factor -> ID .)
-    MAYORI          reduce using rule 41 (factor -> ID .)
-    PARENTD         reduce using rule 41 (factor -> ID .)
-    LLAVEI          reduce using rule 41 (factor -> ID .)
+    ID              reduce using rule 36 (addingOperator -> SUMA .)
+    NUMERO          reduce using rule 36 (addingOperator -> SUMA .)
+    STRING          reduce using rule 36 (addingOperator -> SUMA .)
 
 
 state 43
 
-    (42) factor -> NUMERO .
+    (43) factor -> NUMERO .
 
-    MULTI           reduce using rule 42 (factor -> NUMERO .)
-    DIVIDIR         reduce using rule 42 (factor -> NUMERO .)
-    SUMA            reduce using rule 42 (factor -> NUMERO .)
-    MENOS           reduce using rule 42 (factor -> NUMERO .)
-    PUNTOCOMA       reduce using rule 42 (factor -> NUMERO .)
-    IGUAL           reduce using rule 42 (factor -> NUMERO .)
-    DISTINTO        reduce using rule 42 (factor -> NUMERO .)
-    MENOR           reduce using rule 42 (factor -> NUMERO .)
-    MAYOR           reduce using rule 42 (factor -> NUMERO .)
-    MENORI          reduce using rule 42 (factor -> NUMERO .)
-    MAYORI          reduce using rule 42 (factor -> NUMERO .)
-    PARENTD         reduce using rule 42 (factor -> NUMERO .)
-    LLAVEI          reduce using rule 42 (factor -> NUMERO .)
+    MULTI           reduce using rule 43 (factor -> NUMERO .)
+    DIVIDIR         reduce using rule 43 (factor -> NUMERO .)
+    SUMA            reduce using rule 43 (factor -> NUMERO .)
+    MENOS           reduce using rule 43 (factor -> NUMERO .)
+    PUNTOCOMA       reduce using rule 43 (factor -> NUMERO .)
+    IGUAL           reduce using rule 43 (factor -> NUMERO .)
+    DISTINTO        reduce using rule 43 (factor -> NUMERO .)
+    MENOR           reduce using rule 43 (factor -> NUMERO .)
+    MAYOR           reduce using rule 43 (factor -> NUMERO .)
+    MENORI          reduce using rule 43 (factor -> NUMERO .)
+    MAYORI          reduce using rule 43 (factor -> NUMERO .)
+    PARENTD         reduce using rule 43 (factor -> NUMERO .)
+    LLAVEI          reduce using rule 43 (factor -> NUMERO .)
 
 
 state 44
 
-    (17) statement -> YF condition . LLAVEI statement LLAVED
-    (18) statement -> YF condition . LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
+    (18) statement -> YF condition . LLAVEI statement LLAVED
+    (19) statement -> YF condition . LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
 
-    LLAVEI          shift and go to state 71
+    LLAVEI          shift and go to state 73
 
 
 state 45
 
-    (24) condition -> IMPAR . expression
-    (32) expression -> . term
-    (33) expression -> . addingOperator term
-    (34) expression -> . expression addingOperator term
-    (44) expression -> . factor addingOperator factor
-    (45) expression -> . factor subOperator factor
-    (46) expression -> . factor MULTI factor
-    (47) expression -> . factor DIVIDIR factor
-    (48) expression -> . expression MULTI expression
-    (49) expression -> . expression DIVIDIR expression
-    (50) expression -> . PARENTI expression PARENTD
-    (37) term -> . factor
-    (38) term -> . term multiplyingOperator factor
-    (35) addingOperator -> . SUMA
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
+    (25) condition -> IMPAR . expression
+    (33) expression -> . term
+    (34) expression -> . addingOperator term
+    (35) expression -> . expression addingOperator term
+    (45) expression -> . factor addingOperator factor
+    (46) expression -> . factor subOperator factor
+    (47) expression -> . factor MULTI factor
+    (48) expression -> . factor DIVIDIR factor
+    (49) expression -> . expression MULTI expression
+    (50) expression -> . expression DIVIDIR expression
+    (51) expression -> . PARENTI expression PARENTD
+    (38) term -> . factor
+    (39) term -> . term multiplyingOperator factor
+    (36) addingOperator -> . SUMA
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
 
-    PARENTI         shift and go to state 40
-    SUMA            shift and go to state 41
-    ID              shift and go to state 42
+    PARENTI         shift and go to state 41
+    SUMA            shift and go to state 42
+    ID              shift and go to state 47
     NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
+    STRING          shift and go to state 48
 
-    expression                     shift and go to state 72
-    term                           shift and go to state 37
-    addingOperator                 shift and go to state 38
-    factor                         shift and go to state 39
+    expression                     shift and go to state 74
+    term                           shift and go to state 38
+    addingOperator                 shift and go to state 39
+    factor                         shift and go to state 40
 
 state 46
 
-    (25) condition -> expression . relation expression
-    (34) expression -> expression . addingOperator term
-    (48) expression -> expression . MULTI expression
-    (49) expression -> expression . DIVIDIR expression
-    (26) relation -> . IGUAL
-    (27) relation -> . DISTINTO
-    (28) relation -> . MENOR
-    (29) relation -> . MAYOR
-    (30) relation -> . MENORI
-    (31) relation -> . MAYORI
-    (35) addingOperator -> . SUMA
+    (26) condition -> expression . relation expression
+    (35) expression -> expression . addingOperator term
+    (49) expression -> expression . MULTI expression
+    (50) expression -> expression . DIVIDIR expression
+    (27) relation -> . IGUAL
+    (28) relation -> . DISTINTO
+    (29) relation -> . MENOR
+    (30) relation -> . MAYOR
+    (31) relation -> . MENORI
+    (32) relation -> . MAYORI
+    (36) addingOperator -> . SUMA
 
-    MULTI           shift and go to state 58
-    DIVIDIR         shift and go to state 59
-    IGUAL           shift and go to state 74
-    DISTINTO        shift and go to state 75
-    MENOR           shift and go to state 76
-    MAYOR           shift and go to state 77
-    MENORI          shift and go to state 78
-    MAYORI          shift and go to state 79
-    SUMA            shift and go to state 41
+    MULTI           shift and go to state 60
+    DIVIDIR         shift and go to state 61
+    IGUAL           shift and go to state 76
+    DISTINTO        shift and go to state 77
+    MENOR           shift and go to state 78
+    MAYOR           shift and go to state 79
+    MENORI          shift and go to state 80
+    MAYORI          shift and go to state 81
+    SUMA            shift and go to state 42
 
-    relation                       shift and go to state 73
-    addingOperator                 shift and go to state 57
+    relation                       shift and go to state 75
+    addingOperator                 shift and go to state 59
 
 state 47
 
-    (43) factor -> STRING .
+    (42) factor -> ID .
 
-    MULTI           reduce using rule 43 (factor -> STRING .)
-    DIVIDIR         reduce using rule 43 (factor -> STRING .)
-    SUMA            reduce using rule 43 (factor -> STRING .)
-    MENOS           reduce using rule 43 (factor -> STRING .)
-    IGUAL           reduce using rule 43 (factor -> STRING .)
-    DISTINTO        reduce using rule 43 (factor -> STRING .)
-    MENOR           reduce using rule 43 (factor -> STRING .)
-    MAYOR           reduce using rule 43 (factor -> STRING .)
-    MENORI          reduce using rule 43 (factor -> STRING .)
-    MAYORI          reduce using rule 43 (factor -> STRING .)
-    PUNTOCOMA       reduce using rule 43 (factor -> STRING .)
-    PARENTD         reduce using rule 43 (factor -> STRING .)
-    LLAVEI          reduce using rule 43 (factor -> STRING .)
+    MULTI           reduce using rule 42 (factor -> ID .)
+    DIVIDIR         reduce using rule 42 (factor -> ID .)
+    SUMA            reduce using rule 42 (factor -> ID .)
+    MENOS           reduce using rule 42 (factor -> ID .)
+    IGUAL           reduce using rule 42 (factor -> ID .)
+    DISTINTO        reduce using rule 42 (factor -> ID .)
+    MENOR           reduce using rule 42 (factor -> ID .)
+    MAYOR           reduce using rule 42 (factor -> ID .)
+    MENORI          reduce using rule 42 (factor -> ID .)
+    MAYORI          reduce using rule 42 (factor -> ID .)
+    PUNTOCOMA       reduce using rule 42 (factor -> ID .)
+    PARENTD         reduce using rule 42 (factor -> ID .)
+    LLAVEI          reduce using rule 42 (factor -> ID .)
 
 
 state 48
 
-    (19) statement -> MIENTRAS condition . LLAVEI statement LLAVED
+    (44) factor -> STRING .
 
-    LLAVEI          shift and go to state 80
+    MULTI           reduce using rule 44 (factor -> STRING .)
+    DIVIDIR         reduce using rule 44 (factor -> STRING .)
+    SUMA            reduce using rule 44 (factor -> STRING .)
+    MENOS           reduce using rule 44 (factor -> STRING .)
+    IGUAL           reduce using rule 44 (factor -> STRING .)
+    DISTINTO        reduce using rule 44 (factor -> STRING .)
+    MENOR           reduce using rule 44 (factor -> STRING .)
+    MAYOR           reduce using rule 44 (factor -> STRING .)
+    MENORI          reduce using rule 44 (factor -> STRING .)
+    MAYORI          reduce using rule 44 (factor -> STRING .)
+    PUNTOCOMA       reduce using rule 44 (factor -> STRING .)
+    PARENTD         reduce using rule 44 (factor -> STRING .)
+    LLAVEI          reduce using rule 44 (factor -> STRING .)
 
 
 state 49
+
+    (20) statement -> MIENTRAS condition . LLAVEI statement LLAVED
+
+    LLAVEI          shift and go to state 82
+
+
+state 50
 
     (11) identList -> identList COMA identList .
     (11) identList -> identList . COMA identList
@@ -958,7 +978,7 @@ state 49
   ! COMA            [ reduce using rule 11 (identList -> identList COMA identList .) ]
 
 
-state 50
+state 51
 
     (10) identList -> ID ACTUALI NUMERO .
 
@@ -966,58 +986,59 @@ state 50
     COMA            reduce using rule 10 (identList -> ID ACTUALI NUMERO .)
 
 
-state 51
+state 52
 
     (12) procDec1 -> procDec1 MOP ID PUNTOCOMA . block PUNTOCOMA
     (2) block -> . constDec1 varDec1 procDec1 statement
     (3) constDec1 -> . DR constAssignmentList PUNTOCOMA
     (4) constDec1 -> . empty
-    (51) empty -> .
+    (52) empty -> .
 
     DR              shift and go to state 4
-    METRO           reduce using rule 51 (empty -> .)
-    MOP             reduce using rule 51 (empty -> .)
-    HF              reduce using rule 51 (empty -> .)
-    ID              reduce using rule 51 (empty -> .)
-    KNT             reduce using rule 51 (empty -> .)
-    YF              reduce using rule 51 (empty -> .)
-    MIENTRAS        reduce using rule 51 (empty -> .)
-    PUNTOCOMA       reduce using rule 51 (empty -> .)
+    METRO           reduce using rule 52 (empty -> .)
+    MOP             reduce using rule 52 (empty -> .)
+    HF              reduce using rule 52 (empty -> .)
+    ID              reduce using rule 52 (empty -> .)
+    KNT             reduce using rule 52 (empty -> .)
+    YF              reduce using rule 52 (empty -> .)
+    MIENTRAS        reduce using rule 52 (empty -> .)
+    PUNTOCOMA       reduce using rule 52 (empty -> .)
 
-    block                          shift and go to state 81
+    block                          shift and go to state 83
     constDec1                      shift and go to state 3
     empty                          shift and go to state 5
 
-state 52
-
-    (15) statement -> ID ACTUALI expression . PUNTOCOMA
-    (34) expression -> expression . addingOperator term
-    (48) expression -> expression . MULTI expression
-    (49) expression -> expression . DIVIDIR expression
-    (35) addingOperator -> . SUMA
-
-    PUNTOCOMA       shift and go to state 82
-    MULTI           shift and go to state 58
-    DIVIDIR         shift and go to state 59
-    SUMA            shift and go to state 41
-
-    addingOperator                 shift and go to state 57
-
 state 53
 
-    (23) statementList -> statementList statementList .
-    (23) statementList -> statementList . statementList
-    (22) statementList -> . statement
-    (23) statementList -> . statementList statementList
+    (15) statement -> ID ACTUALI expression . PUNTOCOMA
+    (35) expression -> expression . addingOperator term
+    (49) expression -> expression . MULTI expression
+    (50) expression -> expression . DIVIDIR expression
+    (36) addingOperator -> . SUMA
+
+    PUNTOCOMA       shift and go to state 84
+    MULTI           shift and go to state 60
+    DIVIDIR         shift and go to state 61
+    SUMA            shift and go to state 42
+
+    addingOperator                 shift and go to state 59
+
+state 54
+
+    (24) statementList -> statementList statementList .
+    (24) statementList -> statementList . statementList
+    (23) statementList -> . statement
+    (24) statementList -> . statementList statementList
     (14) statement -> . HF statementList GG
     (15) statement -> . ID ACTUALI expression PUNTOCOMA
     (16) statement -> . KNT STRING PUNTOCOMA
-    (17) statement -> . YF condition LLAVEI statement LLAVED
-    (18) statement -> . YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
-    (19) statement -> . MIENTRAS condition LLAVEI statement LLAVED
-    (20) statement -> . KNT expression PUNTOCOMA
-    (21) statement -> . empty
-    (51) empty -> .
+    (17) statement -> . KNT ID PUNTOCOMA
+    (18) statement -> . YF condition LLAVEI statement LLAVED
+    (19) statement -> . YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
+    (20) statement -> . MIENTRAS condition LLAVEI statement LLAVED
+    (21) statement -> . KNT expression PUNTOCOMA
+    (22) statement -> . empty
+    (52) empty -> .
 
   ! shift/reduce conflict for HF resolved as shift
   ! shift/reduce conflict for ID resolved as shift
@@ -1029,31 +1050,31 @@ state 53
   ! shift/reduce conflict for KNT resolved as shift
   ! shift/reduce conflict for YF resolved as shift
   ! shift/reduce conflict for MIENTRAS resolved as shift
-  ! reduce/reduce conflict for GG resolved using rule 23 (statementList -> statementList statementList .)
-    GG              reduce using rule 23 (statementList -> statementList statementList .)
+  ! reduce/reduce conflict for GG resolved using rule 24 (statementList -> statementList statementList .)
+    GG              reduce using rule 24 (statementList -> statementList statementList .)
     HF              shift and go to state 21
     ID              shift and go to state 20
     KNT             shift and go to state 22
     YF              shift and go to state 23
     MIENTRAS        shift and go to state 24
 
-  ! HF              [ reduce using rule 23 (statementList -> statementList statementList .) ]
-  ! ID              [ reduce using rule 23 (statementList -> statementList statementList .) ]
-  ! KNT             [ reduce using rule 23 (statementList -> statementList statementList .) ]
-  ! YF              [ reduce using rule 23 (statementList -> statementList statementList .) ]
-  ! MIENTRAS        [ reduce using rule 23 (statementList -> statementList statementList .) ]
-  ! HF              [ reduce using rule 51 (empty -> .) ]
-  ! ID              [ reduce using rule 51 (empty -> .) ]
-  ! KNT             [ reduce using rule 51 (empty -> .) ]
-  ! YF              [ reduce using rule 51 (empty -> .) ]
-  ! MIENTRAS        [ reduce using rule 51 (empty -> .) ]
-  ! GG              [ reduce using rule 51 (empty -> .) ]
+  ! HF              [ reduce using rule 24 (statementList -> statementList statementList .) ]
+  ! ID              [ reduce using rule 24 (statementList -> statementList statementList .) ]
+  ! KNT             [ reduce using rule 24 (statementList -> statementList statementList .) ]
+  ! YF              [ reduce using rule 24 (statementList -> statementList statementList .) ]
+  ! MIENTRAS        [ reduce using rule 24 (statementList -> statementList statementList .) ]
+  ! HF              [ reduce using rule 52 (empty -> .) ]
+  ! ID              [ reduce using rule 52 (empty -> .) ]
+  ! KNT             [ reduce using rule 52 (empty -> .) ]
+  ! YF              [ reduce using rule 52 (empty -> .) ]
+  ! MIENTRAS        [ reduce using rule 52 (empty -> .) ]
+  ! GG              [ reduce using rule 52 (empty -> .) ]
 
-    statementList                  shift and go to state 53
+    statementList                  shift and go to state 54
     statement                      shift and go to state 34
     empty                          shift and go to state 25
 
-state 54
+state 55
 
     (14) statement -> HF statementList GG .
 
@@ -1068,7 +1089,7 @@ state 54
     LLAVED          reduce using rule 14 (statement -> HF statementList GG .)
 
 
-state 55
+state 56
 
     (16) statement -> KNT STRING PUNTOCOMA .
 
@@ -1083,418 +1104,435 @@ state 55
     LLAVED          reduce using rule 16 (statement -> KNT STRING PUNTOCOMA .)
 
 
-state 56
-
-    (20) statement -> KNT expression PUNTOCOMA .
-
-    $end            reduce using rule 20 (statement -> KNT expression PUNTOCOMA .)
-    PUNTOCOMA       reduce using rule 20 (statement -> KNT expression PUNTOCOMA .)
-    GG              reduce using rule 20 (statement -> KNT expression PUNTOCOMA .)
-    HF              reduce using rule 20 (statement -> KNT expression PUNTOCOMA .)
-    ID              reduce using rule 20 (statement -> KNT expression PUNTOCOMA .)
-    KNT             reduce using rule 20 (statement -> KNT expression PUNTOCOMA .)
-    YF              reduce using rule 20 (statement -> KNT expression PUNTOCOMA .)
-    MIENTRAS        reduce using rule 20 (statement -> KNT expression PUNTOCOMA .)
-    LLAVED          reduce using rule 20 (statement -> KNT expression PUNTOCOMA .)
-
-
 state 57
 
-    (34) expression -> expression addingOperator . term
-    (37) term -> . factor
-    (38) term -> . term multiplyingOperator factor
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
+    (17) statement -> KNT ID PUNTOCOMA .
 
-    ID              shift and go to state 42
-    NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
+    $end            reduce using rule 17 (statement -> KNT ID PUNTOCOMA .)
+    PUNTOCOMA       reduce using rule 17 (statement -> KNT ID PUNTOCOMA .)
+    GG              reduce using rule 17 (statement -> KNT ID PUNTOCOMA .)
+    HF              reduce using rule 17 (statement -> KNT ID PUNTOCOMA .)
+    ID              reduce using rule 17 (statement -> KNT ID PUNTOCOMA .)
+    KNT             reduce using rule 17 (statement -> KNT ID PUNTOCOMA .)
+    YF              reduce using rule 17 (statement -> KNT ID PUNTOCOMA .)
+    MIENTRAS        reduce using rule 17 (statement -> KNT ID PUNTOCOMA .)
+    LLAVED          reduce using rule 17 (statement -> KNT ID PUNTOCOMA .)
 
-    term                           shift and go to state 83
-    factor                         shift and go to state 64
 
 state 58
 
-    (48) expression -> expression MULTI . expression
-    (32) expression -> . term
-    (33) expression -> . addingOperator term
-    (34) expression -> . expression addingOperator term
-    (44) expression -> . factor addingOperator factor
-    (45) expression -> . factor subOperator factor
-    (46) expression -> . factor MULTI factor
-    (47) expression -> . factor DIVIDIR factor
-    (48) expression -> . expression MULTI expression
-    (49) expression -> . expression DIVIDIR expression
-    (50) expression -> . PARENTI expression PARENTD
-    (37) term -> . factor
-    (38) term -> . term multiplyingOperator factor
-    (35) addingOperator -> . SUMA
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
+    (21) statement -> KNT expression PUNTOCOMA .
 
-    PARENTI         shift and go to state 40
-    SUMA            shift and go to state 41
-    ID              shift and go to state 42
-    NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
+    $end            reduce using rule 21 (statement -> KNT expression PUNTOCOMA .)
+    PUNTOCOMA       reduce using rule 21 (statement -> KNT expression PUNTOCOMA .)
+    GG              reduce using rule 21 (statement -> KNT expression PUNTOCOMA .)
+    HF              reduce using rule 21 (statement -> KNT expression PUNTOCOMA .)
+    ID              reduce using rule 21 (statement -> KNT expression PUNTOCOMA .)
+    KNT             reduce using rule 21 (statement -> KNT expression PUNTOCOMA .)
+    YF              reduce using rule 21 (statement -> KNT expression PUNTOCOMA .)
+    MIENTRAS        reduce using rule 21 (statement -> KNT expression PUNTOCOMA .)
+    LLAVED          reduce using rule 21 (statement -> KNT expression PUNTOCOMA .)
 
-    expression                     shift and go to state 84
-    term                           shift and go to state 37
-    addingOperator                 shift and go to state 38
-    factor                         shift and go to state 39
 
 state 59
 
-    (49) expression -> expression DIVIDIR . expression
-    (32) expression -> . term
-    (33) expression -> . addingOperator term
-    (34) expression -> . expression addingOperator term
-    (44) expression -> . factor addingOperator factor
-    (45) expression -> . factor subOperator factor
-    (46) expression -> . factor MULTI factor
-    (47) expression -> . factor DIVIDIR factor
-    (48) expression -> . expression MULTI expression
-    (49) expression -> . expression DIVIDIR expression
-    (50) expression -> . PARENTI expression PARENTD
-    (37) term -> . factor
-    (38) term -> . term multiplyingOperator factor
-    (35) addingOperator -> . SUMA
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
+    (35) expression -> expression addingOperator . term
+    (38) term -> . factor
+    (39) term -> . term multiplyingOperator factor
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
 
-    PARENTI         shift and go to state 40
-    SUMA            shift and go to state 41
-    ID              shift and go to state 42
+    ID              shift and go to state 47
     NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
+    STRING          shift and go to state 48
 
-    expression                     shift and go to state 85
-    term                           shift and go to state 37
-    addingOperator                 shift and go to state 38
-    factor                         shift and go to state 39
+    term                           shift and go to state 85
+    factor                         shift and go to state 66
 
 state 60
 
-    (38) term -> term multiplyingOperator . factor
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
+    (49) expression -> expression MULTI . expression
+    (33) expression -> . term
+    (34) expression -> . addingOperator term
+    (35) expression -> . expression addingOperator term
+    (45) expression -> . factor addingOperator factor
+    (46) expression -> . factor subOperator factor
+    (47) expression -> . factor MULTI factor
+    (48) expression -> . factor DIVIDIR factor
+    (49) expression -> . expression MULTI expression
+    (50) expression -> . expression DIVIDIR expression
+    (51) expression -> . PARENTI expression PARENTD
+    (38) term -> . factor
+    (39) term -> . term multiplyingOperator factor
+    (36) addingOperator -> . SUMA
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
 
-    ID              shift and go to state 42
+    PARENTI         shift and go to state 41
+    SUMA            shift and go to state 42
+    ID              shift and go to state 47
     NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
+    STRING          shift and go to state 48
 
-    factor                         shift and go to state 86
+    expression                     shift and go to state 86
+    term                           shift and go to state 38
+    addingOperator                 shift and go to state 39
+    factor                         shift and go to state 40
 
 state 61
 
-    (39) multiplyingOperator -> MULTI .
+    (50) expression -> expression DIVIDIR . expression
+    (33) expression -> . term
+    (34) expression -> . addingOperator term
+    (35) expression -> . expression addingOperator term
+    (45) expression -> . factor addingOperator factor
+    (46) expression -> . factor subOperator factor
+    (47) expression -> . factor MULTI factor
+    (48) expression -> . factor DIVIDIR factor
+    (49) expression -> . expression MULTI expression
+    (50) expression -> . expression DIVIDIR expression
+    (51) expression -> . PARENTI expression PARENTD
+    (38) term -> . factor
+    (39) term -> . term multiplyingOperator factor
+    (36) addingOperator -> . SUMA
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
 
-    ID              reduce using rule 39 (multiplyingOperator -> MULTI .)
-    NUMERO          reduce using rule 39 (multiplyingOperator -> MULTI .)
-    STRING          reduce using rule 39 (multiplyingOperator -> MULTI .)
+    PARENTI         shift and go to state 41
+    SUMA            shift and go to state 42
+    ID              shift and go to state 47
+    NUMERO          shift and go to state 43
+    STRING          shift and go to state 48
 
+    expression                     shift and go to state 87
+    term                           shift and go to state 38
+    addingOperator                 shift and go to state 39
+    factor                         shift and go to state 40
 
 state 62
 
-    (40) multiplyingOperator -> DIVIDIR .
+    (39) term -> term multiplyingOperator . factor
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
 
-    ID              reduce using rule 40 (multiplyingOperator -> DIVIDIR .)
-    NUMERO          reduce using rule 40 (multiplyingOperator -> DIVIDIR .)
-    STRING          reduce using rule 40 (multiplyingOperator -> DIVIDIR .)
+    ID              shift and go to state 47
+    NUMERO          shift and go to state 43
+    STRING          shift and go to state 48
 
+    factor                         shift and go to state 88
 
 state 63
 
-    (33) expression -> addingOperator term .
-    (38) term -> term . multiplyingOperator factor
-    (39) multiplyingOperator -> . MULTI
-    (40) multiplyingOperator -> . DIVIDIR
+    (40) multiplyingOperator -> MULTI .
 
-  ! shift/reduce conflict for MULTI resolved as shift
-  ! shift/reduce conflict for DIVIDIR resolved as shift
-    PUNTOCOMA       reduce using rule 33 (expression -> addingOperator term .)
-    SUMA            reduce using rule 33 (expression -> addingOperator term .)
-    IGUAL           reduce using rule 33 (expression -> addingOperator term .)
-    DISTINTO        reduce using rule 33 (expression -> addingOperator term .)
-    MENOR           reduce using rule 33 (expression -> addingOperator term .)
-    MAYOR           reduce using rule 33 (expression -> addingOperator term .)
-    MENORI          reduce using rule 33 (expression -> addingOperator term .)
-    MAYORI          reduce using rule 33 (expression -> addingOperator term .)
-    PARENTD         reduce using rule 33 (expression -> addingOperator term .)
-    LLAVEI          reduce using rule 33 (expression -> addingOperator term .)
-    MULTI           shift and go to state 61
-    DIVIDIR         shift and go to state 62
+    ID              reduce using rule 40 (multiplyingOperator -> MULTI .)
+    NUMERO          reduce using rule 40 (multiplyingOperator -> MULTI .)
+    STRING          reduce using rule 40 (multiplyingOperator -> MULTI .)
 
-  ! MULTI           [ reduce using rule 33 (expression -> addingOperator term .) ]
-  ! DIVIDIR         [ reduce using rule 33 (expression -> addingOperator term .) ]
-
-    multiplyingOperator            shift and go to state 60
 
 state 64
 
-    (37) term -> factor .
+    (41) multiplyingOperator -> DIVIDIR .
 
-    MULTI           reduce using rule 37 (term -> factor .)
-    DIVIDIR         reduce using rule 37 (term -> factor .)
-    PUNTOCOMA       reduce using rule 37 (term -> factor .)
-    SUMA            reduce using rule 37 (term -> factor .)
-    IGUAL           reduce using rule 37 (term -> factor .)
-    DISTINTO        reduce using rule 37 (term -> factor .)
-    MENOR           reduce using rule 37 (term -> factor .)
-    MAYOR           reduce using rule 37 (term -> factor .)
-    MENORI          reduce using rule 37 (term -> factor .)
-    MAYORI          reduce using rule 37 (term -> factor .)
-    PARENTD         reduce using rule 37 (term -> factor .)
-    LLAVEI          reduce using rule 37 (term -> factor .)
+    ID              reduce using rule 41 (multiplyingOperator -> DIVIDIR .)
+    NUMERO          reduce using rule 41 (multiplyingOperator -> DIVIDIR .)
+    STRING          reduce using rule 41 (multiplyingOperator -> DIVIDIR .)
 
 
 state 65
 
-    (44) expression -> factor addingOperator . factor
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
+    (34) expression -> addingOperator term .
+    (39) term -> term . multiplyingOperator factor
+    (40) multiplyingOperator -> . MULTI
+    (41) multiplyingOperator -> . DIVIDIR
 
-    ID              shift and go to state 42
-    NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
+  ! shift/reduce conflict for MULTI resolved as shift
+  ! shift/reduce conflict for DIVIDIR resolved as shift
+    PUNTOCOMA       reduce using rule 34 (expression -> addingOperator term .)
+    SUMA            reduce using rule 34 (expression -> addingOperator term .)
+    IGUAL           reduce using rule 34 (expression -> addingOperator term .)
+    DISTINTO        reduce using rule 34 (expression -> addingOperator term .)
+    MENOR           reduce using rule 34 (expression -> addingOperator term .)
+    MAYOR           reduce using rule 34 (expression -> addingOperator term .)
+    MENORI          reduce using rule 34 (expression -> addingOperator term .)
+    MAYORI          reduce using rule 34 (expression -> addingOperator term .)
+    PARENTD         reduce using rule 34 (expression -> addingOperator term .)
+    LLAVEI          reduce using rule 34 (expression -> addingOperator term .)
+    MULTI           shift and go to state 63
+    DIVIDIR         shift and go to state 64
 
-    factor                         shift and go to state 87
+  ! MULTI           [ reduce using rule 34 (expression -> addingOperator term .) ]
+  ! DIVIDIR         [ reduce using rule 34 (expression -> addingOperator term .) ]
+
+    multiplyingOperator            shift and go to state 62
 
 state 66
 
-    (45) expression -> factor subOperator . factor
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
+    (38) term -> factor .
 
-    ID              shift and go to state 42
-    NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
+    MULTI           reduce using rule 38 (term -> factor .)
+    DIVIDIR         reduce using rule 38 (term -> factor .)
+    PUNTOCOMA       reduce using rule 38 (term -> factor .)
+    SUMA            reduce using rule 38 (term -> factor .)
+    IGUAL           reduce using rule 38 (term -> factor .)
+    DISTINTO        reduce using rule 38 (term -> factor .)
+    MENOR           reduce using rule 38 (term -> factor .)
+    MAYOR           reduce using rule 38 (term -> factor .)
+    MENORI          reduce using rule 38 (term -> factor .)
+    MAYORI          reduce using rule 38 (term -> factor .)
+    PARENTD         reduce using rule 38 (term -> factor .)
+    LLAVEI          reduce using rule 38 (term -> factor .)
 
-    factor                         shift and go to state 88
 
 state 67
 
-    (46) expression -> factor MULTI . factor
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
+    (45) expression -> factor addingOperator . factor
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
 
-    ID              shift and go to state 42
+    ID              shift and go to state 47
     NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
+    STRING          shift and go to state 48
 
     factor                         shift and go to state 89
 
 state 68
 
-    (47) expression -> factor DIVIDIR . factor
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
+    (46) expression -> factor subOperator . factor
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
 
-    ID              shift and go to state 42
+    ID              shift and go to state 47
     NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
+    STRING          shift and go to state 48
 
     factor                         shift and go to state 90
 
 state 69
 
-    (36) subOperator -> MENOS .
+    (47) expression -> factor MULTI . factor
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
 
-    ID              reduce using rule 36 (subOperator -> MENOS .)
-    NUMERO          reduce using rule 36 (subOperator -> MENOS .)
-    STRING          reduce using rule 36 (subOperator -> MENOS .)
+    ID              shift and go to state 47
+    NUMERO          shift and go to state 43
+    STRING          shift and go to state 48
 
+    factor                         shift and go to state 91
 
 state 70
 
-    (50) expression -> PARENTI expression . PARENTD
-    (34) expression -> expression . addingOperator term
-    (48) expression -> expression . MULTI expression
-    (49) expression -> expression . DIVIDIR expression
-    (35) addingOperator -> . SUMA
+    (48) expression -> factor DIVIDIR . factor
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
 
-    PARENTD         shift and go to state 91
-    MULTI           shift and go to state 58
-    DIVIDIR         shift and go to state 59
-    SUMA            shift and go to state 41
+    ID              shift and go to state 47
+    NUMERO          shift and go to state 43
+    STRING          shift and go to state 48
 
-    addingOperator                 shift and go to state 57
+    factor                         shift and go to state 92
 
 state 71
 
-    (17) statement -> YF condition LLAVEI . statement LLAVED
-    (18) statement -> YF condition LLAVEI . statement LLAVED WOLAN LLAVEI statement LLAVED
-    (14) statement -> . HF statementList GG
-    (15) statement -> . ID ACTUALI expression PUNTOCOMA
-    (16) statement -> . KNT STRING PUNTOCOMA
-    (17) statement -> . YF condition LLAVEI statement LLAVED
-    (18) statement -> . YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
-    (19) statement -> . MIENTRAS condition LLAVEI statement LLAVED
-    (20) statement -> . KNT expression PUNTOCOMA
-    (21) statement -> . empty
-    (51) empty -> .
+    (37) subOperator -> MENOS .
 
-    HF              shift and go to state 21
-    ID              shift and go to state 20
-    KNT             shift and go to state 22
-    YF              shift and go to state 23
-    MIENTRAS        shift and go to state 24
-    LLAVED          reduce using rule 51 (empty -> .)
+    ID              reduce using rule 37 (subOperator -> MENOS .)
+    NUMERO          reduce using rule 37 (subOperator -> MENOS .)
+    STRING          reduce using rule 37 (subOperator -> MENOS .)
 
-    statement                      shift and go to state 92
-    empty                          shift and go to state 25
 
 state 72
 
-    (24) condition -> IMPAR expression .
-    (34) expression -> expression . addingOperator term
-    (48) expression -> expression . MULTI expression
-    (49) expression -> expression . DIVIDIR expression
-    (35) addingOperator -> . SUMA
+    (51) expression -> PARENTI expression . PARENTD
+    (35) expression -> expression . addingOperator term
+    (49) expression -> expression . MULTI expression
+    (50) expression -> expression . DIVIDIR expression
+    (36) addingOperator -> . SUMA
 
-    LLAVEI          reduce using rule 24 (condition -> IMPAR expression .)
-    MULTI           shift and go to state 58
-    DIVIDIR         shift and go to state 59
-    SUMA            shift and go to state 41
+    PARENTD         shift and go to state 93
+    MULTI           shift and go to state 60
+    DIVIDIR         shift and go to state 61
+    SUMA            shift and go to state 42
 
-    addingOperator                 shift and go to state 57
+    addingOperator                 shift and go to state 59
 
 state 73
 
-    (25) condition -> expression relation . expression
-    (32) expression -> . term
-    (33) expression -> . addingOperator term
-    (34) expression -> . expression addingOperator term
-    (44) expression -> . factor addingOperator factor
-    (45) expression -> . factor subOperator factor
-    (46) expression -> . factor MULTI factor
-    (47) expression -> . factor DIVIDIR factor
-    (48) expression -> . expression MULTI expression
-    (49) expression -> . expression DIVIDIR expression
-    (50) expression -> . PARENTI expression PARENTD
-    (37) term -> . factor
-    (38) term -> . term multiplyingOperator factor
-    (35) addingOperator -> . SUMA
-    (41) factor -> . ID
-    (42) factor -> . NUMERO
-    (43) factor -> . STRING
-
-    PARENTI         shift and go to state 40
-    SUMA            shift and go to state 41
-    ID              shift and go to state 42
-    NUMERO          shift and go to state 43
-    STRING          shift and go to state 47
-
-    expression                     shift and go to state 93
-    term                           shift and go to state 37
-    addingOperator                 shift and go to state 38
-    factor                         shift and go to state 39
-
-state 74
-
-    (26) relation -> IGUAL .
-
-    PARENTI         reduce using rule 26 (relation -> IGUAL .)
-    SUMA            reduce using rule 26 (relation -> IGUAL .)
-    ID              reduce using rule 26 (relation -> IGUAL .)
-    NUMERO          reduce using rule 26 (relation -> IGUAL .)
-    STRING          reduce using rule 26 (relation -> IGUAL .)
-
-
-state 75
-
-    (27) relation -> DISTINTO .
-
-    PARENTI         reduce using rule 27 (relation -> DISTINTO .)
-    SUMA            reduce using rule 27 (relation -> DISTINTO .)
-    ID              reduce using rule 27 (relation -> DISTINTO .)
-    NUMERO          reduce using rule 27 (relation -> DISTINTO .)
-    STRING          reduce using rule 27 (relation -> DISTINTO .)
-
-
-state 76
-
-    (28) relation -> MENOR .
-
-    PARENTI         reduce using rule 28 (relation -> MENOR .)
-    SUMA            reduce using rule 28 (relation -> MENOR .)
-    ID              reduce using rule 28 (relation -> MENOR .)
-    NUMERO          reduce using rule 28 (relation -> MENOR .)
-    STRING          reduce using rule 28 (relation -> MENOR .)
-
-
-state 77
-
-    (29) relation -> MAYOR .
-
-    PARENTI         reduce using rule 29 (relation -> MAYOR .)
-    SUMA            reduce using rule 29 (relation -> MAYOR .)
-    ID              reduce using rule 29 (relation -> MAYOR .)
-    NUMERO          reduce using rule 29 (relation -> MAYOR .)
-    STRING          reduce using rule 29 (relation -> MAYOR .)
-
-
-state 78
-
-    (30) relation -> MENORI .
-
-    PARENTI         reduce using rule 30 (relation -> MENORI .)
-    SUMA            reduce using rule 30 (relation -> MENORI .)
-    ID              reduce using rule 30 (relation -> MENORI .)
-    NUMERO          reduce using rule 30 (relation -> MENORI .)
-    STRING          reduce using rule 30 (relation -> MENORI .)
-
-
-state 79
-
-    (31) relation -> MAYORI .
-
-    PARENTI         reduce using rule 31 (relation -> MAYORI .)
-    SUMA            reduce using rule 31 (relation -> MAYORI .)
-    ID              reduce using rule 31 (relation -> MAYORI .)
-    NUMERO          reduce using rule 31 (relation -> MAYORI .)
-    STRING          reduce using rule 31 (relation -> MAYORI .)
-
-
-state 80
-
-    (19) statement -> MIENTRAS condition LLAVEI . statement LLAVED
+    (18) statement -> YF condition LLAVEI . statement LLAVED
+    (19) statement -> YF condition LLAVEI . statement LLAVED WOLAN LLAVEI statement LLAVED
     (14) statement -> . HF statementList GG
     (15) statement -> . ID ACTUALI expression PUNTOCOMA
     (16) statement -> . KNT STRING PUNTOCOMA
-    (17) statement -> . YF condition LLAVEI statement LLAVED
-    (18) statement -> . YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
-    (19) statement -> . MIENTRAS condition LLAVEI statement LLAVED
-    (20) statement -> . KNT expression PUNTOCOMA
-    (21) statement -> . empty
-    (51) empty -> .
+    (17) statement -> . KNT ID PUNTOCOMA
+    (18) statement -> . YF condition LLAVEI statement LLAVED
+    (19) statement -> . YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
+    (20) statement -> . MIENTRAS condition LLAVEI statement LLAVED
+    (21) statement -> . KNT expression PUNTOCOMA
+    (22) statement -> . empty
+    (52) empty -> .
 
     HF              shift and go to state 21
     ID              shift and go to state 20
     KNT             shift and go to state 22
     YF              shift and go to state 23
     MIENTRAS        shift and go to state 24
-    LLAVED          reduce using rule 51 (empty -> .)
+    LLAVED          reduce using rule 52 (empty -> .)
 
     statement                      shift and go to state 94
     empty                          shift and go to state 25
 
+state 74
+
+    (25) condition -> IMPAR expression .
+    (35) expression -> expression . addingOperator term
+    (49) expression -> expression . MULTI expression
+    (50) expression -> expression . DIVIDIR expression
+    (36) addingOperator -> . SUMA
+
+    LLAVEI          reduce using rule 25 (condition -> IMPAR expression .)
+    MULTI           shift and go to state 60
+    DIVIDIR         shift and go to state 61
+    SUMA            shift and go to state 42
+
+    addingOperator                 shift and go to state 59
+
+state 75
+
+    (26) condition -> expression relation . expression
+    (33) expression -> . term
+    (34) expression -> . addingOperator term
+    (35) expression -> . expression addingOperator term
+    (45) expression -> . factor addingOperator factor
+    (46) expression -> . factor subOperator factor
+    (47) expression -> . factor MULTI factor
+    (48) expression -> . factor DIVIDIR factor
+    (49) expression -> . expression MULTI expression
+    (50) expression -> . expression DIVIDIR expression
+    (51) expression -> . PARENTI expression PARENTD
+    (38) term -> . factor
+    (39) term -> . term multiplyingOperator factor
+    (36) addingOperator -> . SUMA
+    (42) factor -> . ID
+    (43) factor -> . NUMERO
+    (44) factor -> . STRING
+
+    PARENTI         shift and go to state 41
+    SUMA            shift and go to state 42
+    ID              shift and go to state 47
+    NUMERO          shift and go to state 43
+    STRING          shift and go to state 48
+
+    expression                     shift and go to state 95
+    term                           shift and go to state 38
+    addingOperator                 shift and go to state 39
+    factor                         shift and go to state 40
+
+state 76
+
+    (27) relation -> IGUAL .
+
+    PARENTI         reduce using rule 27 (relation -> IGUAL .)
+    SUMA            reduce using rule 27 (relation -> IGUAL .)
+    ID              reduce using rule 27 (relation -> IGUAL .)
+    NUMERO          reduce using rule 27 (relation -> IGUAL .)
+    STRING          reduce using rule 27 (relation -> IGUAL .)
+
+
+state 77
+
+    (28) relation -> DISTINTO .
+
+    PARENTI         reduce using rule 28 (relation -> DISTINTO .)
+    SUMA            reduce using rule 28 (relation -> DISTINTO .)
+    ID              reduce using rule 28 (relation -> DISTINTO .)
+    NUMERO          reduce using rule 28 (relation -> DISTINTO .)
+    STRING          reduce using rule 28 (relation -> DISTINTO .)
+
+
+state 78
+
+    (29) relation -> MENOR .
+
+    PARENTI         reduce using rule 29 (relation -> MENOR .)
+    SUMA            reduce using rule 29 (relation -> MENOR .)
+    ID              reduce using rule 29 (relation -> MENOR .)
+    NUMERO          reduce using rule 29 (relation -> MENOR .)
+    STRING          reduce using rule 29 (relation -> MENOR .)
+
+
+state 79
+
+    (30) relation -> MAYOR .
+
+    PARENTI         reduce using rule 30 (relation -> MAYOR .)
+    SUMA            reduce using rule 30 (relation -> MAYOR .)
+    ID              reduce using rule 30 (relation -> MAYOR .)
+    NUMERO          reduce using rule 30 (relation -> MAYOR .)
+    STRING          reduce using rule 30 (relation -> MAYOR .)
+
+
+state 80
+
+    (31) relation -> MENORI .
+
+    PARENTI         reduce using rule 31 (relation -> MENORI .)
+    SUMA            reduce using rule 31 (relation -> MENORI .)
+    ID              reduce using rule 31 (relation -> MENORI .)
+    NUMERO          reduce using rule 31 (relation -> MENORI .)
+    STRING          reduce using rule 31 (relation -> MENORI .)
+
+
 state 81
 
-    (12) procDec1 -> procDec1 MOP ID PUNTOCOMA block . PUNTOCOMA
+    (32) relation -> MAYORI .
 
-    PUNTOCOMA       shift and go to state 95
+    PARENTI         reduce using rule 32 (relation -> MAYORI .)
+    SUMA            reduce using rule 32 (relation -> MAYORI .)
+    ID              reduce using rule 32 (relation -> MAYORI .)
+    NUMERO          reduce using rule 32 (relation -> MAYORI .)
+    STRING          reduce using rule 32 (relation -> MAYORI .)
 
 
 state 82
+
+    (20) statement -> MIENTRAS condition LLAVEI . statement LLAVED
+    (14) statement -> . HF statementList GG
+    (15) statement -> . ID ACTUALI expression PUNTOCOMA
+    (16) statement -> . KNT STRING PUNTOCOMA
+    (17) statement -> . KNT ID PUNTOCOMA
+    (18) statement -> . YF condition LLAVEI statement LLAVED
+    (19) statement -> . YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
+    (20) statement -> . MIENTRAS condition LLAVEI statement LLAVED
+    (21) statement -> . KNT expression PUNTOCOMA
+    (22) statement -> . empty
+    (52) empty -> .
+
+    HF              shift and go to state 21
+    ID              shift and go to state 20
+    KNT             shift and go to state 22
+    YF              shift and go to state 23
+    MIENTRAS        shift and go to state 24
+    LLAVED          reduce using rule 52 (empty -> .)
+
+    statement                      shift and go to state 96
+    empty                          shift and go to state 25
+
+state 83
+
+    (12) procDec1 -> procDec1 MOP ID PUNTOCOMA block . PUNTOCOMA
+
+    PUNTOCOMA       shift and go to state 97
+
+
+state 84
 
     (15) statement -> ID ACTUALI expression PUNTOCOMA .
 
@@ -1509,232 +1547,232 @@ state 82
     LLAVED          reduce using rule 15 (statement -> ID ACTUALI expression PUNTOCOMA .)
 
 
-state 83
-
-    (34) expression -> expression addingOperator term .
-    (38) term -> term . multiplyingOperator factor
-    (39) multiplyingOperator -> . MULTI
-    (40) multiplyingOperator -> . DIVIDIR
-
-  ! shift/reduce conflict for MULTI resolved as shift
-  ! shift/reduce conflict for DIVIDIR resolved as shift
-    PUNTOCOMA       reduce using rule 34 (expression -> expression addingOperator term .)
-    SUMA            reduce using rule 34 (expression -> expression addingOperator term .)
-    IGUAL           reduce using rule 34 (expression -> expression addingOperator term .)
-    DISTINTO        reduce using rule 34 (expression -> expression addingOperator term .)
-    MENOR           reduce using rule 34 (expression -> expression addingOperator term .)
-    MAYOR           reduce using rule 34 (expression -> expression addingOperator term .)
-    MENORI          reduce using rule 34 (expression -> expression addingOperator term .)
-    MAYORI          reduce using rule 34 (expression -> expression addingOperator term .)
-    PARENTD         reduce using rule 34 (expression -> expression addingOperator term .)
-    LLAVEI          reduce using rule 34 (expression -> expression addingOperator term .)
-    MULTI           shift and go to state 61
-    DIVIDIR         shift and go to state 62
-
-  ! MULTI           [ reduce using rule 34 (expression -> expression addingOperator term .) ]
-  ! DIVIDIR         [ reduce using rule 34 (expression -> expression addingOperator term .) ]
-
-    multiplyingOperator            shift and go to state 60
-
-state 84
-
-    (48) expression -> expression MULTI expression .
-    (34) expression -> expression . addingOperator term
-    (48) expression -> expression . MULTI expression
-    (49) expression -> expression . DIVIDIR expression
-    (35) addingOperator -> . SUMA
-
-  ! shift/reduce conflict for MULTI resolved as shift
-  ! shift/reduce conflict for DIVIDIR resolved as shift
-  ! shift/reduce conflict for SUMA resolved as shift
-    PUNTOCOMA       reduce using rule 48 (expression -> expression MULTI expression .)
-    IGUAL           reduce using rule 48 (expression -> expression MULTI expression .)
-    DISTINTO        reduce using rule 48 (expression -> expression MULTI expression .)
-    MENOR           reduce using rule 48 (expression -> expression MULTI expression .)
-    MAYOR           reduce using rule 48 (expression -> expression MULTI expression .)
-    MENORI          reduce using rule 48 (expression -> expression MULTI expression .)
-    MAYORI          reduce using rule 48 (expression -> expression MULTI expression .)
-    PARENTD         reduce using rule 48 (expression -> expression MULTI expression .)
-    LLAVEI          reduce using rule 48 (expression -> expression MULTI expression .)
-    MULTI           shift and go to state 58
-    DIVIDIR         shift and go to state 59
-    SUMA            shift and go to state 41
-
-  ! MULTI           [ reduce using rule 48 (expression -> expression MULTI expression .) ]
-  ! DIVIDIR         [ reduce using rule 48 (expression -> expression MULTI expression .) ]
-  ! SUMA            [ reduce using rule 48 (expression -> expression MULTI expression .) ]
-
-    addingOperator                 shift and go to state 57
-
 state 85
 
-    (49) expression -> expression DIVIDIR expression .
-    (34) expression -> expression . addingOperator term
-    (48) expression -> expression . MULTI expression
-    (49) expression -> expression . DIVIDIR expression
-    (35) addingOperator -> . SUMA
+    (35) expression -> expression addingOperator term .
+    (39) term -> term . multiplyingOperator factor
+    (40) multiplyingOperator -> . MULTI
+    (41) multiplyingOperator -> . DIVIDIR
 
   ! shift/reduce conflict for MULTI resolved as shift
   ! shift/reduce conflict for DIVIDIR resolved as shift
-  ! shift/reduce conflict for SUMA resolved as shift
-    PUNTOCOMA       reduce using rule 49 (expression -> expression DIVIDIR expression .)
-    IGUAL           reduce using rule 49 (expression -> expression DIVIDIR expression .)
-    DISTINTO        reduce using rule 49 (expression -> expression DIVIDIR expression .)
-    MENOR           reduce using rule 49 (expression -> expression DIVIDIR expression .)
-    MAYOR           reduce using rule 49 (expression -> expression DIVIDIR expression .)
-    MENORI          reduce using rule 49 (expression -> expression DIVIDIR expression .)
-    MAYORI          reduce using rule 49 (expression -> expression DIVIDIR expression .)
-    PARENTD         reduce using rule 49 (expression -> expression DIVIDIR expression .)
-    LLAVEI          reduce using rule 49 (expression -> expression DIVIDIR expression .)
-    MULTI           shift and go to state 58
-    DIVIDIR         shift and go to state 59
-    SUMA            shift and go to state 41
+    PUNTOCOMA       reduce using rule 35 (expression -> expression addingOperator term .)
+    SUMA            reduce using rule 35 (expression -> expression addingOperator term .)
+    IGUAL           reduce using rule 35 (expression -> expression addingOperator term .)
+    DISTINTO        reduce using rule 35 (expression -> expression addingOperator term .)
+    MENOR           reduce using rule 35 (expression -> expression addingOperator term .)
+    MAYOR           reduce using rule 35 (expression -> expression addingOperator term .)
+    MENORI          reduce using rule 35 (expression -> expression addingOperator term .)
+    MAYORI          reduce using rule 35 (expression -> expression addingOperator term .)
+    PARENTD         reduce using rule 35 (expression -> expression addingOperator term .)
+    LLAVEI          reduce using rule 35 (expression -> expression addingOperator term .)
+    MULTI           shift and go to state 63
+    DIVIDIR         shift and go to state 64
 
-  ! MULTI           [ reduce using rule 49 (expression -> expression DIVIDIR expression .) ]
-  ! DIVIDIR         [ reduce using rule 49 (expression -> expression DIVIDIR expression .) ]
-  ! SUMA            [ reduce using rule 49 (expression -> expression DIVIDIR expression .) ]
+  ! MULTI           [ reduce using rule 35 (expression -> expression addingOperator term .) ]
+  ! DIVIDIR         [ reduce using rule 35 (expression -> expression addingOperator term .) ]
 
-    addingOperator                 shift and go to state 57
+    multiplyingOperator            shift and go to state 62
 
 state 86
 
-    (38) term -> term multiplyingOperator factor .
+    (49) expression -> expression MULTI expression .
+    (35) expression -> expression . addingOperator term
+    (49) expression -> expression . MULTI expression
+    (50) expression -> expression . DIVIDIR expression
+    (36) addingOperator -> . SUMA
 
-    MULTI           reduce using rule 38 (term -> term multiplyingOperator factor .)
-    DIVIDIR         reduce using rule 38 (term -> term multiplyingOperator factor .)
-    PUNTOCOMA       reduce using rule 38 (term -> term multiplyingOperator factor .)
-    SUMA            reduce using rule 38 (term -> term multiplyingOperator factor .)
-    IGUAL           reduce using rule 38 (term -> term multiplyingOperator factor .)
-    DISTINTO        reduce using rule 38 (term -> term multiplyingOperator factor .)
-    MENOR           reduce using rule 38 (term -> term multiplyingOperator factor .)
-    MAYOR           reduce using rule 38 (term -> term multiplyingOperator factor .)
-    MENORI          reduce using rule 38 (term -> term multiplyingOperator factor .)
-    MAYORI          reduce using rule 38 (term -> term multiplyingOperator factor .)
-    PARENTD         reduce using rule 38 (term -> term multiplyingOperator factor .)
-    LLAVEI          reduce using rule 38 (term -> term multiplyingOperator factor .)
+  ! shift/reduce conflict for MULTI resolved as shift
+  ! shift/reduce conflict for DIVIDIR resolved as shift
+  ! shift/reduce conflict for SUMA resolved as shift
+    PUNTOCOMA       reduce using rule 49 (expression -> expression MULTI expression .)
+    IGUAL           reduce using rule 49 (expression -> expression MULTI expression .)
+    DISTINTO        reduce using rule 49 (expression -> expression MULTI expression .)
+    MENOR           reduce using rule 49 (expression -> expression MULTI expression .)
+    MAYOR           reduce using rule 49 (expression -> expression MULTI expression .)
+    MENORI          reduce using rule 49 (expression -> expression MULTI expression .)
+    MAYORI          reduce using rule 49 (expression -> expression MULTI expression .)
+    PARENTD         reduce using rule 49 (expression -> expression MULTI expression .)
+    LLAVEI          reduce using rule 49 (expression -> expression MULTI expression .)
+    MULTI           shift and go to state 60
+    DIVIDIR         shift and go to state 61
+    SUMA            shift and go to state 42
 
+  ! MULTI           [ reduce using rule 49 (expression -> expression MULTI expression .) ]
+  ! DIVIDIR         [ reduce using rule 49 (expression -> expression MULTI expression .) ]
+  ! SUMA            [ reduce using rule 49 (expression -> expression MULTI expression .) ]
+
+    addingOperator                 shift and go to state 59
 
 state 87
 
-    (44) expression -> factor addingOperator factor .
+    (50) expression -> expression DIVIDIR expression .
+    (35) expression -> expression . addingOperator term
+    (49) expression -> expression . MULTI expression
+    (50) expression -> expression . DIVIDIR expression
+    (36) addingOperator -> . SUMA
 
-    PUNTOCOMA       reduce using rule 44 (expression -> factor addingOperator factor .)
-    MULTI           reduce using rule 44 (expression -> factor addingOperator factor .)
-    DIVIDIR         reduce using rule 44 (expression -> factor addingOperator factor .)
-    SUMA            reduce using rule 44 (expression -> factor addingOperator factor .)
-    IGUAL           reduce using rule 44 (expression -> factor addingOperator factor .)
-    DISTINTO        reduce using rule 44 (expression -> factor addingOperator factor .)
-    MENOR           reduce using rule 44 (expression -> factor addingOperator factor .)
-    MAYOR           reduce using rule 44 (expression -> factor addingOperator factor .)
-    MENORI          reduce using rule 44 (expression -> factor addingOperator factor .)
-    MAYORI          reduce using rule 44 (expression -> factor addingOperator factor .)
-    PARENTD         reduce using rule 44 (expression -> factor addingOperator factor .)
-    LLAVEI          reduce using rule 44 (expression -> factor addingOperator factor .)
+  ! shift/reduce conflict for MULTI resolved as shift
+  ! shift/reduce conflict for DIVIDIR resolved as shift
+  ! shift/reduce conflict for SUMA resolved as shift
+    PUNTOCOMA       reduce using rule 50 (expression -> expression DIVIDIR expression .)
+    IGUAL           reduce using rule 50 (expression -> expression DIVIDIR expression .)
+    DISTINTO        reduce using rule 50 (expression -> expression DIVIDIR expression .)
+    MENOR           reduce using rule 50 (expression -> expression DIVIDIR expression .)
+    MAYOR           reduce using rule 50 (expression -> expression DIVIDIR expression .)
+    MENORI          reduce using rule 50 (expression -> expression DIVIDIR expression .)
+    MAYORI          reduce using rule 50 (expression -> expression DIVIDIR expression .)
+    PARENTD         reduce using rule 50 (expression -> expression DIVIDIR expression .)
+    LLAVEI          reduce using rule 50 (expression -> expression DIVIDIR expression .)
+    MULTI           shift and go to state 60
+    DIVIDIR         shift and go to state 61
+    SUMA            shift and go to state 42
 
+  ! MULTI           [ reduce using rule 50 (expression -> expression DIVIDIR expression .) ]
+  ! DIVIDIR         [ reduce using rule 50 (expression -> expression DIVIDIR expression .) ]
+  ! SUMA            [ reduce using rule 50 (expression -> expression DIVIDIR expression .) ]
+
+    addingOperator                 shift and go to state 59
 
 state 88
 
-    (45) expression -> factor subOperator factor .
+    (39) term -> term multiplyingOperator factor .
 
-    PUNTOCOMA       reduce using rule 45 (expression -> factor subOperator factor .)
-    MULTI           reduce using rule 45 (expression -> factor subOperator factor .)
-    DIVIDIR         reduce using rule 45 (expression -> factor subOperator factor .)
-    SUMA            reduce using rule 45 (expression -> factor subOperator factor .)
-    IGUAL           reduce using rule 45 (expression -> factor subOperator factor .)
-    DISTINTO        reduce using rule 45 (expression -> factor subOperator factor .)
-    MENOR           reduce using rule 45 (expression -> factor subOperator factor .)
-    MAYOR           reduce using rule 45 (expression -> factor subOperator factor .)
-    MENORI          reduce using rule 45 (expression -> factor subOperator factor .)
-    MAYORI          reduce using rule 45 (expression -> factor subOperator factor .)
-    PARENTD         reduce using rule 45 (expression -> factor subOperator factor .)
-    LLAVEI          reduce using rule 45 (expression -> factor subOperator factor .)
+    MULTI           reduce using rule 39 (term -> term multiplyingOperator factor .)
+    DIVIDIR         reduce using rule 39 (term -> term multiplyingOperator factor .)
+    PUNTOCOMA       reduce using rule 39 (term -> term multiplyingOperator factor .)
+    SUMA            reduce using rule 39 (term -> term multiplyingOperator factor .)
+    IGUAL           reduce using rule 39 (term -> term multiplyingOperator factor .)
+    DISTINTO        reduce using rule 39 (term -> term multiplyingOperator factor .)
+    MENOR           reduce using rule 39 (term -> term multiplyingOperator factor .)
+    MAYOR           reduce using rule 39 (term -> term multiplyingOperator factor .)
+    MENORI          reduce using rule 39 (term -> term multiplyingOperator factor .)
+    MAYORI          reduce using rule 39 (term -> term multiplyingOperator factor .)
+    PARENTD         reduce using rule 39 (term -> term multiplyingOperator factor .)
+    LLAVEI          reduce using rule 39 (term -> term multiplyingOperator factor .)
 
 
 state 89
 
-    (46) expression -> factor MULTI factor .
+    (45) expression -> factor addingOperator factor .
 
-    PUNTOCOMA       reduce using rule 46 (expression -> factor MULTI factor .)
-    MULTI           reduce using rule 46 (expression -> factor MULTI factor .)
-    DIVIDIR         reduce using rule 46 (expression -> factor MULTI factor .)
-    SUMA            reduce using rule 46 (expression -> factor MULTI factor .)
-    IGUAL           reduce using rule 46 (expression -> factor MULTI factor .)
-    DISTINTO        reduce using rule 46 (expression -> factor MULTI factor .)
-    MENOR           reduce using rule 46 (expression -> factor MULTI factor .)
-    MAYOR           reduce using rule 46 (expression -> factor MULTI factor .)
-    MENORI          reduce using rule 46 (expression -> factor MULTI factor .)
-    MAYORI          reduce using rule 46 (expression -> factor MULTI factor .)
-    PARENTD         reduce using rule 46 (expression -> factor MULTI factor .)
-    LLAVEI          reduce using rule 46 (expression -> factor MULTI factor .)
+    PUNTOCOMA       reduce using rule 45 (expression -> factor addingOperator factor .)
+    MULTI           reduce using rule 45 (expression -> factor addingOperator factor .)
+    DIVIDIR         reduce using rule 45 (expression -> factor addingOperator factor .)
+    SUMA            reduce using rule 45 (expression -> factor addingOperator factor .)
+    IGUAL           reduce using rule 45 (expression -> factor addingOperator factor .)
+    DISTINTO        reduce using rule 45 (expression -> factor addingOperator factor .)
+    MENOR           reduce using rule 45 (expression -> factor addingOperator factor .)
+    MAYOR           reduce using rule 45 (expression -> factor addingOperator factor .)
+    MENORI          reduce using rule 45 (expression -> factor addingOperator factor .)
+    MAYORI          reduce using rule 45 (expression -> factor addingOperator factor .)
+    PARENTD         reduce using rule 45 (expression -> factor addingOperator factor .)
+    LLAVEI          reduce using rule 45 (expression -> factor addingOperator factor .)
 
 
 state 90
 
-    (47) expression -> factor DIVIDIR factor .
+    (46) expression -> factor subOperator factor .
 
-    PUNTOCOMA       reduce using rule 47 (expression -> factor DIVIDIR factor .)
-    MULTI           reduce using rule 47 (expression -> factor DIVIDIR factor .)
-    DIVIDIR         reduce using rule 47 (expression -> factor DIVIDIR factor .)
-    SUMA            reduce using rule 47 (expression -> factor DIVIDIR factor .)
-    IGUAL           reduce using rule 47 (expression -> factor DIVIDIR factor .)
-    DISTINTO        reduce using rule 47 (expression -> factor DIVIDIR factor .)
-    MENOR           reduce using rule 47 (expression -> factor DIVIDIR factor .)
-    MAYOR           reduce using rule 47 (expression -> factor DIVIDIR factor .)
-    MENORI          reduce using rule 47 (expression -> factor DIVIDIR factor .)
-    MAYORI          reduce using rule 47 (expression -> factor DIVIDIR factor .)
-    PARENTD         reduce using rule 47 (expression -> factor DIVIDIR factor .)
-    LLAVEI          reduce using rule 47 (expression -> factor DIVIDIR factor .)
+    PUNTOCOMA       reduce using rule 46 (expression -> factor subOperator factor .)
+    MULTI           reduce using rule 46 (expression -> factor subOperator factor .)
+    DIVIDIR         reduce using rule 46 (expression -> factor subOperator factor .)
+    SUMA            reduce using rule 46 (expression -> factor subOperator factor .)
+    IGUAL           reduce using rule 46 (expression -> factor subOperator factor .)
+    DISTINTO        reduce using rule 46 (expression -> factor subOperator factor .)
+    MENOR           reduce using rule 46 (expression -> factor subOperator factor .)
+    MAYOR           reduce using rule 46 (expression -> factor subOperator factor .)
+    MENORI          reduce using rule 46 (expression -> factor subOperator factor .)
+    MAYORI          reduce using rule 46 (expression -> factor subOperator factor .)
+    PARENTD         reduce using rule 46 (expression -> factor subOperator factor .)
+    LLAVEI          reduce using rule 46 (expression -> factor subOperator factor .)
 
 
 state 91
 
-    (50) expression -> PARENTI expression PARENTD .
+    (47) expression -> factor MULTI factor .
 
-    PUNTOCOMA       reduce using rule 50 (expression -> PARENTI expression PARENTD .)
-    MULTI           reduce using rule 50 (expression -> PARENTI expression PARENTD .)
-    DIVIDIR         reduce using rule 50 (expression -> PARENTI expression PARENTD .)
-    SUMA            reduce using rule 50 (expression -> PARENTI expression PARENTD .)
-    IGUAL           reduce using rule 50 (expression -> PARENTI expression PARENTD .)
-    DISTINTO        reduce using rule 50 (expression -> PARENTI expression PARENTD .)
-    MENOR           reduce using rule 50 (expression -> PARENTI expression PARENTD .)
-    MAYOR           reduce using rule 50 (expression -> PARENTI expression PARENTD .)
-    MENORI          reduce using rule 50 (expression -> PARENTI expression PARENTD .)
-    MAYORI          reduce using rule 50 (expression -> PARENTI expression PARENTD .)
-    PARENTD         reduce using rule 50 (expression -> PARENTI expression PARENTD .)
-    LLAVEI          reduce using rule 50 (expression -> PARENTI expression PARENTD .)
+    PUNTOCOMA       reduce using rule 47 (expression -> factor MULTI factor .)
+    MULTI           reduce using rule 47 (expression -> factor MULTI factor .)
+    DIVIDIR         reduce using rule 47 (expression -> factor MULTI factor .)
+    SUMA            reduce using rule 47 (expression -> factor MULTI factor .)
+    IGUAL           reduce using rule 47 (expression -> factor MULTI factor .)
+    DISTINTO        reduce using rule 47 (expression -> factor MULTI factor .)
+    MENOR           reduce using rule 47 (expression -> factor MULTI factor .)
+    MAYOR           reduce using rule 47 (expression -> factor MULTI factor .)
+    MENORI          reduce using rule 47 (expression -> factor MULTI factor .)
+    MAYORI          reduce using rule 47 (expression -> factor MULTI factor .)
+    PARENTD         reduce using rule 47 (expression -> factor MULTI factor .)
+    LLAVEI          reduce using rule 47 (expression -> factor MULTI factor .)
 
 
 state 92
 
-    (17) statement -> YF condition LLAVEI statement . LLAVED
-    (18) statement -> YF condition LLAVEI statement . LLAVED WOLAN LLAVEI statement LLAVED
+    (48) expression -> factor DIVIDIR factor .
 
-    LLAVED          shift and go to state 96
+    PUNTOCOMA       reduce using rule 48 (expression -> factor DIVIDIR factor .)
+    MULTI           reduce using rule 48 (expression -> factor DIVIDIR factor .)
+    DIVIDIR         reduce using rule 48 (expression -> factor DIVIDIR factor .)
+    SUMA            reduce using rule 48 (expression -> factor DIVIDIR factor .)
+    IGUAL           reduce using rule 48 (expression -> factor DIVIDIR factor .)
+    DISTINTO        reduce using rule 48 (expression -> factor DIVIDIR factor .)
+    MENOR           reduce using rule 48 (expression -> factor DIVIDIR factor .)
+    MAYOR           reduce using rule 48 (expression -> factor DIVIDIR factor .)
+    MENORI          reduce using rule 48 (expression -> factor DIVIDIR factor .)
+    MAYORI          reduce using rule 48 (expression -> factor DIVIDIR factor .)
+    PARENTD         reduce using rule 48 (expression -> factor DIVIDIR factor .)
+    LLAVEI          reduce using rule 48 (expression -> factor DIVIDIR factor .)
 
 
 state 93
 
-    (25) condition -> expression relation expression .
-    (34) expression -> expression . addingOperator term
-    (48) expression -> expression . MULTI expression
-    (49) expression -> expression . DIVIDIR expression
-    (35) addingOperator -> . SUMA
+    (51) expression -> PARENTI expression PARENTD .
 
-    LLAVEI          reduce using rule 25 (condition -> expression relation expression .)
-    MULTI           shift and go to state 58
-    DIVIDIR         shift and go to state 59
-    SUMA            shift and go to state 41
+    PUNTOCOMA       reduce using rule 51 (expression -> PARENTI expression PARENTD .)
+    MULTI           reduce using rule 51 (expression -> PARENTI expression PARENTD .)
+    DIVIDIR         reduce using rule 51 (expression -> PARENTI expression PARENTD .)
+    SUMA            reduce using rule 51 (expression -> PARENTI expression PARENTD .)
+    IGUAL           reduce using rule 51 (expression -> PARENTI expression PARENTD .)
+    DISTINTO        reduce using rule 51 (expression -> PARENTI expression PARENTD .)
+    MENOR           reduce using rule 51 (expression -> PARENTI expression PARENTD .)
+    MAYOR           reduce using rule 51 (expression -> PARENTI expression PARENTD .)
+    MENORI          reduce using rule 51 (expression -> PARENTI expression PARENTD .)
+    MAYORI          reduce using rule 51 (expression -> PARENTI expression PARENTD .)
+    PARENTD         reduce using rule 51 (expression -> PARENTI expression PARENTD .)
+    LLAVEI          reduce using rule 51 (expression -> PARENTI expression PARENTD .)
 
-    addingOperator                 shift and go to state 57
 
 state 94
 
-    (19) statement -> MIENTRAS condition LLAVEI statement . LLAVED
+    (18) statement -> YF condition LLAVEI statement . LLAVED
+    (19) statement -> YF condition LLAVEI statement . LLAVED WOLAN LLAVEI statement LLAVED
 
-    LLAVED          shift and go to state 97
+    LLAVED          shift and go to state 98
 
 
 state 95
+
+    (26) condition -> expression relation expression .
+    (35) expression -> expression . addingOperator term
+    (49) expression -> expression . MULTI expression
+    (50) expression -> expression . DIVIDIR expression
+    (36) addingOperator -> . SUMA
+
+    LLAVEI          reduce using rule 26 (condition -> expression relation expression .)
+    MULTI           shift and go to state 60
+    DIVIDIR         shift and go to state 61
+    SUMA            shift and go to state 42
+
+    addingOperator                 shift and go to state 59
+
+state 96
+
+    (20) statement -> MIENTRAS condition LLAVEI statement . LLAVED
+
+    LLAVED          shift and go to state 99
+
+
+state 97
 
     (12) procDec1 -> procDec1 MOP ID PUNTOCOMA block PUNTOCOMA .
 
@@ -1748,88 +1786,89 @@ state 95
     PUNTOCOMA       reduce using rule 12 (procDec1 -> procDec1 MOP ID PUNTOCOMA block PUNTOCOMA .)
 
 
-state 96
-
-    (17) statement -> YF condition LLAVEI statement LLAVED .
-    (18) statement -> YF condition LLAVEI statement LLAVED . WOLAN LLAVEI statement LLAVED
-
-    $end            reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
-    PUNTOCOMA       reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
-    GG              reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
-    HF              reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
-    ID              reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
-    KNT             reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
-    YF              reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
-    MIENTRAS        reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
-    LLAVED          reduce using rule 17 (statement -> YF condition LLAVEI statement LLAVED .)
-    WOLAN           shift and go to state 98
-
-
-state 97
-
-    (19) statement -> MIENTRAS condition LLAVEI statement LLAVED .
-
-    $end            reduce using rule 19 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
-    PUNTOCOMA       reduce using rule 19 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
-    GG              reduce using rule 19 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
-    HF              reduce using rule 19 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
-    ID              reduce using rule 19 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
-    KNT             reduce using rule 19 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
-    YF              reduce using rule 19 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
-    MIENTRAS        reduce using rule 19 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
-    LLAVED          reduce using rule 19 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
-
-
 state 98
 
-    (18) statement -> YF condition LLAVEI statement LLAVED WOLAN . LLAVEI statement LLAVED
+    (18) statement -> YF condition LLAVEI statement LLAVED .
+    (19) statement -> YF condition LLAVEI statement LLAVED . WOLAN LLAVEI statement LLAVED
 
-    LLAVEI          shift and go to state 99
+    $end            reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED .)
+    PUNTOCOMA       reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED .)
+    GG              reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED .)
+    HF              reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED .)
+    ID              reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED .)
+    KNT             reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED .)
+    YF              reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED .)
+    MIENTRAS        reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED .)
+    LLAVED          reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED .)
+    WOLAN           shift and go to state 100
 
 
 state 99
 
-    (18) statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI . statement LLAVED
+    (20) statement -> MIENTRAS condition LLAVEI statement LLAVED .
+
+    $end            reduce using rule 20 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
+    PUNTOCOMA       reduce using rule 20 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
+    GG              reduce using rule 20 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
+    HF              reduce using rule 20 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
+    ID              reduce using rule 20 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
+    KNT             reduce using rule 20 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
+    YF              reduce using rule 20 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
+    MIENTRAS        reduce using rule 20 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
+    LLAVED          reduce using rule 20 (statement -> MIENTRAS condition LLAVEI statement LLAVED .)
+
+
+state 100
+
+    (19) statement -> YF condition LLAVEI statement LLAVED WOLAN . LLAVEI statement LLAVED
+
+    LLAVEI          shift and go to state 101
+
+
+state 101
+
+    (19) statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI . statement LLAVED
     (14) statement -> . HF statementList GG
     (15) statement -> . ID ACTUALI expression PUNTOCOMA
     (16) statement -> . KNT STRING PUNTOCOMA
-    (17) statement -> . YF condition LLAVEI statement LLAVED
-    (18) statement -> . YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
-    (19) statement -> . MIENTRAS condition LLAVEI statement LLAVED
-    (20) statement -> . KNT expression PUNTOCOMA
-    (21) statement -> . empty
-    (51) empty -> .
+    (17) statement -> . KNT ID PUNTOCOMA
+    (18) statement -> . YF condition LLAVEI statement LLAVED
+    (19) statement -> . YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED
+    (20) statement -> . MIENTRAS condition LLAVEI statement LLAVED
+    (21) statement -> . KNT expression PUNTOCOMA
+    (22) statement -> . empty
+    (52) empty -> .
 
     HF              shift and go to state 21
     ID              shift and go to state 20
     KNT             shift and go to state 22
     YF              shift and go to state 23
     MIENTRAS        shift and go to state 24
-    LLAVED          reduce using rule 51 (empty -> .)
+    LLAVED          reduce using rule 52 (empty -> .)
 
-    statement                      shift and go to state 100
+    statement                      shift and go to state 102
     empty                          shift and go to state 25
 
-state 100
+state 102
 
-    (18) statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement . LLAVED
+    (19) statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement . LLAVED
 
-    LLAVED          shift and go to state 101
+    LLAVED          shift and go to state 103
 
 
-state 101
+state 103
 
-    (18) statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .
+    (19) statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .
 
-    $end            reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
-    PUNTOCOMA       reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
-    GG              reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
-    HF              reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
-    ID              reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
-    KNT             reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
-    YF              reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
-    MIENTRAS        reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
-    LLAVED          reduce using rule 18 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
+    $end            reduce using rule 19 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
+    PUNTOCOMA       reduce using rule 19 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
+    GG              reduce using rule 19 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
+    HF              reduce using rule 19 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
+    ID              reduce using rule 19 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
+    KNT             reduce using rule 19 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
+    YF              reduce using rule 19 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
+    MIENTRAS        reduce using rule 19 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
+    LLAVED          reduce using rule 19 (statement -> YF condition LLAVEI statement LLAVED WOLAN LLAVEI statement LLAVED .)
 
 WARNING: 
 WARNING: Conflicts:
@@ -1847,31 +1886,32 @@ WARNING: shift/reduce conflict for YF in state 33 resolved as shift
 WARNING: shift/reduce conflict for MIENTRAS in state 33 resolved as shift
 WARNING: shift/reduce conflict for GG in state 33 resolved as shift
 WARNING: shift/reduce conflict for PUNTOCOMA in state 35 resolved as shift
-WARNING: shift/reduce conflict for MULTI in state 37 resolved as shift
-WARNING: shift/reduce conflict for DIVIDIR in state 37 resolved as shift
-WARNING: shift/reduce conflict for MULTI in state 39 resolved as shift
-WARNING: shift/reduce conflict for DIVIDIR in state 39 resolved as shift
-WARNING: shift/reduce conflict for SUMA in state 39 resolved as shift
-WARNING: shift/reduce conflict for COMA in state 49 resolved as shift
-WARNING: shift/reduce conflict for HF in state 53 resolved as shift
-WARNING: shift/reduce conflict for ID in state 53 resolved as shift
-WARNING: shift/reduce conflict for KNT in state 53 resolved as shift
-WARNING: shift/reduce conflict for YF in state 53 resolved as shift
-WARNING: shift/reduce conflict for MIENTRAS in state 53 resolved as shift
-WARNING: shift/reduce conflict for HF in state 53 resolved as shift
-WARNING: shift/reduce conflict for ID in state 53 resolved as shift
-WARNING: shift/reduce conflict for KNT in state 53 resolved as shift
-WARNING: shift/reduce conflict for YF in state 53 resolved as shift
-WARNING: shift/reduce conflict for MIENTRAS in state 53 resolved as shift
-WARNING: shift/reduce conflict for MULTI in state 63 resolved as shift
-WARNING: shift/reduce conflict for DIVIDIR in state 63 resolved as shift
-WARNING: shift/reduce conflict for MULTI in state 83 resolved as shift
-WARNING: shift/reduce conflict for DIVIDIR in state 83 resolved as shift
-WARNING: shift/reduce conflict for MULTI in state 84 resolved as shift
-WARNING: shift/reduce conflict for DIVIDIR in state 84 resolved as shift
-WARNING: shift/reduce conflict for SUMA in state 84 resolved as shift
+WARNING: shift/reduce conflict for PUNTOCOMA in state 36 resolved as shift
+WARNING: shift/reduce conflict for MULTI in state 38 resolved as shift
+WARNING: shift/reduce conflict for DIVIDIR in state 38 resolved as shift
+WARNING: shift/reduce conflict for MULTI in state 40 resolved as shift
+WARNING: shift/reduce conflict for DIVIDIR in state 40 resolved as shift
+WARNING: shift/reduce conflict for SUMA in state 40 resolved as shift
+WARNING: shift/reduce conflict for COMA in state 50 resolved as shift
+WARNING: shift/reduce conflict for HF in state 54 resolved as shift
+WARNING: shift/reduce conflict for ID in state 54 resolved as shift
+WARNING: shift/reduce conflict for KNT in state 54 resolved as shift
+WARNING: shift/reduce conflict for YF in state 54 resolved as shift
+WARNING: shift/reduce conflict for MIENTRAS in state 54 resolved as shift
+WARNING: shift/reduce conflict for HF in state 54 resolved as shift
+WARNING: shift/reduce conflict for ID in state 54 resolved as shift
+WARNING: shift/reduce conflict for KNT in state 54 resolved as shift
+WARNING: shift/reduce conflict for YF in state 54 resolved as shift
+WARNING: shift/reduce conflict for MIENTRAS in state 54 resolved as shift
+WARNING: shift/reduce conflict for MULTI in state 65 resolved as shift
+WARNING: shift/reduce conflict for DIVIDIR in state 65 resolved as shift
 WARNING: shift/reduce conflict for MULTI in state 85 resolved as shift
 WARNING: shift/reduce conflict for DIVIDIR in state 85 resolved as shift
-WARNING: shift/reduce conflict for SUMA in state 85 resolved as shift
-WARNING: reduce/reduce conflict in state 53 resolved using rule (statementList -> statementList statementList)
-WARNING: rejected rule (empty -> <empty>) in state 53
+WARNING: shift/reduce conflict for MULTI in state 86 resolved as shift
+WARNING: shift/reduce conflict for DIVIDIR in state 86 resolved as shift
+WARNING: shift/reduce conflict for SUMA in state 86 resolved as shift
+WARNING: shift/reduce conflict for MULTI in state 87 resolved as shift
+WARNING: shift/reduce conflict for DIVIDIR in state 87 resolved as shift
+WARNING: shift/reduce conflict for SUMA in state 87 resolved as shift
+WARNING: reduce/reduce conflict in state 54 resolved using rule (statementList -> statementList statementList)
+WARNING: rejected rule (empty -> <empty>) in state 54
