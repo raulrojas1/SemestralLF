@@ -1,0 +1,10 @@
+#programa condicional si no
+METRO x := 2;
+HF
+    YF x > 1 {
+        KNT "yf ejecutado";
+    }
+    WOLAN {
+        KNT "wolan ejecutado";
+    }
+GG

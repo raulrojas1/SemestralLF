@@ -1,0 +1,9 @@
+# programa con ciclo
+DR y := 10;
+METRO x := 5;
+HF
+    KNT y;
+    MIENTRAS  x <= 4 {
+       KNT x;
+    
+GG
