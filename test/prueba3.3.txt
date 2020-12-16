@@ -1,5 +1,4 @@
- HF
-METRO x = 5;
-DR saludo = "Hola Mundo";
-OUT(saludo);
+# programa hola mundo
+HF
+ KNT "Hola Mundo";
 GG
